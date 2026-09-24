@@ -153,7 +153,8 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 .kpi{font-family:var(--display);font-size:1.7rem;font-weight:700;letter-spacing:-.03em;font-variation-settings:"wdth" 110;font-variant-numeric:tabular-nums;line-height:1}
 .kpi small{display:block;font-family:var(--body);font-weight:400;font-size:.72rem;color:var(--chassis-muted);letter-spacing:0;margin-top:6px}
 .kpi .up{color:#6FD597} .kpi .dn{color:#FF8A78}
-.c3{grid-column:span 3}.c4{grid-column:span 4}.c5{grid-column:span 5}.c6{grid-column:span 6}.c7{grid-column:span 7}.c8{grid-column:span 8}.c12{grid-column:span 12}
+.c3{grid-column:span 3}.c4{grid-column:span 4}.c5{grid-column:span 5}.c6{grid-column:span 6}.c7{grid-column:span 7}.c8{grid-column:span 8}.c12{grid-column:1 / -1}
+.tile{min-width:0}
 .rows{display:grid;gap:0}
 .row{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) auto auto;gap:12px;align-items:center;padding:8px 0;border-top:1px solid var(--chassis-line);font-variant-numeric:tabular-nums}
 .row:first-of-type{border-top:0}
@@ -181,8 +182,8 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 .ask p + p{margin-top:6px}
 .ask .q{color:var(--chassis-muted);font-style:italic}
 .caret{display:inline-block;width:2px;height:1em;background:var(--accent);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
-@media (max-width:900px){.frame-body{grid-template-columns:1fr}.side{display:none}.main{grid-template-columns:repeat(6,minmax(0,1fr))}.c3,.c4{grid-column:span 3}.c5,.c6,.c7,.c8{grid-column:span 6}}
-@media (max-width:560px){.main{grid-template-columns:1fr 1fr;padding:12px;gap:10px}.c3,.c4{grid-column:span 1}.c5,.c6,.c7,.c8{grid-column:span 2}.lanes{grid-template-columns:1fr 1fr}.row{grid-template-columns:minmax(0,1fr) auto}.row .m,.row .hide-s{display:none}}
+@media (max-width:900px){.frame-body{grid-template-columns:1fr}.side{display:none}.main{grid-template-columns:repeat(6,minmax(0,1fr))}.c3,.c4{grid-column:span 3}.c5,.c6,.c7,.c8{grid-column:1 / -1}}
+@media (max-width:560px){.main{grid-template-columns:repeat(2,minmax(0,1fr));padding:12px;gap:10px}.c3,.c4{grid-column:span 1}.c5,.c6,.c7,.c8{grid-column:1 / -1}.lanes{grid-template-columns:repeat(2,minmax(0,1fr))}.row{grid-template-columns:minmax(0,1fr) auto}.row .m,.row .hide-s{display:none}.kpi{font-size:1.4rem}.frame-bar .who{display:none}}
 
 /* replace strip */
 .replace{background:var(--surface-2);border-top:1px solid var(--line)}
