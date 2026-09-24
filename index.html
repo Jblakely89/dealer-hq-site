@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>HQ Dealer Platform</title>
+<link rel="canonical" href="https://dealer-hq.com/">
+<meta property="og:title" content="HQ Dealer Platform">
+<meta property="og:description" content="CRM, AI, desking, DMS, transport, website, digital retail, live chat, marketplace conversions and reporting on one host. Your data, in your hands.">
+<meta property="og:url" content="https://dealer-hq.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:image" content="https://dealer-hq.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -16,12 +22,6 @@
 <link rel="icon" type="image/png" sizes="32x32" href="https://dealer-hq.com/favicon-32.png">
 <link rel="apple-touch-icon" href="https://dealer-hq.com/apple-touch-icon.png">
 <meta name="theme-color" content="#F25A12">
-<link rel="canonical" href="https://dealer-hq.com/">
-<meta property="og:title" content="HQ Dealer Platform">
-<meta property="og:description" content="CRM, AI, desking, DMS, transport, website, digital retail, live chat, marketplace conversions and reporting on one host. Your data, in your hands.">
-<meta property="og:url" content="https://dealer-hq.com/">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
 <meta name="description" content="HQ is the dealer operating system: CRM, AI, desking, DMS, transport, website, digital retail, live chat, marketplace conversions and reporting on one host, bought à la carte. Built for franchise and independent dealers who want control of their data.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -199,6 +199,7 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 /* modules */
 .mods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
 .mods.addons{grid-template-columns:repeat(4,minmax(0,1fr))}
+.mods.addons .mod ul{font-size:.86rem}
 .mod{background:#fff;padding:clamp(22px,3vw,32px);display:flex;flex-direction:column;gap:14px;position:relative;transition:background .25s}
 .mod:hover{background:var(--surface-2)}
 .mod .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
@@ -218,6 +219,7 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 .addons-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin:48px 0 20px}
 .addons-head h3{font-size:1.5rem;font-variation-settings:"wdth" 108}
 .addons-head p{color:var(--muted);font-size:.95rem}
+.mods.addons .mod h3{font-size:1.25rem}
 @media (max-width:960px){.mods,.mods.addons{grid-template-columns:1fr 1fr}}
 @media (max-width:620px){.mods,.mods.addons{grid-template-columns:1fr}}
 
@@ -249,6 +251,29 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 .stack-foot .row2 b{font-family:var(--display);color:var(--ink)}
 .stack-foot .btn{justify-content:center}
 .stack-note{font-size:.8rem;color:var(--muted)}
+.chips-wrap{display:grid;gap:12px}
+.chips-head{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-top:6px;display:flex;justify-content:space-between;gap:12px}
+.chips-head span{color:var(--muted)}
+.chip .core{margin-left:auto;flex:none}
+.chip.on .core{border-color:var(--accent);color:var(--accent-deep)}
+.block.addon{background:var(--surface-3);color:var(--ink);border:1px solid var(--line)}
+.block.addon small{color:var(--muted)}
+/* accountability feed */
+.acct-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(32px,5vw,72px);align-items:start}
+.feed{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 30px 60px -40px rgba(20,23,27,.35)}
+.feed-bar{display:flex;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--surface-2);font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.feed-bar span{color:var(--good);display:flex;align-items:center;gap:6px}
+.feed-bar span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good);animation:blink 1.6s infinite}
+.feed-item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:start;padding:14px 16px;border-bottom:1px solid var(--line-2)}
+.feed-item:last-child{border-bottom:0}
+.feed-item b{display:block;font-family:var(--display);font-size:.98rem;letter-spacing:-.01em}
+.feed-item small{display:block;color:var(--muted);font-size:.82rem;margin-top:2px}
+.feed-item i{font-style:normal;font-family:var(--mono);font-size:.7rem;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:3px}
+.fi-dot{width:10px;height:10px;border-radius:50%;margin-top:6px;background:var(--muted)}
+.fi-dot.warn{background:var(--warn)}.fi-dot.bad{background:var(--bad)}.fi-dot.good{background:var(--good)}
+.js .feed.in .feed-item{animation:rise .5s var(--ease) both}
+.js .feed.in .feed-item:nth-child(2){animation-delay:.1s}.js .feed.in .feed-item:nth-child(3){animation-delay:.35s}.js .feed.in .feed-item:nth-child(4){animation-delay:.6s}.js .feed.in .feed-item:nth-child(5){animation-delay:.85s}.js .feed.in .feed-item:nth-child(6){animation-delay:1.1s}.js .feed.in .feed-item:nth-child(7){animation-delay:1.35s}
+@media (max-width:900px){.acct-grid{grid-template-columns:1fr}}
 @media (max-width:900px){.stack-grid{grid-template-columns:1fr}.stack-vis{position:static}}
 @media (max-width:560px){.chips{grid-template-columns:1fr}}
 
@@ -440,8 +465,8 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
       <a href="#stack">Build your stack</a>
       <a href="#data">Your data</a>
       <a href="#ai">Ask HQ</a>
+      <a href="#accountability">Accountability</a>
       <a href="#reporting">Reporting</a>
-      <a href="#who">Who it's for</a>
     </nav>
     <div class="nav-cta">
       <a class="btn btn-ghost" href="#stack">Price a stack</a>
@@ -454,6 +479,7 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
     <a href="#stack">Build your stack</a>
     <a href="#data">Your data</a>
     <a href="#ai">Ask HQ</a>
+    <a href="#accountability">Accountability</a>
     <a href="#reporting">Reporting</a>
     <a href="#who">Who it's for</a>
     <a href="#demo">Book a demo</a>
@@ -465,16 +491,16 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
 <section class="hero" id="platform">
   <div class="wrap">
     <div class="hero-copy">
-      <div class="eyebrow"><b>CRM</b><i>/</i><b>AI</b><i>/</i><b>Desking</b><i>/</i><b>DMS</b><i>/</i><b>Transport</b><i>/</i><b>Website</b><i>/</i><b>Digital retail</b><i>/</i><b>Live chat</b><i>/</i><b>Marketplace</b><i>/</i><b>Reporting</b></div>
+      <div class="eyebrow"><b>CRM</b><i>/</i><b>AI</b><i>/</i><b>Desking</b><i>/</i><b>DMS</b><i>/</i><b>Titles</b><i>/</i><b>Transport</b><i>/</i><b>Website</b><i>/</i><b>Marketing</b><i>/</i><b>Pricing</b><i>/</i><b>Auditing</b><i>/</i><b>Reporting</b></div>
       <h1>The whole dealership on one host. <em>Your data, in your hands.</em></h1>
-      <p class="lede">HQ replaces the stack of vendors a dealer pays to keep apart. Leads, deals, units, service, transport, your website and your reporting run in one system on one database you own. Start with a single module or take the whole host. Built for franchise and independent dealers who are done renting access to their own numbers.</p>
+      <p class="lede">HQ replaces the stack of vendors a dealer pays to keep apart. Leads, deals, units, service, transport, your website and your reporting run in one system on one database you own. Start with the modules you need and add the rest as upgrades. Built for franchise and independent dealers who are done renting access to their own numbers.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#demo">Book a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-ghost" href="#stack">Build your stack</a>
         <span class="note">Powersports, auto, RV and marine rooftops.</span>
       </div>
       <div class="hero-stats">
-        <div><strong data-count="10">0</strong>modules, à la carte</div>
+        <div><strong data-count="15">0</strong>modules, à la carte</div>
         <div><strong data-count="1">0</strong>database, yours</div>
         <div><strong data-count="0">0</strong>exit fees on your data</div>
         <div><strong>24/7</strong>Colebot working your leads</div>
@@ -553,9 +579,9 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
     <div class="section-head">
       <div class="reveal">
         <div class="eyebrow">What one host replaces</div>
-        <h2>Ten contracts. Ten logins. Ten copies of the same customer.</h2>
+        <h2>A dozen contracts. A dozen logins. A dozen copies of the same customer.</h2>
       </div>
-      <p class="lede reveal" data-delay="1">Most dealers stitch together a CRM, a DMS, a desking tool, a website vendor, a chat vendor, a digital retail plug-in, a Marketplace posting service, a reporting subscription, a transport spreadsheet and a growing list of AI add-ons. Each one holds a slice of your data hostage. HQ puts all of it in one place.</p>
+      <p class="lede reveal" data-delay="1">Most dealers stitch together a CRM, a DMS, a desking tool, a website vendor, a chat vendor, a digital retail plug-in, a pricing guide, a call-recording service, a review tool, a reporting subscription, a title-tracking spreadsheet and a growing list of AI add-ons. Each one holds a slice of your data hostage. HQ puts all of it in one place.</p>
     </div>
     <div class="replace-grid">
       <div class="vendor reveal"><b>CRM</b><span>Lead vendor</span></div>
@@ -566,8 +592,13 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
       <div class="vendor reveal"><b>Website</b><span>Site vendor</span></div>
       <div class="vendor reveal" data-delay="1"><b>Digital retail</b><span>Checkout plug-in</span></div>
       <div class="vendor reveal" data-delay="2"><b>Live chat</b><span>Chat vendor</span></div>
-      <div class="vendor reveal" data-delay="3"><b>Marketplace</b><span>Posting service</span></div>
+      <div class="vendor reveal" data-delay="3"><b>Marketing</b><span>Conversion tools</span></div>
       <div class="vendor reveal" data-delay="4"><b>Reporting</b><span>BI subscription</span></div>
+      <div class="vendor reveal"><b>Titles</b><span>Spreadsheet</span></div>
+      <div class="vendor reveal" data-delay="1"><b>Pricing</b><span>Guide subscription</span></div>
+      <div class="vendor reveal" data-delay="2"><b>Call audits</b><span>Recording vendor</span></div>
+      <div class="vendor reveal" data-delay="3"><b>Reviews</b><span>Review vendor</span></div>
+      <div class="vendor reveal" data-delay="4"><b>Alerts</b><span>Nobody</span></div>
       <div class="one reveal"><b>HQ</b><small>One host. One database. One bill. Buy only the modules you need.</small></div>
     </div>
   </div>
@@ -580,19 +611,23 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
         <div class="eyebrow">The modules</div>
         <h2>Everything a rooftop runs on, sharing one set of records.</h2>
       </div>
-      <p class="lede reveal" data-delay="1">Turn on what you need. Every module reads and writes the same customers, units and deals, so nothing gets re-keyed and nothing gets lost between systems. Add a module to your stack from any card.</p>
+      <p class="lede reveal" data-delay="1">Seven core modules run the store. Eight add-ons are upgrades you switch on when they earn it, priced per module on top of your base. Every one reads and writes the same customers, units and deals, so nothing gets re-keyed and nothing gets lost between systems.</p>
+    </div>
+    <div class="addons-head reveal" style="margin-top:0">
+      <h3>Core modules</h3>
+      <p>Your base. Pick any, priced per rooftop.</p>
     </div>
     <div class="mods">
       <article class="mod reveal" data-mod="CRM">
         <div class="glyph"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7"/><path d="M17.5 14a6 6 0 0 1 4 5.5"/></svg></div>
         <div class="tag">CRM</div>
-        <h3>Every lead, every channel, one record.</h3>
-        <p>Website forms, Messenger, Marketplace, texts, chat, phone calls, walk-ins and dealer buy bids land on the same customer card with the ad that produced them.</p>
+        <h3>Every lead, every channel, one record. Your process, not ours.</h3>
+        <p>Website forms, Messenger, Marketplace, texts, chat, phone calls, walk-ins and dealer buy bids land on the same customer card with the ad that produced them. Then it works the lead the way you manage.</p>
         <ul>
+          <li>Build your own sales process: stages, rules, who owns what</li>
+          <li>Tasks created automatically from texts and phone calls</li>
           <li>Source and ad-level attribution on every lead</li>
           <li>Pre-approvals stamped to the contact and the deal</li>
-          <li>Vehicle-of-interest alerts when the unit lands</li>
-          <li>Return-visit hit list from your own site traffic</li>
           <li>A buying-side CRM for sellers, not just buyers</li>
         </ul>
         <button class="mod-addbtn" type="button" data-add="CRM">+ Add to my stack</button>
@@ -605,7 +640,7 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
         <ul>
           <li>Daily read: what sold, how old it was, what it made</li>
           <li>Writes listings and follow-ups in your voice</li>
-          <li>Prices units from market comps and your history</li>
+          <li>Drafts the write-up when a trend shows up</li>
           <li>Audits ads, bots and reps against real outcomes</li>
           <li>Every answer traceable to the rows it came from</li>
         </ul>
@@ -628,12 +663,12 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
       <article class="mod reveal" data-mod="DMS">
         <div class="glyph"><svg viewBox="0 0 24 24"><path d="M4 7l8-4 8 4v10l-8 4-8-4z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg></div>
         <div class="tag">DMS</div>
-        <h3>Units, service, parts and titles in a database you own.</h3>
-        <p>Inventory from intake to sold, repair orders and technician time, parts and the office paperwork that closes a deal, all in one system.</p>
+        <h3>Units, service and parts in a database you own.</h3>
+        <p>Inventory from intake to sold, repair orders and technician time, parts and the paperwork that closes a deal, all in one system.</p>
         <ul>
           <li>Unit readiness: prepped, photographed, online, priced</li>
           <li>Service board with open RO aging and tech productivity</li>
-          <li>Titles and stips tracked to the day</li>
+          <li>Parts and accessories on the same ticket</li>
           <li>Accounting handoff to the ledger you already use</li>
           <li>Role-based permissions by department and store</li>
         </ul>
@@ -667,14 +702,105 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
         </ul>
         <button class="mod-addbtn" type="button" data-add="Website">+ Add to my stack</button>
       </article>
+      <article class="mod reveal" data-mod="Reporting">
+        <div class="glyph"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div>
+        <div class="tag">Detailed reporting</div>
+        <h3>The numbers you manage by, every morning.</h3>
+        <p>Sales, service, buying, titles and marketing scorecards built from your own tables. The same reports we run our two stores on, with the goal and the pace next to every figure.</p>
+        <ul>
+          <li>Weekly 1-on-1 scorecards per department</li>
+          <li>Ad spend to approvals to deals, per ad</li>
+          <li>Wallboards for the floor and the shop</li>
+          <li>Export or query any report directly</li>
+        </ul>
+        <button class="mod-addbtn" type="button" data-add="Reporting">+ Add to my stack</button>
+      </article>
     </div>
 
     <div class="addons-head reveal">
-      <h3>Add-ons that turn traffic into signed deals</h3>
-      <p>Each one plugs into the same customer record. Buy one, buy all four.</p>
+      <h3>Add-ons</h3>
+      <p>Upgrades priced per module on top of your base. Switch each one on when it earns it.</p>
     </div>
     <div class="mods addons">
-      <article class="mod reveal" data-mod="Digital Retail">
+      <article class="mod reveal" data-mod="Title Management">
+        <div class="glyph"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h6M9 16h6"/><path d="M9 8h2"/></svg></div>
+        <div class="tag">Title management</div>
+        <h3>Know where every title is. Put it on a report.</h3>
+        <p>Most systems have no place to record whether you actually hold the title. HQ tracks every unit's title from acquisition to the customer, and flags the ones that are late.</p>
+        <ul>
+          <li>Title in hand, in transit, lien pending, missing</li>
+          <li>Days outstanding per unit, per store, per buyer</li>
+          <li>Alerts before a title blocks a delivery</li>
+          <li>Missing-titles report for the weekly 1-on-1</li>
+        </ul>
+        <button class="mod-addbtn" type="button" data-add="Title Management">+ Add to my stack</button>
+      </article>
+      <article class="mod reveal" data-delay="1" data-mod="Marketing Conversions">
+        <div class="glyph"><svg viewBox="0 0 24 24"><path d="M3 11l18-7-4 17-5-6z"/><path d="M12 15l5-11"/></svg></div>
+        <div class="tag">Marketing conversions</div>
+        <h3>Every ad dollar traced to an approval and a deal.</h3>
+        <p>Conversion tracking across Google, Facebook, Bing, Marketplace and your website, stamped onto the lead so you know which ad actually sold a unit.</p>
+        <ul>
+          <li>Google Ads, Meta, Bing and Marketplace in one report</li>
+          <li>Pre-approval and deal events sent back to each platform</li>
+          <li>Marketplace posting and instant reply on every unit</li>
+          <li>Kill losing ads weekly with real cost per deal</li>
+        </ul>
+        <button class="mod-addbtn" type="button" data-add="Marketing Conversions">+ Add to my stack</button>
+      </article>
+      <article class="mod reveal" data-delay="2" data-mod="Optimized Pricing">
+        <div class="glyph"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 4 5-7 4 3"/><path d="M14 9h7v7"/></svg></div>
+        <div class="tag">Optimized pricing · premium</div>
+        <h3>The right number on every unit, backed by the market.</h3>
+        <p>Every dealer in your area scraped daily, your own sold history, and JD Power values, combined into a list price, a floor, a buy offer and a trade number.</p>
+        <ul>
+          <li>Competitor inventory, prices and days-on-site</li>
+          <li>Your sold data: what moved, at what gross, how fast</li>
+          <li>JD Power and market comps on the same screen</li>
+          <li>Repricing suggestions as units age</li>
+        </ul>
+        <button class="mod-addbtn" type="button" data-add="Optimized Pricing">+ Add to my stack</button>
+      </article>
+      <article class="mod reveal" data-delay="3" data-mod="Alerts">
+        <div class="glyph"><svg viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></svg></div>
+        <div class="tag">Alerts &amp; accountability</div>
+        <h3>Your data, fed to you. Trigger events, not spreadsheets.</h3>
+        <p>Set the triggers that matter and let HQ watch them: a lead sitting too long, a follow-up missed, a title overdue. When a trend takes shape, the write-up is already drafted.</p>
+        <ul>
+          <li>Lead-aging and no-reply alerts to the right manager</li>
+          <li>Trend detection per rep, per department</li>
+          <li>Write-ups drafted from the record, ready to sign</li>
+          <li>Escalation rules you define</li>
+        </ul>
+        <button class="mod-addbtn" type="button" data-add="Alerts">+ Add to my stack</button>
+      </article>
+      <article class="mod reveal" data-mod="Auditing">
+        <div class="glyph"><svg viewBox="0 0 24 24"><path d="M5 4h14v12H8l-3 3z"/><path d="M8 9l2 2 4-4"/><path d="M15 12h2"/></svg></div>
+        <div class="tag">Call &amp; text auditing</div>
+        <h3>Every call and text graded against your process.</h3>
+        <p>HQ listens to the calls and reads the texts, then grades each one against your rubric: greeting, discovery, appointment ask, follow-up. Coaching, not guessing.</p>
+        <ul>
+          <li>Your rubric, your scoring, per department</li>
+          <li>Every conversation scored with the moments flagged</li>
+          <li>Rep trends over time feed accountability</li>
+          <li>Coaching notes generated for the 1-on-1</li>
+        </ul>
+        <button class="mod-addbtn" type="button" data-add="Auditing">+ Add to my stack</button>
+      </article>
+      <article class="mod reveal" data-delay="1" data-mod="Reviews">
+        <div class="glyph"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></div>
+        <div class="tag">Review funnels</div>
+        <h3>Turn delivered units into five-star reviews.</h3>
+        <p>A request at the right moment, routed to Google, with unhappy customers caught first and every review attributed to the rep who earned it.</p>
+        <ul>
+          <li>Timed requests after delivery and service</li>
+          <li>Unhappy customers routed to a manager, not to Google</li>
+          <li>Per-rep and per-store review counts on the scorecard</li>
+          <li>Referral capture on the same page</li>
+        </ul>
+        <button class="mod-addbtn" type="button" data-add="Reviews">+ Add to my stack</button>
+      </article>
+      <article class="mod reveal" data-delay="2" data-mod="Digital Retail">
         <div class="glyph"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
         <div class="tag">Digital retail</div>
         <h3>Let the customer build the deal at midnight.</h3>
@@ -687,7 +813,7 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
         </ul>
         <button class="mod-addbtn" type="button" data-add="Digital Retail">+ Add to my stack</button>
       </article>
-      <article class="mod reveal" data-delay="1" data-mod="Live Chat">
+      <article class="mod reveal" data-delay="3" data-mod="Live Chat">
         <div class="glyph"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg></div>
         <div class="tag">Live chat · Colebot</div>
         <h3>Colebot answers in seconds, your team closes.</h3>
@@ -700,32 +826,6 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
         </ul>
         <button class="mod-addbtn" type="button" data-add="Live Chat">+ Add to my stack</button>
       </article>
-      <article class="mod reveal" data-delay="2" data-mod="Marketplace">
-        <div class="glyph"><svg viewBox="0 0 24 24"><path d="M3 9l2-5h14l2 5"/><path d="M3 9h18v11H3z"/><path d="M9 20v-6h6v6"/></svg></div>
-        <div class="tag">Marketplace conversions</div>
-        <h3>Post every unit everywhere. Convert the replies.</h3>
-        <p>Facebook Marketplace, OEM and classified listings straight from your inventory, with every "is this available?" turned into a tracked lead with a payment and a next step.</p>
-        <ul>
-          <li>Auto-post and refresh listings per store</li>
-          <li>Instant reply with payment and photos</li>
-          <li>Sold units pulled the moment they deliver</li>
-          <li>Cost and conversion per channel on the report</li>
-        </ul>
-        <button class="mod-addbtn" type="button" data-add="Marketplace">+ Add to my stack</button>
-      </article>
-      <article class="mod reveal" data-delay="3" data-mod="Reporting">
-        <div class="glyph"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div>
-        <div class="tag">Detailed reporting</div>
-        <h3>The numbers you manage by, every morning.</h3>
-        <p>Sales, service, buying and marketing scorecards built from your own tables. The same reports we run our two stores on, with the goal and the pace next to every figure.</p>
-        <ul>
-          <li>Weekly 1-on-1 scorecards per department</li>
-          <li>Ad spend to approvals to deals, per ad</li>
-          <li>Wallboards for the floor and the shop</li>
-          <li>Export or query any report directly</li>
-        </ul>
-        <button class="mod-addbtn" type="button" data-add="Reporting">+ Add to my stack</button>
-      </article>
     </div>
   </div>
 </section>
@@ -735,29 +835,41 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
     <div class="section-head">
       <div class="reveal">
         <div class="eyebrow">Modular stack · à la carte</div>
-        <h2>Buy the modules you need. Add the rest when you're ready.</h2>
+        <h2>Start with the core you need. Add upgrades when they earn it.</h2>
       </div>
-      <p class="lede reveal" data-delay="1">Nobody makes you rip out a DMS on day one. Start with the piece that hurts most, run it beside what you have, and add modules as they earn it. Pricing is set per rooftop for the modules you turn on. No per-seat licenses, no data exit fees.</p>
+      <p class="lede reveal" data-delay="1">Nobody makes you rip out a DMS on day one. Pick the core modules that hurt most, run them beside what you have, and switch on add-ons as they earn it. Core is a base price per rooftop. Add-ons are an upcharge per module. No per-seat licenses, no data exit fees.</p>
     </div>
     <div class="stack-grid">
-      <div class="chips reveal" id="chips">
-        <button class="chip" type="button" data-mod="CRM"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>CRM</b><small>Leads, attribution, buying CRM</small></span></button>
-        <button class="chip" type="button" data-mod="AI"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>AI · Ask HQ</b><small>Assistant on your data</small></span></button>
-        <button class="chip" type="button" data-mod="Desking"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Desking</b><small>Payments, credit, F&amp;I, e-sign</small></span></button>
-        <button class="chip" type="button" data-mod="DMS"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>DMS</b><small>Units, service, parts, titles</small></span></button>
-        <button class="chip" type="button" data-mod="Transport"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Transport &amp; Logistics</b><small>Dispatch, drivers, transfers</small></span></button>
-        <button class="chip" type="button" data-mod="Website"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Website</b><small>Served from your inventory</small></span></button>
-        <button class="chip" type="button" data-mod="Digital Retail"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Digital retail</b><small>Build the deal online</small></span></button>
-        <button class="chip" type="button" data-mod="Live Chat"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Live chat · Colebot</b><small>AI chat that hands off to reps</small></span></button>
-        <button class="chip" type="button" data-mod="Marketplace"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Marketplace conversions</b><small>Post everywhere, convert replies</small></span></button>
-        <button class="chip" type="button" data-mod="Reporting"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Detailed reporting</b><small>Scorecards and wallboards</small></span></button>
+      <div class="chips-wrap reveal">
+      <div class="chips-head">Core modules <span>priced per rooftop</span></div>
+      <div class="chips" id="chips">
+        <button class="chip" type="button" data-mod="CRM"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>CRM</b><small>Leads, your sales process, buying CRM</small></span><span class="core">Core</span></button>
+        <button class="chip" type="button" data-mod="AI"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>AI · Ask HQ</b><small>Assistant on your data</small></span><span class="core">Core</span></button>
+        <button class="chip" type="button" data-mod="Desking"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Desking</b><small>Payments, credit, F&amp;I, e-sign</small></span><span class="core">Core</span></button>
+        <button class="chip" type="button" data-mod="DMS"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>DMS</b><small>Units, service, parts</small></span><span class="core">Core</span></button>
+        <button class="chip" type="button" data-mod="Transport"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Transport &amp; Logistics</b><small>Dispatch, drivers, transfers</small></span><span class="core">Core</span></button>
+        <button class="chip" type="button" data-mod="Website"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Website</b><small>Served from your inventory</small></span><span class="core">Core</span></button>
+        <button class="chip" type="button" data-mod="Reporting"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Detailed reporting</b><small>Scorecards and wallboards</small></span><span class="core">Core</span></button>
+      </div>
+      <div class="chips-head">Add-ons <span>upcharge per module</span></div>
+      <div class="chips" id="chips2">
+        <button class="chip" type="button" data-mod="Title Management"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Title management</b><small>Track every title, report the late ones</small></span><span class="core">Add-on</span></button>
+        <button class="chip" type="button" data-mod="Marketing Conversions"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Marketing conversions</b><small>Google, Facebook, Bing, Marketplace</small></span><span class="core">Add-on</span></button>
+        <button class="chip" type="button" data-mod="Optimized Pricing"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Optimized pricing</b><small>Area dealers + your data + JD Power</small></span><span class="core">Premium</span></button>
+        <button class="chip" type="button" data-mod="Alerts"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Alerts &amp; accountability</b><small>Trigger events, trends, write-ups</small></span><span class="core">Add-on</span></button>
+        <button class="chip" type="button" data-mod="Auditing"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Call &amp; text auditing</b><small>Graded against your rubric</small></span><span class="core">Add-on</span></button>
+        <button class="chip" type="button" data-mod="Reviews"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Review funnels</b><small>Delivered units to Google reviews</small></span><span class="core">Add-on</span></button>
+        <button class="chip" type="button" data-mod="Digital Retail"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Digital retail</b><small>Build the deal online</small></span><span class="core">Add-on</span></button>
+        <button class="chip" type="button" data-mod="Live Chat"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Live chat · Colebot</b><small>AI chat that hands off to reps</small></span><span class="core">Add-on</span></button>
+      </div>
       </div>
       <div class="stack-vis reveal" data-delay="2">
-        <h3>Your stack <span id="stackCount">0 of 10 modules</span></h3>
+        <h3>Your stack <span id="stackCount">0 of 15 modules</span></h3>
         <div class="blocks" id="blocks"></div>
         <div class="stack-foot">
           <div class="row2"><span>Rooftops</span><b><select id="stackRooftops" style="width:auto;padding:4px 8px;font-size:.9rem"><option>1</option><option>2</option><option>3 to 5</option><option>6 to 12</option><option>More than 12</option></select></b></div>
-          <div class="row2"><span>Pricing model</span><b>Per rooftop · per module</b></div>
+          <div class="row2"><span>Core modules</span><b>Base price per rooftop</b></div>
+          <div class="row2"><span>Add-ons</span><b>Upcharge per module</b></div>
           <div class="row2"><span>Seats</span><b>Unlimited</b></div>
           <a class="btn btn-primary" href="#demo" id="quoteBtn">Get a quote for this stack</a>
           <button class="btn btn-ghost" type="button" id="stackChat">Ask Colebot about it</button>
@@ -835,6 +947,33 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
   </div>
 </section>
 
+<section id="accountability">
+  <div class="wrap">
+    <div class="acct-grid">
+      <div class="reveal">
+        <div class="eyebrow">Run sales your way</div>
+        <h2 style="margin:14px 0 20px">Your process. Your triggers. Your team held to it.</h2>
+        <p class="lede">The biggest reason HQ exists: a dealer wanted all of his data fed to him, notifications when something needed a hand, and a way to hold the team accountable when trends started. Every other CRM made him manage the way the software worked. HQ manages the way you do.</p>
+        <div class="ai-list">
+          <div class="ai-item"><div class="dot"></div><div><b>Customize your sales management</b><span>Define the stages, the response times, who owns what and what "worked" means. HQ enforces it, not a trainer.</span></div></div>
+          <div class="ai-item"><div class="dot"></div><div><b>Tasks from texts and calls, automatically</b><span>"Call me back after five" becomes a 5:00 task on the rep's board. Nothing lives only in someone's memory.</span></div></div>
+          <div class="ai-item"><div class="dot"></div><div><b>Trigger alerts on your data</b><span>A lead sitting too long, a missed follow-up, a title past due, a unit aging past your floor. You pick the trigger and who hears about it.</span></div></div>
+          <div class="ai-item"><div class="dot"></div><div><b>Accountability with a paper trail</b><span>When a trend takes shape, the write-up is drafted from the record: dates, calls, texts and the grades against your rubric.</span></div></div>
+        </div>
+      </div>
+      <div class="feed reveal" data-delay="1" role="img" aria-label="Example of HQ alerts: an aging lead, a graded call, a trend write-up, a task created from a text, an overdue title and a review request">
+        <div class="feed-bar">Alerts · both stores <span>live</span></div>
+        <div class="feed-item"><span class="fi-dot warn"></span><div><b>Lead sitting 47 min, no reply</b><small>Marcus T. · Road Glide ST · reassigned to Zane, GM texted</small></div><i>8:51</i></div>
+        <div class="feed-item"><span class="fi-dot bad"></span><div><b>Call graded 6 / 10: no appointment ask</b><small>Courtney B. · 2:14 PM inbound · clip flagged for the 1-on-1</small></div><i>2:19</i></div>
+        <div class="feed-item"><span class="fi-dot bad"></span><div><b>Trend: 3 missed follow-ups this week</b><small>Hunter R. · write-up drafted from the record, ready to review</small></div><i>4:02</i></div>
+        <div class="feed-item"><span class="fi-dot good"></span><div><b>Task created from text: "call me back after 5"</b><small>Jordan W. · task on Zane's board for 5:00 PM</small></div><i>1:37</i></div>
+        <div class="feed-item"><span class="fi-dot warn"></span><div><b>Title missing 21 days</b><small>2022 Silverado LT · stock 4412 · blocks Friday delivery</small></div><i>7:30</i></div>
+        <div class="feed-item"><span class="fi-dot good"></span><div><b>Review request delivered</b><small>Alyssa R. · RZR Pro R 4 · attributed to Courtney</small></div><i>6:10</i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="reporting">
   <div class="wrap">
     <div class="report-grid">
@@ -874,8 +1013,10 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
         <div class="rep-list">
           <div><div class="dot"></div><span><b>Sales 1-on-1.</b> Units, front and back gross, pace to goal, reply time, close rate per rep, stips and titles outstanding.</span></div>
           <div><div class="dot"></div><span><b>Service 1-on-1.</b> Prep pipeline and speed to line, open RO aging, tech productivity, service income and GP.</span></div>
+          <div><div class="dot"></div><span><b>Titles.</b> Every unit's title status, days outstanding, and the ones about to block a delivery.</span></div>
           <div><div class="dot"></div><span><b>Buying scorecard.</b> Bought vs sold by buyer, days to sell, profit per unit, category days-supply.</span></div>
           <div><div class="dot"></div><span><b>Ads review.</b> Spend to conversations to approvals to deals, per campaign and per ad, so you kill losers weekly.</span></div>
+          <div><div class="dot"></div><span><b>Call and text audits.</b> Every conversation graded against your rubric, per rep, with the trend over time.</span></div>
           <div><div class="dot"></div><span><b>Chat and Marketplace.</b> Conversations handled by Colebot, handoffs, appointments set, listings live and replies converted.</span></div>
         </div>
       </div>
@@ -929,7 +1070,7 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
     <div class="story-grid">
       <div class="reveal">
         <div class="eyebrow" style="margin-bottom:18px">Built in a dealership</div>
-        <blockquote>"The whole business runs on the DMS and we were handcuffed to it. No flexibility to do anything custom. So we built our own, one piece at a time, on our own floor."
+        <blockquote>"The biggest reason I built this was to have all my data fed to me, then build notifications for trigger events, like a lead sitting too long. And on top of that, to hold a team accountable when trends begin to take place."
           <footer>Founding dealer · Indiana</footer>
         </blockquote>
         <div class="facts">
@@ -999,12 +1140,18 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
             <label class="check" for="m-dms"><input type="checkbox" id="m-dms" name="modules" value="DMS">DMS</label>
             <label class="check" for="m-tr"><input type="checkbox" id="m-tr" name="modules" value="Transport">Transport</label>
             <label class="check" for="m-web"><input type="checkbox" id="m-web" name="modules" value="Website">Website</label>
+            <label class="check" for="m-rep"><input type="checkbox" id="m-rep" name="modules" value="Reporting">Reporting</label>
+            <label class="check" for="m-ttl"><input type="checkbox" id="m-ttl" name="modules" value="Title Management">Title management</label>
+            <label class="check" for="m-mkt"><input type="checkbox" id="m-mkt" name="modules" value="Marketing Conversions">Marketing conversions</label>
+            <label class="check" for="m-prc"><input type="checkbox" id="m-prc" name="modules" value="Optimized Pricing">Optimized pricing</label>
+            <label class="check" for="m-alr"><input type="checkbox" id="m-alr" name="modules" value="Alerts">Alerts &amp; accountability</label>
+            <label class="check" for="m-aud"><input type="checkbox" id="m-aud" name="modules" value="Auditing">Call &amp; text auditing</label>
+            <label class="check" for="m-rev"><input type="checkbox" id="m-rev" name="modules" value="Reviews">Review funnels</label>
             <label class="check" for="m-dr"><input type="checkbox" id="m-dr" name="modules" value="Digital Retail">Digital retail</label>
             <label class="check" for="m-chat"><input type="checkbox" id="m-chat" name="modules" value="Live Chat">Live chat · Colebot</label>
-            <label class="check" for="m-mk"><input type="checkbox" id="m-mk" name="modules" value="Marketplace">Marketplace</label>
-            <label class="check" for="m-rep"><input type="checkbox" id="m-rep" name="modules" value="Reporting">Reporting</label>
           </div>
         </fieldset>
+        <input type="text" name="website" id="f-website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <label for="f-stack">What are you running today? <span class="opt">optional</span><textarea id="f-stack" name="stack" placeholder="DMS, CRM, website vendor, anything you're tired of paying for."></textarea></label>
         <div class="form-foot">
           <button class="btn btn-primary" type="submit">Request a demo</button>
@@ -1022,7 +1169,7 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
   <div class="wrap foot">
     <div>
       <a class="brand" href="#top" aria-label="HQ home"><div class="mark">HQ</div><span>HQ<small>Dealer operating system</small></span></a>
-      <small>CRM, AI, desking, DMS, transport and logistics, website, digital retail, live chat, marketplace conversions and reporting on one host, for franchise and independent dealers who want control of their data.</small>
+      <small>CRM, AI, desking, DMS, titles, transport, website, marketing conversions, pricing, alerts, call auditing, reviews, digital retail, live chat and reporting on one host, for franchise and independent dealers who want control of their data.</small>
     </div>
     <div>
       <div class="flinks"><a href="#modules">Modules</a><a href="#stack">Build your stack</a><a href="#data">Your data</a><a href="#ai">Ask HQ</a><a href="#reporting">Reporting</a><a href="#demo">Book a demo</a></div>
@@ -1048,10 +1195,11 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
 (function(){
   document.documentElement.classList.add('js');
   // ===== config =====
-  var LEAD_ENDPOINT = ''; // set to HQ's lead intake URL (e.g. https://hq.yourdomain.com/api/leads) to POST leads; empty = mailto fallback
+  var LEAD_ENDPOINT = 'https://hq.paytonplaceauto.com/api/leads/site'; // HQ's public site-lead door (build 430). If it fails, we fall back to a mailto draft so no lead is lost.
   var DEMO_TO = 'jon@paytonplacepowersports.com';
-  var MODULES = ['CRM','AI','Desking','DMS','Transport','Website','Digital Retail','Live Chat','Marketplace','Reporting'];
-  var LABELS = {'CRM':'CRM','AI':'AI · Ask HQ','Desking':'Desking','DMS':'DMS','Transport':'Transport & Logistics','Website':'Website','Digital Retail':'Digital retail','Live Chat':'Live chat · Colebot','Marketplace':'Marketplace conversions','Reporting':'Detailed reporting'};
+  var MODULES = ['CRM','AI','Desking','DMS','Transport','Website','Reporting','Title Management','Marketing Conversions','Optimized Pricing','Alerts','Auditing','Reviews','Digital Retail','Live Chat'];
+  var CORE = ['CRM','AI','Desking','DMS','Transport','Website','Reporting'];
+  var LABELS = {'CRM':'CRM','AI':'AI · Ask HQ','Desking':'Desking','DMS':'DMS','Transport':'Transport & Logistics','Website':'Website','Reporting':'Detailed reporting','Title Management':'Title management','Marketing Conversions':'Marketing conversions','Optimized Pricing':'Optimized pricing','Alerts':'Alerts & accountability','Auditing':'Call & text auditing','Reviews':'Review funnels','Digital Retail':'Digital retail','Live Chat':'Live chat · Colebot'};
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var yr=document.getElementById('yr'); if(yr) yr.textContent=new Date().getFullYear();
@@ -1135,9 +1283,9 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
     if(!selected.length){ blocks.innerHTML='<div class="block empty">Pick a module to start your stack</div>'; }
     else {
       var host=document.createElement('div'); host.className='block host'; host.innerHTML='<span>HQ host</span><small>one database · one login</small>'; blocks.appendChild(host);
-      MODULES.forEach(function(m,i){ if(selected.indexOf(m)<0) return; var b=document.createElement('div'); b.className='block'; b.style.animationDelay=(i*.04)+'s'; b.innerHTML='<span>'+LABELS[m]+'</span><small>module</small>'; blocks.appendChild(b); });
+      MODULES.forEach(function(m,i){ if(selected.indexOf(m)<0) return; var isCore=CORE.indexOf(m)>=0; var b=document.createElement('div'); b.className='block'+(isCore?'':' addon'); b.style.animationDelay=(i*.04)+'s'; b.innerHTML='<span>'+LABELS[m]+'</span><small>'+(isCore?'core':(m==='Optimized Pricing'?'premium add-on':'add-on'))+'</small>'; blocks.appendChild(b); });
     }
-    if(stackCount) stackCount.textContent=selected.length+' of '+MODULES.length+' modules';
+    if(stackCount){ var nc=selected.filter(function(m){return CORE.indexOf(m)>=0;}).length; stackCount.textContent=selected.length+' of '+MODULES.length+' · '+nc+' core, '+(selected.length-nc)+' add-on'+((selected.length-nc)===1?'':'s'); }
     document.querySelectorAll('.chip').forEach(function(c){ c.classList.toggle('on', selected.indexOf(c.getAttribute('data-mod'))>=0); c.setAttribute('aria-pressed', selected.indexOf(c.getAttribute('data-mod'))>=0?'true':'false'); });
     document.querySelectorAll('.mod-addbtn').forEach(function(b){ var on=selected.indexOf(b.getAttribute('data-add'))>=0; b.classList.toggle('on',on); b.textContent=on?'✓ In my stack':'+ Add to my stack'; });
     document.querySelectorAll('#formChecks input').forEach(function(i){ i.checked = selected.indexOf(i.value)>=0; });
@@ -1153,8 +1301,17 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
   // ===== lead delivery =====
   function sendLead(lead, onDone){
     lead.page = location.href; lead.at = new Date().toISOString();
+    var hp=document.getElementById('f-website'); lead.website = hp ? hp.value : '';
+    function mailFallback(){
+      var body=Object.keys(lead).filter(function(k){return k!=='website';}).map(function(k){ var v=lead[k]; return k+': '+(Array.isArray(v)?v.join(', '):v); }).join('\n');
+      location.href='mailto:'+DEMO_TO+'?subject='+encodeURIComponent('HQ lead · '+(lead.dealership||lead.name||'website'))+'&body='+encodeURIComponent(body);
+      onDone(true, 'mail');
+    }
     if(LEAD_ENDPOINT){
-      fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lead)}).then(function(r){ onDone(r.ok); }).catch(function(){ onDone(false); });
+      fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lead)})
+        .then(function(r){ return r.ok ? r.json().catch(function(){return {ok:true};}) : Promise.reject(r.status); })
+        .then(function(j){ if(j && j.ok!==false){ onDone(true, 'hq'); } else { mailFallback(); } })
+        .catch(function(){ mailFallback(); });
       return;
     }
     var body=Object.keys(lead).map(function(k){ var v=lead[k]; return k+': '+(Array.isArray(v)?v.join(', '):v); }).join('\n');
@@ -1171,7 +1328,7 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
       if(missing.length){document.getElementById(missing[0]).focus();sent.textContent='Add your name, dealership and a working email so we can reach you.';sent.classList.add('show');return;}
       var fd=new FormData(form);
       var lead={source:'demo form',name:fd.get('name'),role:fd.get('role')||'',dealership:fd.get('dealership'),rooftops:fd.get('rooftops'),type:fd.get('type'),sells:fd.get('lines'),email:fd.get('email'),phone:fd.get('phone')||'',modules:fd.getAll('modules'),running_today:fd.get('stack')||''};
-      sendLead(lead,function(ok){ sent.textContent= ok ? (LEAD_ENDPOINT?'Sent. A dealer from our team replies within one business day.':'Thanks. Your request is drafted in your mail app. Hit send and we will be in touch within one business day.') : 'Something broke on our end. Email '+DEMO_TO+' and we will set it up by hand.'; sent.classList.add('show'); });
+      sendLead(lead,function(ok,how){ sent.textContent= ok ? (how==='hq'?'Sent. Your request is on our desk and a dealer from our team replies within one business day.':'Thanks. Your request is drafted in your mail app. Hit send and we will be in touch within one business day.') : 'Something broke on our end. Email '+DEMO_TO+' and we will set it up by hand.'; sent.classList.add('show'); });
     });
   }
 
@@ -1185,7 +1342,7 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
   function setChips(list, multi){ chips.innerHTML=''; state.multi=[]; list.forEach(function(c,i){ var b=document.createElement('button'); b.type='button'; b.textContent=c; b.style.animationDelay=(i*.05)+'s'; b.addEventListener('click',function(){ if(multi){ if(c==='Done'){ if(!state.multi.length) return; handle(state.multi.join(', '), true); } else { b.classList.toggle('sel'); var j=state.multi.indexOf(c); if(j>=0) state.multi.splice(j,1); else state.multi.push(c); } } else { handle(c, true); } }); chips.appendChild(b); }); }
   function clearChips(){ chips.innerHTML=''; }
   var FAQ=[
-    {k:/price|pricing|cost|how much|\$/i, a:'Pricing is set per rooftop, per module you turn on. No per-seat licenses, so hiring a Saturday porter costs you nothing. Exact numbers depend on rooftop count and modules, which is what the quote call is for.'},
+    {k:/price|pricing|cost|how much|\$/i, a:'Core modules are a base price per rooftop. Add-ons are an upcharge per module. No per-seat licenses, so hiring a Saturday porter costs you nothing. Exact numbers depend on rooftop count and modules, which is what the quote call is for.'},
     {k:/data|export|own|leave|lock/i, a:'Your dealer group runs on its own database, you hold admin access, and every table exports in CSV and JSON on day one. There is a read API too. Leaving is never a negotiation.'},
     {k:/lightspeed|cdk|dealertrack|dealersocket|integrat|api|700|routeone|quickbooks/i, a:'HQ runs alongside what you have. It connects to Lightspeed EVO, 700Credit, RouteOne, PEN providers, Meta and Google, Respond.io, DocuSign, Microsoft 365, Twilio and QuickBooks today, and we add connections as dealers need them.'},
     {k:/demo|see it|walk ?through|call|meeting/i, a:'A demo is thirty minutes on a live store with real deals moving through it. I just need a few details to set it up.'},
@@ -1193,14 +1350,21 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
     {k:/marketplace|facebook|post/i, a:'Marketplace conversions posts and refreshes every unit from your inventory, replies instantly with a payment and photos, and tracks every reply as a lead through to the deal.'},
     {k:/report|scorecard|numbers/i, a:'Detailed reporting is the set of weekly scorecards we run our own stores on: sales, service, buying, ads and chat, each figure next to its goal and pace. Because the tables are yours, you can export or query any of it.'},
     {k:/desk|f&i|finance|menu|credit/i, a:'Desking puts payments, trade, rebates, fees and the F&I menu on one screen, pushes to your lenders and credit bureau from the deal, and handles forms and e-signature.'},
-    {k:/website|site|seo/i, a:'The Website module serves your site straight from your inventory: units go live the moment they are ready and drop the moment they sell, with pre-approval on every unit page and feeds to Meta and Google.'}
+    {k:/website|site|seo/i, a:'The Website module serves your site straight from your inventory: units go live the moment they are ready and drop the moment they sell, with pre-approval on every unit page and feeds to Meta and Google.'},
+    {k:/title/i, a:'Title management tracks every unit\'s title: in hand, in transit, lien pending or missing, with days outstanding per unit and a missing-titles report for the weekly 1-on-1. Most DMS platforms have no place to record it at all.'},
+    {k:/pricing tool|optimized pricing|price my|apprais|jd ?power|comp/i, a:'Optimized pricing is our premium add-on: every dealer in your area scraped daily, your own sold history, and JD Power values, combined into a list price, a floor, a buy offer and a trade number for each unit.'},
+    {k:/audit|grade|grading|rubric|record(ed|ing)? calls?/i, a:'Call and text auditing grades every conversation against your own rubric: greeting, discovery, appointment ask, follow-up. Rep trends feed accountability and the coaching notes for the 1-on-1.'},
+    {k:/alert|notif|trigger|accountab|write.?up|sitting/i, a:'Alerts and accountability is the reason HQ exists. You set the triggers, like a lead sitting too long or a title past due, HQ watches them, and when a trend takes shape the write-up is drafted from the record.'},
+    {k:/review|google review|referral/i, a:'Review funnels send the request at the right moment after delivery or service, route unhappy customers to a manager first, and attribute every Google review to the rep who earned it.'},
+    {k:/google ads|facebook ads|bing|conversion|attribution|which ad/i, a:'Marketing conversions traces every ad dollar across Google, Facebook, Bing, Marketplace and your website to an approval and a deal, and sends the events back to each platform so they optimize on real outcomes.'},
+    {k:/core|add.?on|upcharge|base|module/i, a:'Seven core modules run the store and are priced as a base per rooftop. Eight add-ons are upgrades priced per module on top: titles, marketing conversions, optimized pricing, alerts, auditing, reviews, digital retail and Colebot.'}
   ];
   function faq(text){ for(var i=0;i<FAQ.length;i++){ if(FAQ[i].k.test(text)) return FAQ[i].a; } return null; }
 
   function start(){
     if(state.started) return; state.started=true;
     var stackNote = selected.length ? ' I see you have '+selected.length+' module'+(selected.length>1?'s':'')+' in your stack already.' : '';
-    bot(["Hey, I'm Colebot, HQ's assistant. I can walk you through the platform or get a quote in front of a real dealer on our team."+stackNote, 'What brings you in today?'], function(){ setChips(['Replace my DMS','Get more leads','Own my data','Price a stack','Just looking']); state.step='intent'; });
+    bot(["Hey, I'm Colebot, HQ's assistant. I can walk you through the platform or get a quote in front of a real dealer on our team."+stackNote, 'What brings you in today?'], function(){ setChips(['Replace my DMS','Get more leads','Hold my team accountable','Own my data','Price a stack','Just looking']); state.step='intent'; });
   }
   function handle(text, fromChip){
     say(text,'me'); clearChips();
@@ -1208,10 +1372,11 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
     if(s==='intent'){
       L.intent=text;
       var reply = {
+        'Hold my team accountable':'That is the reason HQ exists. You set the triggers, HQ watches the data, and when a trend takes shape the write-up is drafted from the record, with the graded calls and texts attached.',
         'Replace my DMS':'Good news: you do not have to rip anything out on day one. Most dealers start with Desking or the Buying CRM beside their current DMS and move units, service and titles over as it earns it.',
         'Get more leads':'That is Colebot, Marketplace conversions and Digital retail working together: post every unit everywhere, answer every reply in seconds, and let the customer build the deal at midnight. Every one lands on the CRM record with its source.',
         'Own my data':'Then you are in the right place. Your own database, admin access, free export of every table in open formats, and a read API. No exit fees, ever.',
-        'Price a stack':'Pricing is per rooftop, per module, unlimited seats. Tell me the stack and rooftops and a dealer on our team sends a real number.',
+        'Price a stack':'Core modules are a base price per rooftop. Add-ons are an upcharge per module. Unlimited seats either way. Tell me the stack and rooftops and a dealer on our team sends a real number.',
         'Just looking':'No pressure. Ask me anything about the modules, the data terms or how we run it in our own two stores.'
       }[text] || (faq(text) || 'Got it.');
       bot([reply, 'How many rooftops are we talking about?'], function(){ setChips(['1','2','3 to 5','6 to 12','More than 12']); state.step='rooftops'; });
@@ -1241,8 +1406,8 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
       bot([summary, 'Send it to the HQ team?'], function(){ setChips(['Send it','Change something']); state.step='confirm'; });
     } else if(s==='confirm'){
       if(/change/i.test(text)){ bot("Sure. What's your name?", function(){ state.step='name'; }); return; }
-      sendLead(L, function(ok){
-        if(ok){ bot([LEAD_ENDPOINT?'Sent. A dealer from our team replies within one business day, usually faster.':'Your request is drafted in your mail app. Hit send and a dealer from our team replies within one business day.', 'Anything else you want to know while you are here?'], function(){ setChips(['How pricing works','Our data terms','What Colebot does for dealers']); state.step='free'; }); }
+      sendLead(L, function(ok,how){
+        if(ok){ bot([how==='hq'?'Sent. It is on our desk now, and a dealer from our team replies within one business day, usually faster.':'Your request is drafted in your mail app. Hit send and a dealer from our team replies within one business day.', 'Anything else you want to know while you are here?'], function(){ setChips(['How pricing works','Our data terms','What Colebot does for dealers']); state.step='free'; }); }
         else { bot('Something broke on my end. Email '+DEMO_TO+' and we will set it up by hand.', function(){ state.step='free'; }); }
       });
     } else {
