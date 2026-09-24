@@ -1,0 +1,42 @@
+[
+ {
+  "key": "hq-overview",
+  "title": "The two-minute tour",
+  "blurb": "One host, one database, every module a rooftop runs on, shown on a two-rooftop powersports dealer.",
+  "dur": "2:36",
+  "secs": 156,
+  "mb": 8.6
+ },
+ {
+  "key": "hq-leads-to-desk",
+  "title": "Lead to desk",
+  "blurb": "A lead lands from the website, Colebot qualifies it, and it becomes a structured deal on the desk.",
+  "dur": "1:32",
+  "secs": 92,
+  "mb": 4.7
+ },
+ {
+  "key": "hq-deal-desk",
+  "title": "The deal desk",
+  "blurb": "Payments, trade, F&I menu, credit and lenders, stips, documents and e-sign on one screen.",
+  "dur": "1:35",
+  "secs": 95,
+  "mb": 6.5
+ },
+ {
+  "key": "hq-shop-units-transport",
+  "title": "Shop, units and transport",
+  "blurb": "Unit readiness, the service board, and dispatching pickups, transfers and deliveries.",
+  "dur": "1:30",
+  "secs": 90,
+  "mb": 5.3
+ },
+ {
+  "key": "hq-ask-and-reports",
+  "title": "Ask HQ and reports",
+  "blurb": "Ask the assistant what sold and what to buy, then the scorecards you manage by.",
+  "dur": "1:18",
+  "secs": 78,
+  "mb": 4.8
+ }
+]
