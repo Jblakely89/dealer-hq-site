@@ -1,0 +1,1258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HQ Dealer Platform</title>
+<link rel="canonical" href="https://dealer-hq.com/">
+<meta property="og:title" content="HQ Dealer Platform">
+<meta property="og:description" content="CRM, AI, desking, DMS, transport, website, digital retail, live chat, marketplace conversions and reporting on one host. Your data, in your hands.">
+<meta property="og:url" content="https://dealer-hq.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="HQ is the dealer operating system: CRM, AI, desking, DMS, transport, website, digital retail, live chat, marketplace conversions and reporting on one host, bought à la carte. Built for franchise and independent dealers who want control of their data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=Instrument+Sans:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --ground:#FFFFFF; --surface:#FFFFFF; --surface-2:#F5F6F8; --surface-3:#EDEFF2; --ink:#14171B; --ink-2:#3A414A; --muted:#6B7480;
+  --line:#E2E5EA; --line-2:#EEF0F3; --accent:#F25A12; --accent-ink:#FFFFFF; --accent-soft:#FEF0E8; --accent-deep:#C9470B;
+  --chassis:#111417; --chassis-2:#181C21; --chassis-3:#1F242B; --chassis-line:#2B313A; --chassis-ink:#E9ECF0; --chassis-muted:#8A94A2;
+  --good:#1F8A4C; --warn:#C98A12; --bad:#CC3E2A;
+  --display:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --radius:6px; --gutter:clamp(16px,4vw,48px); --max:1200px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit}
+img{max-width:100%}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;letter-spacing:-.015em;line-height:1.05;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.4rem,6vw,4.6rem);font-variation-settings:"wdth" 110;font-weight:800;letter-spacing:-.03em}
+h2{font-size:clamp(1.8rem,3.6vw,2.8rem);font-variation-settings:"wdth" 105}
+h3{font-size:1.25rem}
+p{margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter)}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{color:var(--accent);font-weight:600}
+.lede{font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--ink-2);max-width:60ch}
+section{padding-block:clamp(56px,8vw,112px)}
+section + section{border-top:1px solid var(--line)}
+.section-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px clamp(24px,5vw,80px);align-items:end;margin-bottom:clamp(32px,5vw,56px)}
+.section-head .eyebrow{margin-bottom:14px}
+@media (max-width:820px){.section-head{grid-template-columns:1fr}}
+
+/* motion */
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(242,90,18,.45)}70%{box-shadow:0 0 0 14px rgba(242,90,18,0)}}
+@keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
+.js .reveal[data-delay="1"]{transition-delay:.1s}.js .reveal[data-delay="2"]{transition-delay:.2s}.js .reveal[data-delay="3"]{transition-delay:.3s}.js .reveal[data-delay="4"]{transition-delay:.4s}.js .reveal[data-delay="5"]{transition-delay:.5s}
+.hero-copy > *{animation:rise .8s var(--ease) both}
+.hero-copy > :nth-child(1){animation-delay:.05s}.hero-copy > :nth-child(2){animation-delay:.15s}.hero-copy > :nth-child(3){animation-delay:.3s}.hero-copy > :nth-child(4){animation-delay:.42s}.hero-copy > :nth-child(5){animation-delay:.55s}
+.frame-wrap{animation:rise 1s var(--ease) .5s both}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .js .reveal{opacity:1;transform:none}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:.95rem;letter-spacing:.01em;padding:13px 20px;border-radius:var(--radius);border:1px solid transparent;text-decoration:none;cursor:pointer;line-height:1;white-space:nowrap;transition:transform .15s var(--ease),background .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{background:var(--accent-deep);box-shadow:0 10px 24px -12px rgba(242,90,18,.7)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{background:var(--surface-2)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn svg{width:16px;height:16px}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--display);font-weight:800}
+.mark{width:34px;height:34px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:.8rem;letter-spacing:-.04em;font-variation-settings:"wdth" 118;border-radius:4px}
+.brand span{font-size:1.05rem;letter-spacing:-.02em}
+.brand small{display:block;font-family:var(--mono);font-weight:400;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.links{display:flex;gap:26px;font-size:.92rem;font-weight:500}
+.links a{text-decoration:none;color:var(--ink-2);white-space:nowrap;position:relative}
+.links a::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:2px;background:var(--accent);transition:right .25s var(--ease)}
+.links a:hover::after{right:0}
+.nav-cta{display:flex;gap:10px;align-items:center}
+.nav-cta .btn{padding:10px 16px;font-size:.88rem}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:var(--radius);padding:8px 10px;color:var(--ink);font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;cursor:pointer}
+@media (max-width:1040px){.links{display:none}.menu-btn{display:inline-block}.nav-cta .btn-ghost{display:none}}
+.mobile-links{display:none;border-top:1px solid var(--line);padding:12px var(--gutter) 18px;flex-direction:column;gap:12px;font-weight:500;background:#fff}
+.mobile-links a{text-decoration:none}
+.mobile-links.open{display:flex}
+@media (max-width:480px){.brand small{display:none}.nav-cta .btn-primary{padding:9px 12px;font-size:.82rem}}
+
+/* hero */
+.hero{padding-block:clamp(48px,7vw,96px) 0;border-bottom:0;position:relative}
+.hero::before{content:"";position:absolute;inset:0 0 auto 0;height:520px;background:radial-gradient(60% 70% at 80% 0%,var(--accent-soft) 0%,rgba(254,240,232,0) 70%);pointer-events:none}
+.hero .wrap{position:relative}
+.hero-copy{max-width:900px}
+.hero-copy .eyebrow{margin-bottom:22px;display:flex;flex-wrap:wrap;gap:8px 0;align-items:center}
+.hero-copy .eyebrow i{font-style:normal;color:var(--line);padding:0 10px}
+.hero-copy h1{margin-bottom:26px}
+.hero-copy h1 em{font-style:normal;color:var(--accent)}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;align-items:center}
+.hero-actions .note{font-size:.85rem;color:var(--muted);margin-left:6px}
+.hero-stats{display:grid;grid-template-columns:repeat(4,auto);gap:36px;margin-top:40px;padding-top:24px;border-top:1px solid var(--line);width:max-content;max-width:100%}
+.hero-stats div{font-size:.85rem;color:var(--muted)}
+.hero-stats strong{display:block;font-family:var(--display);font-size:1.5rem;color:var(--ink);font-variation-settings:"wdth" 108;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+@media (max-width:640px){.hero-stats{grid-template-columns:1fr 1fr;gap:20px 28px;width:100%}}
+
+/* product frame */
+.frame-wrap{margin-top:clamp(40px,6vw,72px);position:relative}
+.frame-wrap::before{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:var(--surface-2);border-top:1px solid var(--line);z-index:0}
+.frame{position:relative;z-index:1;background:var(--chassis);border:1px solid var(--chassis-line);border-radius:10px;overflow:hidden;color:var(--chassis-ink);box-shadow:0 40px 90px -40px rgba(20,23,27,.5);font-size:.8rem}
+.frame-bar{display:flex;align-items:center;gap:14px;padding:10px 14px;border-bottom:1px solid var(--chassis-line);background:var(--chassis-2)}
+.frame-bar .dots{display:flex;gap:6px}
+.frame-bar .dots i{width:10px;height:10px;border-radius:50%;background:var(--chassis-3);border:1px solid var(--chassis-line)}
+.frame-bar .url{font-family:var(--mono);font-size:.72rem;color:var(--chassis-muted);background:var(--chassis);border:1px solid var(--chassis-line);border-radius:4px;padding:5px 10px;flex:1;max-width:420px}
+.frame-bar .who{margin-left:auto;font-family:var(--mono);font-size:.68rem;color:var(--chassis-muted)}
+.frame-body{display:grid;grid-template-columns:200px minmax(0,1fr);min-height:460px}
+.side{border-right:1px solid var(--chassis-line);padding:14px 10px;display:flex;flex-direction:column;gap:2px;background:var(--chassis-2)}
+.side .grp{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--chassis-muted);padding:12px 10px 6px}
+.side a{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:5px;text-decoration:none;color:var(--chassis-ink);font-weight:500;transition:background .15s}
+.side a:hover{background:var(--chassis-3)}
+.side a.on{background:var(--chassis-3)}
+.side a .k{width:6px;height:6px;border-radius:2px;background:var(--chassis-muted)}
+.side a.on .k{background:var(--accent)}
+.main{padding:18px;display:grid;gap:14px;grid-template-columns:repeat(12,minmax(0,1fr));align-content:start}
+.tile{background:var(--chassis-2);border:1px solid var(--chassis-line);border-radius:8px;padding:14px}
+.js .frame.in .tile{animation:pop .6s var(--ease) both}
+.js .frame.in .tile:nth-child(1){animation-delay:.05s}.js .frame.in .tile:nth-child(2){animation-delay:.12s}.js .frame.in .tile:nth-child(3){animation-delay:.19s}.js .frame.in .tile:nth-child(4){animation-delay:.26s}.js .frame.in .tile:nth-child(5){animation-delay:.36s}.js .frame.in .tile:nth-child(6){animation-delay:.46s}.js .frame.in .tile:nth-child(7){animation-delay:.56s}
+.tile h4{font-family:var(--mono);font-weight:600;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--chassis-muted);margin-bottom:10px;display:flex;justify-content:space-between;gap:8px}
+.tile h4 span{color:var(--accent)}
+.kpi{font-family:var(--display);font-size:1.7rem;font-weight:700;letter-spacing:-.03em;font-variation-settings:"wdth" 110;font-variant-numeric:tabular-nums;line-height:1}
+.kpi small{display:block;font-family:var(--body);font-weight:400;font-size:.72rem;color:var(--chassis-muted);letter-spacing:0;margin-top:6px}
+.kpi .up{color:#6FD597} .kpi .dn{color:#FF8A78}
+.c3{grid-column:span 3}.c4{grid-column:span 4}.c5{grid-column:span 5}.c6{grid-column:span 6}.c7{grid-column:span 7}.c8{grid-column:span 8}.c12{grid-column:span 12}
+.rows{display:grid;gap:0}
+.row{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) auto auto;gap:12px;align-items:center;padding:8px 0;border-top:1px solid var(--chassis-line);font-variant-numeric:tabular-nums}
+.row:first-of-type{border-top:0}
+.row .n{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .m{color:var(--chassis-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mono{font-family:var(--mono)}
+.pill{display:inline-block;font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:3px;border:1px solid var(--chassis-line);color:var(--chassis-ink);white-space:nowrap}
+.pill.g{border-color:transparent;background:rgba(46,156,91,.18);color:#6FD597}
+.pill.w{border-color:transparent;background:rgba(217,154,30,.18);color:#F0C15E}
+.pill.b{border-color:transparent;background:rgba(216,69,46,.18);color:#FF8A78}
+.pill.a{border-color:transparent;background:rgba(242,90,18,.2);color:#FF9A66}
+.bar{height:6px;background:var(--chassis-3);border-radius:3px;overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:3px;transform-origin:left}
+.js .frame.in .bar i{animation:grow 1.2s var(--ease) .4s both}
+.lanes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.lane{background:var(--chassis);border:1px solid var(--chassis-line);border-radius:6px;padding:8px;min-height:88px}
+.lane b{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--chassis-muted);margin-bottom:6px}
+.card{background:var(--chassis-3);border-radius:4px;padding:6px 8px;margin-top:5px;font-size:.72rem;line-height:1.3}
+.js .frame.in .card{animation:pop .5s var(--ease) both}
+.js .frame.in .lane:nth-child(1) .card{animation-delay:.7s}.js .frame.in .lane:nth-child(2) .card{animation-delay:.85s}.js .frame.in .lane:nth-child(3) .card{animation-delay:1s}.js .frame.in .lane:nth-child(4) .card{animation-delay:1.15s}
+.card small{display:block;color:var(--chassis-muted);font-family:var(--mono);font-size:.62rem}
+.ask{display:flex;gap:10px;align-items:flex-start}
+.ask .av{width:26px;height:26px;border-radius:6px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:.7rem;flex:none}
+.ask p{color:var(--chassis-ink);line-height:1.45;min-height:1.4em}
+.ask p + p{margin-top:6px}
+.ask .q{color:var(--chassis-muted);font-style:italic}
+.caret{display:inline-block;width:2px;height:1em;background:var(--accent);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
+@media (max-width:900px){.frame-body{grid-template-columns:1fr}.side{display:none}.main{grid-template-columns:repeat(6,minmax(0,1fr))}.c3,.c4{grid-column:span 3}.c5,.c6,.c7,.c8{grid-column:span 6}}
+@media (max-width:560px){.main{grid-template-columns:1fr 1fr;padding:12px;gap:10px}.c3,.c4{grid-column:span 1}.c5,.c6,.c7,.c8{grid-column:span 2}.lanes{grid-template-columns:1fr 1fr}.row{grid-template-columns:minmax(0,1fr) auto}.row .m,.row .hide-s{display:none}}
+
+/* replace strip */
+.replace{background:var(--surface-2);border-top:1px solid var(--line)}
+.replace-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.vendor{border:1px dashed var(--line);border-radius:var(--radius);padding:14px 12px;color:var(--muted);font-size:.85rem;min-height:84px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;background:#fff}
+.vendor b{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.vendor span{font-weight:600;color:var(--ink-2);text-decoration:line-through;text-decoration-color:var(--accent);text-decoration-thickness:2px}
+.one{grid-column:1/-1;background:var(--ink);color:#fff;border-radius:var(--radius);padding:22px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:6px}
+.one b{font-family:var(--display);font-size:1.5rem;font-weight:800;font-variation-settings:"wdth" 112;letter-spacing:-.02em}
+.one small{color:rgba(255,255,255,.72);font-size:.9rem}
+@media (max-width:900px){.replace-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:560px){.replace-grid{grid-template-columns:1fr 1fr}}
+
+/* modules */
+.mods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.mods.addons{grid-template-columns:repeat(4,minmax(0,1fr))}
+.mod{background:#fff;padding:clamp(22px,3vw,32px);display:flex;flex-direction:column;gap:14px;position:relative;transition:background .25s}
+.mod:hover{background:var(--surface-2)}
+.mod .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.mod h3{font-size:1.5rem;font-variation-settings:"wdth" 108;letter-spacing:-.02em}
+.mods.addons .mod h3{font-size:1.25rem}
+.mod p{color:var(--ink-2);font-size:.95rem}
+.mod ul{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:.9rem;color:var(--ink-2)}
+.mod li{padding-left:18px;position:relative}
+.mod li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:2px;background:var(--accent)}
+.mod .glyph{width:44px;height:44px;border:1px solid var(--line);border-radius:8px;display:grid;place-items:center;color:var(--ink);background:#fff;transition:transform .3s var(--ease),border-color .3s}
+.mod:hover .glyph{transform:translateY(-3px) rotate(-3deg);border-color:var(--accent)}
+.mod .glyph svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.mod .price{margin-top:auto;padding-top:14px;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.mod-addbtn{align-self:flex-start;margin-top:4px;font-family:var(--display);font-weight:700;font-size:.82rem;padding:8px 12px;border-radius:var(--radius);border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;transition:all .15s}
+.mod-addbtn:hover{border-color:var(--accent);color:var(--accent)}
+.mod-addbtn.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.addons-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin:48px 0 20px}
+.addons-head h3{font-size:1.5rem;font-variation-settings:"wdth" 108}
+.addons-head p{color:var(--muted);font-size:.95rem}
+@media (max-width:960px){.mods,.mods.addons{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.mods,.mods.addons{grid-template-columns:1fr}}
+
+/* stack builder */
+.stack{background:var(--surface-2)}
+.stack-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,64px);align-items:start}
+.chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.chip{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:#fff;cursor:pointer;text-align:left;font:inherit;color:var(--ink);transition:all .2s var(--ease)}
+.chip:hover{border-color:var(--ink)}
+.chip .box{width:20px;height:20px;border-radius:4px;border:2px solid var(--line);display:grid;place-items:center;flex:none;transition:all .2s}
+.chip .box svg{width:12px;height:12px;stroke:#fff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:0;transform:scale(.5);transition:all .2s}
+.chip.on{border-color:var(--accent);background:var(--accent-soft)}
+.chip.on .box{background:var(--accent);border-color:var(--accent)}
+.chip.on .box svg{opacity:1;transform:none}
+.chip b{display:block;font-family:var(--display);font-size:.98rem}
+.chip small{display:block;color:var(--muted);font-size:.8rem}
+.chip .core{margin-left:auto;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:2px 6px}
+.stack-vis{background:#fff;border:1px solid var(--line);border-radius:10px;padding:clamp(20px,3vw,28px);position:sticky;top:88px}
+.stack-vis h3{font-size:1.2rem;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.stack-vis h3 span{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.blocks{display:flex;flex-direction:column-reverse;gap:6px;margin:20px 0;min-height:200px;justify-content:flex-start}
+.block{background:var(--ink);color:#fff;border-radius:5px;padding:10px 14px;font-family:var(--display);font-weight:700;font-size:.9rem;display:flex;justify-content:space-between;align-items:center;animation:pop .35s var(--ease) both}
+.block small{font-family:var(--mono);font-weight:400;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.block.host{background:var(--accent);color:#fff}
+.block.host small{color:rgba(255,255,255,.8)}
+.block.empty{background:var(--surface-2);color:var(--muted);border:1px dashed var(--line);font-weight:500;justify-content:center}
+.stack-foot{display:grid;gap:12px;border-top:1px solid var(--line);padding-top:18px}
+.stack-foot .row2{display:flex;justify-content:space-between;gap:12px;font-size:.9rem;color:var(--ink-2)}
+.stack-foot .row2 b{font-family:var(--display);color:var(--ink)}
+.stack-foot .btn{justify-content:center}
+.stack-note{font-size:.8rem;color:var(--muted)}
+@media (max-width:900px){.stack-grid{grid-template-columns:1fr}.stack-vis{position:static}}
+@media (max-width:560px){.chips{grid-template-columns:1fr}}
+
+/* data */
+.data-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:start}
+.data h2{font-size:clamp(2rem,4.2vw,3.4rem);font-variation-settings:"wdth" 110;letter-spacing:-.03em}
+.data h2 em{font-style:normal;color:var(--accent)}
+.claims{display:grid;gap:0;border-top:1px solid var(--line)}
+.claim{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
+.claim .no{font-family:var(--mono);font-size:.72rem;color:var(--accent);padding-top:4px}
+.claim h3{font-size:1.15rem;margin-bottom:6px}
+.claim p{color:var(--ink-2);font-size:.95rem}
+.ledger{background:var(--chassis);border:1px solid var(--chassis-line);border-radius:8px;padding:18px;font-family:var(--mono);font-size:.76rem;color:var(--chassis-ink);line-height:1.7;overflow-x:auto}
+.ledger .c{color:var(--chassis-muted)}
+.ledger .k{color:#FF9A66}
+.ledger .s{color:#6FD597}
+.ledger .hd{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--chassis-line);padding-bottom:10px;margin-bottom:12px;color:var(--chassis-muted);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase}
+.js .ledger.in div:not(.hd){animation:rise .5s var(--ease) both}
+.js .ledger.in div:nth-child(2){animation-delay:.1s}.js .ledger.in div:nth-child(3){animation-delay:.2s}.js .ledger.in div:nth-child(4){animation-delay:.3s}.js .ledger.in div:nth-child(5){animation-delay:.4s}.js .ledger.in div:nth-child(6){animation-delay:.5s}.js .ledger.in div:nth-child(7){animation-delay:.6s}.js .ledger.in div:nth-child(8){animation-delay:.7s}.js .ledger.in div:nth-child(9){animation-delay:.8s}.js .ledger.in div:nth-child(10){animation-delay:.9s}
+@media (max-width:900px){.data-grid{grid-template-columns:1fr}}
+
+/* AI */
+.ai{background:var(--surface-2)}
+.ai-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,72px);align-items:start}
+.chat{background:var(--chassis);border:1px solid var(--chassis-line);border-radius:10px;padding:20px;color:var(--chassis-ink);display:grid;gap:18px;font-size:.88rem}
+.msg{display:grid;grid-template-columns:30px minmax(0,1fr);gap:12px}
+.js .chat.in .msg{animation:rise .6s var(--ease) both}
+.js .chat.in .msg:nth-child(2){animation-delay:.5s}.js .chat.in .msg:nth-child(3){animation-delay:1.4s}.js .chat.in .msg:nth-child(4){animation-delay:2s}
+.msg .av{width:30px;height:30px;border-radius:7px;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:.72rem;background:var(--chassis-3);color:var(--chassis-muted)}
+.msg.hq .av{background:var(--accent);color:var(--accent-ink)}
+.msg .who{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--chassis-muted);margin-bottom:5px}
+.msg p{line-height:1.5}
+.msg table{border-collapse:collapse;width:100%;margin:10px 0 6px;font-family:var(--mono);font-size:.74rem;font-variant-numeric:tabular-nums}
+.msg th,.msg td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--chassis-line);white-space:nowrap}
+.msg th{color:var(--chassis-muted);font-weight:400;font-size:.64rem;letter-spacing:.08em;text-transform:uppercase}
+.msg td:not(:first-child),.msg th:not(:first-child){text-align:right}
+.msg .tbl{overflow-x:auto}
+.msg .act{display:inline-flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.msg .act span{border:1px solid var(--chassis-line);border-radius:4px;padding:5px 9px;font-size:.74rem;background:var(--chassis-2)}
+.ai-list{display:grid;gap:14px;margin-top:28px}
+.ai-item{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start}
+.ai-item .dot{width:10px;height:10px;border-radius:2px;background:var(--accent);margin-top:7px}
+.ai-item b{display:block;font-family:var(--display);font-size:1.05rem}
+.ai-item span{color:var(--ink-2);font-size:.93rem}
+@media (max-width:900px){.ai-grid{grid-template-columns:1fr}}
+
+/* reporting */
+.report-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.rep{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 30px 60px -40px rgba(20,23,27,.35)}
+.rep-bar{display:flex;gap:8px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--surface-2);font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.rep-bar span{margin-left:auto;color:var(--accent)}
+.rep-tabs{display:flex;gap:4px;padding:10px 12px 0;border-bottom:1px solid var(--line);overflow-x:auto}
+.rep-tabs button{font:inherit;font-size:.8rem;font-weight:600;background:none;border:0;border-bottom:2px solid transparent;padding:8px 10px;color:var(--muted);cursor:pointer;white-space:nowrap}
+.rep-tabs button.on{color:var(--ink);border-bottom-color:var(--accent)}
+.rep-body{padding:16px;display:grid;gap:14px}
+.rep-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.rk{background:var(--surface-2);border-radius:6px;padding:10px 12px}
+.rk small{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.rk b{display:block;font-family:var(--display);font-size:1.25rem;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin-top:4px}
+.rk i{font-style:normal;font-size:.7rem;color:var(--good);font-family:var(--mono)}
+.rk i.dn{color:var(--bad)}
+.rep-chart{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:end}
+.rep-chart .y{display:grid;font-family:var(--mono);font-size:.6rem;color:var(--muted);align-content:space-between;height:120px;text-align:right}
+.bars{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px;height:120px;align-items:end;border-bottom:1px solid var(--line);border-left:1px solid var(--line);padding-left:6px}
+.bars i{display:block;background:var(--ink);border-radius:3px 3px 0 0;transform-origin:bottom;height:var(--h)}
+.bars i.a{background:var(--accent)}
+.js .rep.in .bars i{animation:growY .9s var(--ease) both}
+@keyframes growY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.js .rep.in .bars i:nth-child(n){animation-delay:calc(var(--i) * .06s)}
+.x{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px;font-family:var(--mono);font-size:.58rem;color:var(--muted);text-align:center;padding-left:6px;grid-column:2}
+.rep-table{font-size:.78rem;border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+.rep-table th{text-align:left;font-family:var(--mono);font-weight:400;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:6px 8px;border-bottom:1px solid var(--line)}
+.rep-table td{padding:7px 8px;border-bottom:1px solid var(--line-2);white-space:nowrap}
+.rep-table td:not(:first-child),.rep-table th:not(:first-child){text-align:right}
+.rep-table .wrapx{overflow-x:auto}
+.rep-list{display:grid;gap:12px;margin-top:26px}
+.rep-list div{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:start;font-size:.95rem;color:var(--ink-2)}
+.rep-list b{color:var(--ink);font-family:var(--display)}
+.rep-list .dot{width:10px;height:10px;border-radius:2px;background:var(--accent);margin-top:7px}
+@media (max-width:900px){.report-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.rep-kpis{grid-template-columns:1fr 1fr}}
+
+/* who */
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.who-col{background:#fff;padding:clamp(24px,3.5vw,40px)}
+.who-col .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.who-col h3{font-size:1.6rem;font-variation-settings:"wdth" 108;letter-spacing:-.02em;margin-bottom:12px}
+.who-col p{color:var(--ink-2)}
+.who-col dl{margin:22px 0 0;display:grid;gap:14px}
+.who-col dt{font-weight:600;font-family:var(--display)}
+.who-col dd{margin:2px 0 0;color:var(--ink-2);font-size:.93rem}
+@media (max-width:820px){.who-grid{grid-template-columns:1fr}}
+.marquee{overflow:hidden;margin-top:22px;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee .track{display:flex;gap:10px;width:max-content;animation:marquee 38s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.marquee span{font-family:var(--mono);font-size:.74rem;padding:8px 12px;border:1px solid var(--line);border-radius:4px;color:var(--ink-2);background:#fff;white-space:nowrap}
+
+/* story */
+.story{background:var(--surface-2)}
+.story-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:start}
+.story blockquote{margin:0;font-family:var(--display);font-size:clamp(1.4rem,2.6vw,2rem);font-weight:600;line-height:1.2;letter-spacing:-.02em;font-variation-settings:"wdth" 104;text-wrap:balance}
+.story blockquote footer{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:18px;font-weight:400}
+.story .copy{display:grid;gap:16px;color:var(--ink-2)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:28px}
+.fact{background:#fff;padding:18px}
+.fact b{display:block;font-family:var(--display);font-size:1.5rem;letter-spacing:-.02em;font-variation-settings:"wdth" 108}
+.fact span{font-size:.82rem;color:var(--muted)}
+@media (max-width:900px){.story-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.facts{grid-template-columns:1fr}}
+
+/* demo */
+.demo-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,72px);align-items:start}
+form.demo-form{background:#fff;border:1px solid var(--line);border-radius:8px;padding:clamp(20px,3vw,32px);display:grid;gap:16px;box-shadow:0 30px 60px -45px rgba(20,23,27,.4)}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:grid;gap:6px;font-size:.85rem;font-weight:600}
+label span.opt{font-weight:400;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:.95rem;padding:11px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-2);color:var(--ink);width:100%;transition:border-color .15s}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);background:#fff}
+textarea{min-height:90px;resize:vertical}
+fieldset{border:0;padding:0;margin:0;display:grid;gap:8px}
+legend{font-size:.85rem;font-weight:600;margin-bottom:8px}
+.checks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.check{display:flex;align-items:center;gap:8px;font-weight:500;font-size:.85rem;border:1px solid var(--line);border-radius:var(--radius);padding:9px 10px;cursor:pointer;background:var(--surface-2);transition:all .15s}
+.check:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.check input{width:auto;accent-color:var(--accent)}
+.form-foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:4px}
+.form-foot small{color:var(--muted);font-size:.8rem}
+.sent{display:none;background:var(--accent-soft);border:1px solid var(--accent);border-radius:var(--radius);padding:12px 14px;font-size:.9rem;animation:pop .3s var(--ease) both}
+.sent.show{display:block}
+.demo-side{display:grid;gap:20px}
+.steps{display:grid;gap:0;border-top:1px solid var(--line);margin-top:8px}
+.step{display:grid;grid-template-columns:36px minmax(0,1fr);gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step .no{font-family:var(--mono);font-size:.72rem;color:var(--accent);padding-top:4px}
+.step b{display:block;font-family:var(--display);font-size:1.05rem;margin-bottom:4px}
+.step span{color:var(--ink-2);font-size:.93rem}
+@media (max-width:900px){.demo-grid{grid-template-columns:1fr}}
+@media (max-width:620px){.f2{grid-template-columns:1fr}.checks{grid-template-columns:1fr 1fr}}
+
+/* footer */
+footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background:var(--surface-2)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-start}
+.foot .flinks{display:flex;flex-wrap:wrap;gap:18px;font-size:.88rem}
+.foot .flinks a{text-decoration:none;color:var(--ink-2)}
+.foot small{display:block;color:var(--muted);font-size:.8rem;margin-top:12px;max-width:52ch}
+.foot .mono{font-size:.72rem;color:var(--muted)}
+
+/* Colebot */
+.cb-launch{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:90;display:flex;align-items:center;gap:10px;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:10px 16px 10px 10px;font-family:var(--display);font-weight:700;font-size:.9rem;cursor:pointer;box-shadow:0 14px 34px -14px rgba(20,23,27,.6);transition:transform .2s var(--ease)}
+.cb-launch:hover{transform:translateY(-2px)}
+.cb-launch .av{width:32px;height:32px;border-radius:50%;background:var(--accent);display:grid;place-items:center;font-size:.78rem;animation:pulse 2.6s ease-out infinite}
+.cb-launch .dot{width:8px;height:8px;border-radius:50%;background:#6FD597;margin-left:2px}
+.cb-launch.hide{display:none}
+.cb{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:95;width:min(380px,calc(100vw - 32px));height:min(600px,calc(100vh - 100px));background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 30px 80px -30px rgba(20,23,27,.55);display:none;flex-direction:column;overflow:hidden;animation:pop .3s var(--ease) both}
+.cb.open{display:flex}
+.cb-head{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--ink);color:#fff}
+.cb-head .av{width:36px;height:36px;border-radius:50%;background:var(--accent);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:.85rem}
+.cb-head b{display:block;font-family:var(--display);font-size:.98rem}
+.cb-head small{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.cb-head small i{width:7px;height:7px;border-radius:50%;background:#6FD597}
+.cb-head button{margin-left:auto;background:rgba(255,255,255,.12);border:0;color:#fff;width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:1.1rem;line-height:1}
+.cb-log{flex:1;overflow-y:auto;padding:16px 14px;display:flex;flex-direction:column;gap:10px;background:var(--surface-2)}
+.cb-m{max-width:85%;padding:10px 12px;border-radius:12px;font-size:.9rem;line-height:1.45;animation:pop .3s var(--ease) both;white-space:pre-line}
+.cb-m.bot{background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start}
+.cb-m.me{background:var(--ink);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.cb-typing{display:inline-flex;gap:4px;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:12px;border-bottom-left-radius:4px;align-self:flex-start}
+.cb-typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:blink 1.2s infinite}
+.cb-typing i:nth-child(2){animation-delay:.2s}.cb-typing i:nth-child(3){animation-delay:.4s}
+.cb-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 10px;background:var(--surface-2)}
+.cb-chips button{font:inherit;font-size:.82rem;font-weight:600;padding:7px 11px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;animation:pop .3s var(--ease) both;transition:all .15s}
+.cb-chips button:hover{border-color:var(--accent);color:var(--accent)}
+.cb-chips button.sel{background:var(--accent);border-color:var(--accent);color:#fff}
+.cb-in{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line);background:#fff}
+.cb-in input{flex:1;padding:10px 12px;border-radius:999px}
+.cb-in button{background:var(--accent);color:#fff;border:0;width:42px;height:42px;border-radius:50%;cursor:pointer;display:grid;place-items:center;flex:none}
+.cb-in button svg{width:18px;height:18px}
+.cb-foot{font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:center;padding:6px;background:#fff}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="HQ home">
+      <div class="mark">HQ</div>
+      <span>HQ<small>Dealer operating system</small></span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#modules">Modules</a>
+      <a href="#stack">Build your stack</a>
+      <a href="#data">Your data</a>
+      <a href="#ai">Ask HQ</a>
+      <a href="#reporting">Reporting</a>
+      <a href="#who">Who it's for</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="#stack">Price a stack</a>
+      <a class="btn btn-primary" href="#demo">Book a demo</a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileLinks">MENU</button>
+    </div>
+  </div>
+  <nav class="mobile-links" id="mobileLinks" aria-label="Primary mobile">
+    <a href="#modules">Modules</a>
+    <a href="#stack">Build your stack</a>
+    <a href="#data">Your data</a>
+    <a href="#ai">Ask HQ</a>
+    <a href="#reporting">Reporting</a>
+    <a href="#who">Who it's for</a>
+    <a href="#demo">Book a demo</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<section class="hero" id="platform">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow"><b>CRM</b><i>/</i><b>AI</b><i>/</i><b>Desking</b><i>/</i><b>DMS</b><i>/</i><b>Transport</b><i>/</i><b>Website</b><i>/</i><b>Digital retail</b><i>/</i><b>Live chat</b><i>/</i><b>Marketplace</b><i>/</i><b>Reporting</b></div>
+      <h1>The whole dealership on one host. <em>Your data, in your hands.</em></h1>
+      <p class="lede">HQ replaces the stack of vendors a dealer pays to keep apart. Leads, deals, units, service, transport, your website and your reporting run in one system on one database you own. Start with a single module or take the whole host. Built for franchise and independent dealers who are done renting access to their own numbers.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#demo">Book a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#stack">Build your stack</a>
+        <span class="note">Powersports, auto, RV and marine rooftops.</span>
+      </div>
+      <div class="hero-stats">
+        <div><strong data-count="10">0</strong>modules, à la carte</div>
+        <div><strong data-count="1">0</strong>database, yours</div>
+        <div><strong data-count="0">0</strong>exit fees on your data</div>
+        <div><strong>24/7</strong>Colebot working your leads</div>
+      </div>
+    </div>
+
+    <div class="frame-wrap" aria-label="HQ product preview">
+      <div class="frame reveal-frame" role="img" aria-label="A preview of the HQ desk showing today's deals, transport lanes, unit readiness and the AI assistant">
+        <div class="frame-bar">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="url">hq.yourdealership.com/desk</div>
+          <div class="who">Both stores · Tue 8:04 AM</div>
+        </div>
+        <div class="frame-body">
+          <aside class="side" aria-hidden="true">
+            <div class="grp">Desk</div>
+            <a class="on" href="#platform"><span class="k"></span>Today</a>
+            <a href="#modules"><span class="k"></span>Leads</a>
+            <a href="#modules"><span class="k"></span>Deals</a>
+            <a href="#modules"><span class="k"></span>Units</a>
+            <a href="#modules"><span class="k"></span>Buying</a>
+            <div class="grp">Operations</div>
+            <a href="#modules"><span class="k"></span>Service board</a>
+            <a href="#modules"><span class="k"></span>Transport</a>
+            <a href="#modules"><span class="k"></span>Office &amp; titles</a>
+            <div class="grp">Marketing</div>
+            <a href="#modules"><span class="k"></span>Website</a>
+            <a href="#modules"><span class="k"></span>Marketplace</a>
+            <a href="#modules"><span class="k"></span>Live chat</a>
+            <div class="grp">System</div>
+            <a href="#reporting"><span class="k"></span>Reports</a>
+            <a href="#ai"><span class="k"></span>Ask HQ</a>
+          </aside>
+          <div class="main">
+            <div class="tile c3"><h4>Units sold MTD <span>pace 61</span></h4><div class="kpi"><span data-count="47">0</span><small>goal 60 · <b class="up">+9</b> vs last month</small></div><div class="bar"><i style="width:78%"></i></div></div>
+            <div class="tile c3"><h4>Front + back gross</h4><div class="kpi">$<span data-count="212480">0</span><small>$4,521 per unit · back 38%</small></div><div class="bar"><i style="width:66%"></i></div></div>
+            <div class="tile c3"><h4>Leads · last 24h</h4><div class="kpi"><span data-count="38">0</span><small>14 web · 11 Messenger · 9 Marketplace · 4 chat</small></div><div class="bar"><i style="width:52%"></i></div></div>
+            <div class="tile c3"><h4>Units ready to sell</h4><div class="kpi"><span data-count="184">0</span><small>22 in prep · 9 need photos</small></div><div class="bar"><i style="width:84%"></i></div></div>
+
+            <div class="tile c7">
+              <h4>Deals on the desk <span>4 need F&amp;I</span></h4>
+              <div class="rows">
+                <div class="row"><div class="n">Marcus T. · 2023 Road Glide ST</div><div class="m">Trade in · 720 mid score</div><div class="mono hide-s">$26,995</div><span class="pill w">Desking</span></div>
+                <div class="row"><div class="n">Alyssa R. · 2024 RZR Pro R 4</div><div class="m">Built online · $0 down</div><div class="mono hide-s">$38,900</div><span class="pill g">Approved</span></div>
+                <div class="row"><div class="n">Dan &amp; Kim P. · 2022 Silverado LT</div><div class="m">Stip: proof of income</div><div class="mono hide-s">$34,450</div><span class="pill b">Stips</span></div>
+                <div class="row"><div class="n">Jordan W. · 2025 Ranger XP 1000</div><div class="m">Delivery Fri · 3 hr run</div><div class="mono hide-s">$21,499</div><span class="pill a">Sign &amp; deliver</span></div>
+              </div>
+            </div>
+
+            <div class="tile c5">
+              <h4>Ask HQ</h4>
+              <div class="ask"><div class="av">HQ</div><div>
+                <p class="q">"What sold yesterday, how old was it, and what should we go buy?"</p>
+                <p id="typeTarget" data-text="Three units, average 31 days on lot, $4,910 avg front. Two were Harley touring under $20k, both had 3+ leads in the first week. Eleven similar units are listed within 250 miles under your buy ceiling. Want the list on the Buying board?"></p>
+              </div></div>
+            </div>
+
+            <div class="tile c12">
+              <h4>Transport lanes <span>2 drivers out</span></h4>
+              <div class="lanes">
+                <div class="lane"><b>Pickups</b><div class="card">2019 Street Glide · Louisville<small>buy from public · title in hand</small></div><div class="card">2021 Can-Am X3 · Lafayette<small>dealer buy bid #4412</small></div></div>
+                <div class="lane"><b>Transfers</b><div class="card">4 units · Clarksville → Columbus<small>Wed · Hunter · 6:30 AM</small></div></div>
+                <div class="lane"><b>Deliveries</b><div class="card">Ranger XP 1000 · Jordan W.<small>Fri · 44 mi · signed</small></div><div class="card">Silverado LT · Dan P.<small>hold: stips</small></div></div>
+                <div class="lane"><b>Service runs</b><div class="card">Tires · Columbus warehouse<small>today · 2:00 PM</small></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="replace">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="reveal">
+        <div class="eyebrow">What one host replaces</div>
+        <h2>Ten contracts. Ten logins. Ten copies of the same customer.</h2>
+      </div>
+      <p class="lede reveal" data-delay="1">Most dealers stitch together a CRM, a DMS, a desking tool, a website vendor, a chat vendor, a digital retail plug-in, a Marketplace posting service, a reporting subscription, a transport spreadsheet and a growing list of AI add-ons. Each one holds a slice of your data hostage. HQ puts all of it in one place.</p>
+    </div>
+    <div class="replace-grid">
+      <div class="vendor reveal"><b>CRM</b><span>Lead vendor</span></div>
+      <div class="vendor reveal" data-delay="1"><b>AI</b><span>Chatbot add-on</span></div>
+      <div class="vendor reveal" data-delay="2"><b>Desking</b><span>Menu tool</span></div>
+      <div class="vendor reveal" data-delay="3"><b>DMS</b><span>Legacy DMS</span></div>
+      <div class="vendor reveal" data-delay="4"><b>Transport</b><span>Spreadsheet</span></div>
+      <div class="vendor reveal"><b>Website</b><span>Site vendor</span></div>
+      <div class="vendor reveal" data-delay="1"><b>Digital retail</b><span>Checkout plug-in</span></div>
+      <div class="vendor reveal" data-delay="2"><b>Live chat</b><span>Chat vendor</span></div>
+      <div class="vendor reveal" data-delay="3"><b>Marketplace</b><span>Posting service</span></div>
+      <div class="vendor reveal" data-delay="4"><b>Reporting</b><span>BI subscription</span></div>
+      <div class="one reveal"><b>HQ</b><small>One host. One database. One bill. Buy only the modules you need.</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="modules">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="reveal">
+        <div class="eyebrow">The modules</div>
+        <h2>Everything a rooftop runs on, sharing one set of records.</h2>
+      </div>
+      <p class="lede reveal" data-delay="1">Turn on what you need. Every module reads and writes the same customers, units and deals, so nothing gets re-keyed and nothing gets lost between systems. Add a module to your stack from any card.</p>
+    </div>
+    <div class="mods">
+      <article class="mod reveal" data-mod="CRM">
+        <div class="glyph"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7"/><path d="M17.5 14a6 6 0 0 1 4 5.5"/></svg></div>
+        <div class="tag">CRM</div>
+        <h3>Every lead, every channel, one record.</h3>
+        <p>Website forms, Messenger, Marketplace, texts, chat, phone calls, walk-ins and dealer buy bids land on the same customer card with the ad that produced them.</p>
+        <ul>
+          <li>Source and ad-level attribution on every lead</li>
+          <li>Pre-approvals stamped to the contact and the deal</li>
+          <li>Vehicle-of-interest alerts when the unit lands</li>
+          <li>Return-visit hit list from your own site traffic</li>
+          <li>A buying-side CRM for sellers, not just buyers</li>
+        </ul>
+        <button class="mod-addbtn" type="button" data-add="CRM">+ Add to my stack</button>
+      </article>
+      <article class="mod reveal" data-delay="1" data-mod="AI">
+        <div class="glyph"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/><path d="M4 16l.6 1.4 1.4.6-1.4.6L4 20l-.6-1.4L2 18l1.4-.6z"/></svg></div>
+        <div class="tag">AI · Ask HQ</div>
+        <h3>An assistant that lives inside your numbers.</h3>
+        <p>Ask HQ works from your database, not a generic model of a dealership. It answers with your units, your grosses and your leads, then does the work.</p>
+        <ul>
+          <li>Daily read: what sold, how old it was, what it made</li>
+          <li>Writes listings and follow-ups in your voice</li>
+          <li>Prices units from market comps and your history</li>
+          <li>Audits ads, bots and reps against real outcomes</li>
+          <li>Every answer traceable to the rows it came from</li>
+        </ul>
+        <button class="mod-addbtn" type="button" data-add="AI">+ Add to my stack</button>
+      </article>
+      <article class="mod reveal" data-delay="2" data-mod="Desking">
+        <div class="glyph"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 13h3M8 16h5"/></svg></div>
+        <div class="tag">Desking</div>
+        <h3>Desk the deal where the customer already is.</h3>
+        <p>Payments, trades, rebates, fees and the F&amp;I menu on one screen. Push to your lenders and your credit bureau without leaving the deal.</p>
+        <ul>
+          <li>Payment grid with term, rate and money-down scenarios</li>
+          <li>Credit pulls and lender submissions from the deal</li>
+          <li>F&amp;I menu with live provider rating</li>
+          <li>State forms, e-signature and a stips checklist</li>
+          <li>Front and back gross visible in real time</li>
+        </ul>
+        <button class="mod-addbtn" type="button" data-add="Desking">+ Add to my stack</button>
+      </article>
+      <article class="mod reveal" data-mod="DMS">
+        <div class="glyph"><svg viewBox="0 0 24 24"><path d="M4 7l8-4 8 4v10l-8 4-8-4z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg></div>
+        <div class="tag">DMS</div>
+        <h3>Units, service, parts and titles in a database you own.</h3>
+        <p>Inventory from intake to sold, repair orders and technician time, parts and the office paperwork that closes a deal, all in one system.</p>
+        <ul>
+          <li>Unit readiness: prepped, photographed, online, priced</li>
+          <li>Service board with open RO aging and tech productivity</li>
+          <li>Titles and stips tracked to the day</li>
+          <li>Accounting handoff to the ledger you already use</li>
+          <li>Role-based permissions by department and store</li>
+        </ul>
+        <button class="mod-addbtn" type="button" data-add="DMS">+ Add to my stack</button>
+      </article>
+      <article class="mod reveal" data-delay="1" data-mod="Transport">
+        <div class="glyph"><svg viewBox="0 0 24 24"><path d="M2 16V7a1 1 0 0 1 1-1h11v10"/><path d="M14 9h4.5l3.5 4v3h-8"/><circle cx="6.5" cy="17.5" r="2"/><circle cx="17.5" cy="17.5" r="2"/></svg></div>
+        <div class="tag">Transport &amp; Logistics</div>
+        <h3>Dispatch every pickup, transfer and delivery.</h3>
+        <p>A lane board for drivers, a schedule the sales floor can see, and a paper trail for every unit that moves.</p>
+        <ul>
+          <li>Pickups from public sellers and dealer buy runs</li>
+          <li>Store-to-store transfers with the units attached</li>
+          <li>Customer deliveries tied to the signed deal</li>
+          <li>Driver view on the phone with photos and signatures</li>
+          <li>Miles, hours and cost per move on the report</li>
+        </ul>
+        <button class="mod-addbtn" type="button" data-add="Transport">+ Add to my stack</button>
+      </article>
+      <article class="mod reveal" data-delay="2" data-mod="Website">
+        <div class="glyph"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+        <div class="tag">Website</div>
+        <h3>Your site, served from your inventory.</h3>
+        <p>No third-party feed lag, no vendor markup on your own listings. Units appear the moment they're ready and drop the moment they sell.</p>
+        <ul>
+          <li>Inventory, pricing and photos straight from the DMS</li>
+          <li>Pre-approval and full credit app on every unit page</li>
+          <li>Search pages you can publish yourself, daily</li>
+          <li>Feeds to Meta and Google vehicle catalogs</li>
+          <li>Visitor tracking that flows back to the CRM record</li>
+        </ul>
+        <button class="mod-addbtn" type="button" data-add="Website">+ Add to my stack</button>
+      </article>
+    </div>
+
+    <div class="addons-head reveal">
+      <h3>Add-ons that turn traffic into signed deals</h3>
+      <p>Each one plugs into the same customer record. Buy one, buy all four.</p>
+    </div>
+    <div class="mods addons">
+      <article class="mod reveal" data-mod="Digital Retail">
+        <div class="glyph"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
+        <div class="tag">Digital retail</div>
+        <h3>Let the customer build the deal at midnight.</h3>
+        <p>Payment, trade value, protection products and a real pre-approval on the unit page. The deal lands on the desk already structured.</p>
+        <ul>
+          <li>Live payments with your rates and fees</li>
+          <li>Trade appraisal and instant offer</li>
+          <li>Soft-pull pre-approval, full app when ready</li>
+          <li>Hold-my-unit deposits</li>
+        </ul>
+        <button class="mod-addbtn" type="button" data-add="Digital Retail">+ Add to my stack</button>
+      </article>
+      <article class="mod reveal" data-delay="1" data-mod="Live Chat">
+        <div class="glyph"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg></div>
+        <div class="tag">Live chat · Colebot</div>
+        <h3>Colebot answers in seconds, your team closes.</h3>
+        <p>The same AI you're talking to on this page, trained on your inventory and your store. It qualifies, books appointments and hands off to a rep when it's time.</p>
+        <ul>
+          <li>Website, Messenger and text in one inbox</li>
+          <li>Knows your units, hours, payments and programs</li>
+          <li>Captures name, unit and contact before handoff</li>
+          <li>Every conversation on the CRM record</li>
+        </ul>
+        <button class="mod-addbtn" type="button" data-add="Live Chat">+ Add to my stack</button>
+      </article>
+      <article class="mod reveal" data-delay="2" data-mod="Marketplace">
+        <div class="glyph"><svg viewBox="0 0 24 24"><path d="M3 9l2-5h14l2 5"/><path d="M3 9h18v11H3z"/><path d="M9 20v-6h6v6"/></svg></div>
+        <div class="tag">Marketplace conversions</div>
+        <h3>Post every unit everywhere. Convert the replies.</h3>
+        <p>Facebook Marketplace, OEM and classified listings straight from your inventory, with every "is this available?" turned into a tracked lead with a payment and a next step.</p>
+        <ul>
+          <li>Auto-post and refresh listings per store</li>
+          <li>Instant reply with payment and photos</li>
+          <li>Sold units pulled the moment they deliver</li>
+          <li>Cost and conversion per channel on the report</li>
+        </ul>
+        <button class="mod-addbtn" type="button" data-add="Marketplace">+ Add to my stack</button>
+      </article>
+      <article class="mod reveal" data-delay="3" data-mod="Reporting">
+        <div class="glyph"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div>
+        <div class="tag">Detailed reporting</div>
+        <h3>The numbers you manage by, every morning.</h3>
+        <p>Sales, service, buying and marketing scorecards built from your own tables. The same reports we run our two stores on, with the goal and the pace next to every figure.</p>
+        <ul>
+          <li>Weekly 1-on-1 scorecards per department</li>
+          <li>Ad spend to approvals to deals, per ad</li>
+          <li>Wallboards for the floor and the shop</li>
+          <li>Export or query any report directly</li>
+        </ul>
+        <button class="mod-addbtn" type="button" data-add="Reporting">+ Add to my stack</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="stack" id="stack">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="reveal">
+        <div class="eyebrow">Modular stack · à la carte</div>
+        <h2>Buy the modules you need. Add the rest when you're ready.</h2>
+      </div>
+      <p class="lede reveal" data-delay="1">Nobody makes you rip out a DMS on day one. Start with the piece that hurts most, run it beside what you have, and add modules as they earn it. Pricing is set per rooftop for the modules you turn on. No per-seat licenses, no data exit fees.</p>
+    </div>
+    <div class="stack-grid">
+      <div class="chips reveal" id="chips">
+        <button class="chip" type="button" data-mod="CRM"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>CRM</b><small>Leads, attribution, buying CRM</small></span></button>
+        <button class="chip" type="button" data-mod="AI"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>AI · Ask HQ</b><small>Assistant on your data</small></span></button>
+        <button class="chip" type="button" data-mod="Desking"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Desking</b><small>Payments, credit, F&amp;I, e-sign</small></span></button>
+        <button class="chip" type="button" data-mod="DMS"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>DMS</b><small>Units, service, parts, titles</small></span></button>
+        <button class="chip" type="button" data-mod="Transport"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Transport &amp; Logistics</b><small>Dispatch, drivers, transfers</small></span></button>
+        <button class="chip" type="button" data-mod="Website"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Website</b><small>Served from your inventory</small></span></button>
+        <button class="chip" type="button" data-mod="Digital Retail"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Digital retail</b><small>Build the deal online</small></span></button>
+        <button class="chip" type="button" data-mod="Live Chat"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Live chat · Colebot</b><small>AI chat that hands off to reps</small></span></button>
+        <button class="chip" type="button" data-mod="Marketplace"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Marketplace conversions</b><small>Post everywhere, convert replies</small></span></button>
+        <button class="chip" type="button" data-mod="Reporting"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Detailed reporting</b><small>Scorecards and wallboards</small></span></button>
+      </div>
+      <div class="stack-vis reveal" data-delay="2">
+        <h3>Your stack <span id="stackCount">0 of 10 modules</span></h3>
+        <div class="blocks" id="blocks"></div>
+        <div class="stack-foot">
+          <div class="row2"><span>Rooftops</span><b><select id="stackRooftops" style="width:auto;padding:4px 8px;font-size:.9rem"><option>1</option><option>2</option><option>3 to 5</option><option>6 to 12</option><option>More than 12</option></select></b></div>
+          <div class="row2"><span>Pricing model</span><b>Per rooftop · per module</b></div>
+          <div class="row2"><span>Seats</span><b>Unlimited</b></div>
+          <a class="btn btn-primary" href="#demo" id="quoteBtn">Get a quote for this stack</a>
+          <button class="btn btn-ghost" type="button" id="stackChat">Ask Colebot about it</button>
+          <p class="stack-note">Your selection carries into the demo request and into Colebot, so nobody has to ask twice.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="data" id="data">
+  <div class="wrap">
+    <div class="data-grid">
+      <div class="reveal">
+        <div class="eyebrow">The dealer in control</div>
+        <h2 style="margin:14px 0 22px">It's your data. <em>Act like it.</em></h2>
+        <p class="lede">Legacy dealer software was built to make leaving expensive. Your customers, your deal history and your inventory sit behind a vendor's login, exported at their price and on their schedule. HQ was built by dealers who lived that way and decided to stop.</p>
+        <div class="ledger reveal-ledger" style="margin-top:32px" aria-label="Example of the data export HQ gives every dealer">
+          <div class="hd"><span>your-dealership · export</span><span>all tables · nightly</span></div>
+          <div><span class="c"># every record, in open formats, on your schedule</span></div>
+          <div><span class="k">customers</span>       <span class="s">14,208 rows</span>  csv · json</div>
+          <div><span class="k">leads</span>           <span class="s">31,977 rows</span>  csv · json</div>
+          <div><span class="k">conversations</span>   <span class="s">88,410 rows</span>  csv · json</div>
+          <div><span class="k">deals</span>            <span class="s">6,412 rows</span>  csv · json</div>
+          <div><span class="k">units</span>            <span class="s">9,130 rows</span>  csv · json</div>
+          <div><span class="k">repair_orders</span>   <span class="s">18,554 rows</span>  csv · json</div>
+          <div><span class="k">transport_moves</span>  <span class="s">2,890 rows</span>  csv · json</div>
+          <div><span class="c"># plus a read API, so your own tools can ask the same questions HQ does</span></div>
+        </div>
+      </div>
+      <div class="claims">
+        <div class="claim reveal"><div class="no">01</div><div><h3>Your database, your keys</h3><p>Each dealer group runs on its own database. Your records are never pooled with another dealer's, and you hold administrative access to them.</p></div></div>
+        <div class="claim reveal" data-delay="1"><div class="no">02</div><div><h3>Export everything, any time, for free</h3><p>Every table and every document is exportable in open formats from day one. Leaving HQ is never a negotiation.</p></div></div>
+        <div class="claim reveal" data-delay="2"><div class="no">03</div><div><h3>Open API, not a walled garden</h3><p>Connect the tools you already trust. Your accountant, your ad platforms and your own scripts read the same data HQ does.</p></div></div>
+        <div class="claim reveal" data-delay="3"><div class="no">04</div><div><h3>Your AI learns from you alone</h3><p>Ask HQ and Colebot work from your rooftop's records. Nothing you ask, and nothing they learn about your pricing or your customers, trains a model for anyone else.</p></div></div>
+        <div class="claim reveal" data-delay="4"><div class="no">05</div><div><h3>Permissions that fit a real store</h3><p>Roles by department and rooftop, templated so a new hire gets the right access on day one and loses it the day they leave.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ai" id="ai">
+  <div class="wrap">
+    <div class="ai-grid">
+      <div class="reveal">
+        <div class="eyebrow">Ask HQ</div>
+        <h2 style="margin:14px 0 20px">The first manager in the building every morning.</h2>
+        <p class="lede">Most dealer AI is a chatbot bolted to a website. Ask HQ sits on top of your entire operation, reads the same rows your managers do, and turns the answer into the next action.</p>
+        <div class="ai-list">
+          <div class="ai-item"><div class="dot"></div><div><b>Morning read, automatically</b><span>Sold, grosses, aged units, open ROs and yesterday's lead count in one message before the doors open.</span></div></div>
+          <div class="ai-item"><div class="dot"></div><div><b>Buying that follows demand</b><span>Sees what just sold and how fast, then finds the same units within your buying radius under your ceiling.</span></div></div>
+          <div class="ai-item"><div class="dot"></div><div><b>Listings and follow-ups written for you</b><span>Photos come in from the shop, a description and a price go out to the website, Marketplace and your ad catalogs.</span></div></div>
+          <div class="ai-item"><div class="dot"></div><div><b>Audits you can act on</b><span>Which ads produce approvals, which reps answer inside five minutes, which chat replies lose the customer.</span></div></div>
+        </div>
+      </div>
+      <div class="chat reveal-chat" role="img" aria-label="Example conversation with Ask HQ about yesterday's sales and next buys">
+        <div class="msg"><div class="av">GM</div><div><div class="who">General manager · 7:52 AM</div><p>What sold yesterday, how old was it in stock, how many leads did each get, and what did we make?</p></div></div>
+        <div class="msg hq"><div class="av">HQ</div><div><div class="who">Ask HQ</div>
+          <p>Three units sold Monday across both stores.</p>
+          <div class="tbl"><table>
+            <thead><tr><th>Unit</th><th>Days</th><th>Leads</th><th>Front</th><th>Back</th></tr></thead>
+            <tbody>
+              <tr><td>2021 Street Glide Special</td><td>19</td><td>7</td><td>$4,210</td><td>$1,890</td></tr>
+              <tr><td>2023 RZR XP 1000</td><td>44</td><td>3</td><td>$2,975</td><td>$2,240</td></tr>
+              <tr><td>2018 Road King</td><td>31</td><td>5</td><td>$3,860</td><td>$1,120</td></tr>
+            </tbody>
+          </table></div>
+          <p>Touring Harleys under $20k are turning in under 30 days with 5 or more leads each. I found 11 comparable units listed within 250 miles below your buy ceiling. Two are dealer trades you've bought from before.</p>
+          <div class="act"><span>Add 11 to Buying board</span><span>Text the two dealers</span><span>Show the comps</span></div>
+        </div></div>
+        <div class="msg"><div class="av">GM</div><div><div class="who">General manager</div><p>Add them and text the dealers. Ask for their bottom number by noon.</p></div></div>
+        <div class="msg hq"><div class="av">HQ</div><div><div class="who">Ask HQ</div><p>Done. 11 finds added to the Buying board under Touring, two dealer texts sent from the store number, follow-ups scheduled for 12:15 if nobody answers.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reporting">
+  <div class="wrap">
+    <div class="report-grid">
+      <div class="rep reveal-rep reveal" role="img" aria-label="Example sales scorecard with month-to-date units, gross, lead cost and a twelve-week trend">
+        <div class="rep-bar">Sales · 1-on-1 scorecard · week 38 <span>vs goal</span></div>
+        <div class="rep-tabs" role="tablist" aria-label="Report departments">
+          <button class="on" type="button" data-tab="sales">Sales</button><button type="button" data-tab="service">Service</button><button type="button" data-tab="buying">Buying</button><button type="button" data-tab="ads">Ads</button><button type="button" data-tab="chat">Chat &amp; Marketplace</button>
+        </div>
+        <div class="rep-body" id="repBody">
+          <div class="rep-kpis">
+            <div class="rk"><small>Units MTD</small><b>47</b><i>pace 61 / goal 60</i></div>
+            <div class="rk"><small>Total gross</small><b>$212k</b><i>+11% vs Aug</i></div>
+            <div class="rk"><small>Cost per deal</small><b>$318</b><i class="dn">+$22 wk</i></div>
+            <div class="rk"><small>Reply under 5 min</small><b>84%</b><i>+6 pts</i></div>
+          </div>
+          <div class="rep-chart">
+            <div class="y"><span>20</span><span>10</span><span>0</span></div>
+            <div class="bars" aria-hidden="true">
+              <i style="--h:45%;--i:0"></i><i style="--h:60%;--i:1"></i><i style="--h:50%;--i:2"></i><i style="--h:70%;--i:3"></i><i style="--h:55%;--i:4"></i><i style="--h:65%;--i:5"></i><i style="--h:80%;--i:6"></i><i style="--h:75%;--i:7"></i><i style="--h:60%;--i:8"></i><i style="--h:85%;--i:9"></i><i style="--h:90%;--i:10"></i><i class="a" style="--h:95%;--i:11"></i>
+            </div>
+            <div class="x"><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>32</span><span>33</span><span>34</span><span>35</span><span>36</span><span>37</span><span>38</span></div>
+          </div>
+          <div class="wrapx"><table class="rep-table">
+            <thead><tr><th>Rep</th><th>Units</th><th>Front</th><th>Back</th><th>Leads</th><th>Close</th></tr></thead>
+            <tbody>
+              <tr><td>Courtney B.</td><td>11</td><td>$41,900</td><td>$19,240</td><td>96</td><td>11.5%</td></tr>
+              <tr><td>Zane M.</td><td>9</td><td>$33,110</td><td>$14,080</td><td>88</td><td>10.2%</td></tr>
+              <tr><td>Hunter R.</td><td>8</td><td>$29,870</td><td>$16,410</td><td>71</td><td>11.3%</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+      <div class="reveal" data-delay="1">
+        <div class="eyebrow">Detailed reporting</div>
+        <h2 style="margin:14px 0 20px">Reports built the way a dealer reads them.</h2>
+        <p class="lede">Every number sits next to its goal and its pace. Every scorecard is the one we run our own weekly 1-on-1s from. And because the tables are yours, any report can be exported, queried or rebuilt your way.</p>
+        <div class="rep-list">
+          <div><div class="dot"></div><span><b>Sales 1-on-1.</b> Units, front and back gross, pace to goal, reply time, close rate per rep, stips and titles outstanding.</span></div>
+          <div><div class="dot"></div><span><b>Service 1-on-1.</b> Prep pipeline and speed to line, open RO aging, tech productivity, service income and GP.</span></div>
+          <div><div class="dot"></div><span><b>Buying scorecard.</b> Bought vs sold by buyer, days to sell, profit per unit, category days-supply.</span></div>
+          <div><div class="dot"></div><span><b>Ads review.</b> Spend to conversations to approvals to deals, per campaign and per ad, so you kill losers weekly.</span></div>
+          <div><div class="dot"></div><span><b>Chat and Marketplace.</b> Conversations handled by Colebot, handoffs, appointments set, listings live and replies converted.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="who">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="reveal">
+        <div class="eyebrow">Who it's for</div>
+        <h2>Franchise or independent, one rooftop or twelve.</h2>
+      </div>
+      <p class="lede reveal" data-delay="1">HQ was built across a franchise powersports store and an independent used store. The workflows differ. The need for one system and clear ownership of the data does not.</p>
+    </div>
+    <div class="who-grid">
+      <div class="who-col reveal">
+        <div class="tag">Franchise dealers</div>
+        <h3>Keep the factory happy. Keep the data yours.</h3>
+        <p>Run OEM programs, warranty and certified inventory alongside your used and trade business, without a DMS that treats your store like a branch office of the factory.</p>
+        <dl>
+          <dt>OEM inventory and incentives on the desk</dt><dd>Factory units, rebates and program rates sit next to your pre-owned so the desk works one way.</dd>
+          <dt>Service that pays</dt><dd>Warranty and customer-pay ROs, technician time and parts on a board the whole store can read.</dd>
+          <dt>Multi-store from day one</dt><dd>Transfers, shared buying and group-level reporting across rooftops, with permissions by store.</dd>
+        </dl>
+      </div>
+      <div class="who-col reveal" data-delay="1">
+        <div class="tag">Independent dealers</div>
+        <h3>Enterprise tooling at an independent's price.</h3>
+        <p>You buy from the public, you desk your own deals, you move your own iron. HQ was built for exactly that, with a buying CRM and transport board the big DMS vendors never bothered to make.</p>
+        <dl>
+          <dt>Buying is a first-class module</dt><dd>Sellers, dealer bids, Marketplace finds and buy runs, with the numbers to know what to pay.</dd>
+          <dt>Your own website, no vendor markup</dt><dd>Publish inventory and search pages yourself and stop paying per lead for your own traffic.</dd>
+          <dt>Priced for your rooftop, not your headcount</dt><dd>No per-seat licenses that punish you for hiring a Saturday porter.</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="eyebrow reveal" style="margin-top:36px">Works alongside what you already run</div>
+    <div class="marquee" aria-label="Systems HQ connects to">
+      <div class="track">
+        <span>Lightspeed EVO</span><span>700Credit</span><span>RouteOne</span><span>PEN / F&amp;I providers</span><span>Meta Ads &amp; catalogs</span><span>Facebook Marketplace</span><span>Google Ads &amp; Merchant Center</span><span>Respond.io</span><span>DocuSign</span><span>Microsoft 365</span><span>Twilio</span><span>QuickBooks</span><span>Shopify parts store</span><span>ADP</span>
+        <span>Lightspeed EVO</span><span>700Credit</span><span>RouteOne</span><span>PEN / F&amp;I providers</span><span>Meta Ads &amp; catalogs</span><span>Facebook Marketplace</span><span>Google Ads &amp; Merchant Center</span><span>Respond.io</span><span>DocuSign</span><span>Microsoft 365</span><span>Twilio</span><span>QuickBooks</span><span>Shopify parts store</span><span>ADP</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="reveal">
+        <div class="eyebrow" style="margin-bottom:18px">Built in a dealership</div>
+        <blockquote>"The whole business runs on the DMS and we were handcuffed to it. No flexibility to do anything custom. So we built our own, one piece at a time, on our own floor."
+          <footer>Founding dealer · Indiana</footer>
+        </blockquote>
+        <div class="facts">
+          <div class="fact"><b>2</b><span>rooftops running HQ daily</span></div>
+          <div class="fact"><b>Powersports + auto</b><span>franchise and independent</span></div>
+          <div class="fact"><b>Daily</b><span>release cadence, shaped by the floor</span></div>
+        </div>
+      </div>
+      <div class="copy reveal" data-delay="1">
+        <p>HQ did not start as a software company's idea of a dealership. It started as a dealer's list of everything the vendors would not fix: leads with no source, units nobody knew were prepped, a buying team with no CRM, drivers dispatched by text message, a website that lagged the lot by a day.</p>
+        <p>We built the fix for each one inside our own stores, in front of our own reps, and kept what worked. The scoreboard on the wall, the deal desk, the transport lanes, Colebot answering Messenger at 11 PM and the assistant that reads the morning numbers were all in use on our floor before they had a name.</p>
+        <p>Now we host it for other dealers, on the same terms we demanded for ourselves: one system, one bill, buy what you need, and every byte of your data yours to keep.</p>
+        <div class="hero-actions" style="margin-top:8px">
+          <a class="btn btn-dark" href="#demo">Talk to a dealer who runs it</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="demo" id="demo">
+  <div class="wrap">
+    <div class="demo-grid">
+      <div class="demo-side reveal">
+        <div>
+          <div class="eyebrow">Book a demo</div>
+          <h2 style="margin-top:14px">See HQ on a store like yours.</h2>
+          <p class="lede">Thirty minutes, on a live system with real deals moving through it. Bring your current vendor list and we'll show you what it replaces and what your data would look like in your hands.</p>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="no">01</div><div><b>Walk-through on a live store</b><span>Not a slide deck. The desk, the lanes, the assistant, with the day's numbers on it.</span></div></div>
+          <div class="step"><div class="no">02</div><div><b>Your stack, mapped</b><span>We list what you pay for today and which HQ module takes each one over, in the order that makes sense.</span></div></div>
+          <div class="step"><div class="no">03</div><div><b>A quote for your rooftops</b><span>Pricing is set per rooftop with the modules you turn on. No per-seat licenses, no data exit fees.</span></div></div>
+        </div>
+      </div>
+      <form id="demoForm" class="demo-form reveal" data-delay="1" novalidate>
+        <div class="f2">
+          <label for="f-name">Your name<input id="f-name" name="name" autocomplete="name" required></label>
+          <label for="f-role">Role<input id="f-role" name="role" placeholder="Dealer principal, GM, GSM…"></label>
+        </div>
+        <div class="f2">
+          <label for="f-dealer">Dealership<input id="f-dealer" name="dealership" autocomplete="organization" required></label>
+          <label for="f-rooftops">Rooftops
+            <select id="f-rooftops" name="rooftops">
+              <option>1</option><option>2</option><option>3 to 5</option><option>6 to 12</option><option>More than 12</option>
+            </select>
+          </label>
+        </div>
+        <div class="f2">
+          <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
+          <label for="f-phone">Phone <span class="opt">optional</span><input id="f-phone" name="phone" type="tel" autocomplete="tel"></label>
+        </div>
+        <div class="f2">
+          <label for="f-type">Dealer type
+            <select id="f-type" name="type"><option>Franchise</option><option>Independent</option><option>Both</option></select>
+          </label>
+          <label for="f-lines">What you sell
+            <select id="f-lines" name="lines"><option>Powersports</option><option>Auto</option><option>Powersports and auto</option><option>RV or marine</option><option>Other</option></select>
+          </label>
+        </div>
+        <fieldset>
+          <legend>Which modules are in your stack?</legend>
+          <div class="checks" id="formChecks">
+            <label class="check" for="m-crm"><input type="checkbox" id="m-crm" name="modules" value="CRM">CRM</label>
+            <label class="check" for="m-ai"><input type="checkbox" id="m-ai" name="modules" value="AI">AI · Ask HQ</label>
+            <label class="check" for="m-desk"><input type="checkbox" id="m-desk" name="modules" value="Desking">Desking</label>
+            <label class="check" for="m-dms"><input type="checkbox" id="m-dms" name="modules" value="DMS">DMS</label>
+            <label class="check" for="m-tr"><input type="checkbox" id="m-tr" name="modules" value="Transport">Transport</label>
+            <label class="check" for="m-web"><input type="checkbox" id="m-web" name="modules" value="Website">Website</label>
+            <label class="check" for="m-dr"><input type="checkbox" id="m-dr" name="modules" value="Digital Retail">Digital retail</label>
+            <label class="check" for="m-chat"><input type="checkbox" id="m-chat" name="modules" value="Live Chat">Live chat · Colebot</label>
+            <label class="check" for="m-mk"><input type="checkbox" id="m-mk" name="modules" value="Marketplace">Marketplace</label>
+            <label class="check" for="m-rep"><input type="checkbox" id="m-rep" name="modules" value="Reporting">Reporting</label>
+          </div>
+        </fieldset>
+        <label for="f-stack">What are you running today? <span class="opt">optional</span><textarea id="f-stack" name="stack" placeholder="DMS, CRM, website vendor, anything you're tired of paying for."></textarea></label>
+        <div class="form-foot">
+          <button class="btn btn-primary" type="submit">Request a demo</button>
+          <small>We reply within one business day. No list, no drip campaign.</small>
+        </div>
+        <div class="sent" id="sent" role="status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap foot">
+    <div>
+      <a class="brand" href="#top" aria-label="HQ home"><div class="mark">HQ</div><span>HQ<small>Dealer operating system</small></span></a>
+      <small>CRM, AI, desking, DMS, transport and logistics, website, digital retail, live chat, marketplace conversions and reporting on one host, for franchise and independent dealers who want control of their data.</small>
+    </div>
+    <div>
+      <div class="flinks"><a href="#modules">Modules</a><a href="#stack">Build your stack</a><a href="#data">Your data</a><a href="#ai">Ask HQ</a><a href="#reporting">Reporting</a><a href="#demo">Book a demo</a></div>
+      <small class="mono" style="margin-top:14px">© <span id="yr">2026</span> HQ. Built in a dealership.</small>
+    </div>
+  </div>
+</footer>
+
+<!-- Colebot -->
+<button class="cb-launch" id="cbLaunch" type="button" aria-haspopup="dialog" aria-controls="colebot"><span class="av">C</span>Chat with Colebot<span class="dot" aria-hidden="true"></span></button>
+<div class="cb" id="colebot" role="dialog" aria-label="Chat with Colebot" aria-modal="false">
+  <div class="cb-head"><div class="av">C</div><div><b>Colebot</b><small><i></i>HQ · answers in seconds</small></div><button type="button" id="cbClose" aria-label="Close chat">×</button></div>
+  <div class="cb-log" id="cbLog" aria-live="polite"></div>
+  <div class="cb-chips" id="cbChips"></div>
+  <form class="cb-in" id="cbForm" autocomplete="off">
+    <input id="cbInput" type="text" placeholder="Type a message…" aria-label="Message Colebot">
+    <button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </form>
+  <div class="cb-foot">Colebot is HQ's AI. A person from our team follows up.</div>
+</div>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  // ===== config =====
+  var LEAD_ENDPOINT = ''; // set to HQ's lead intake URL (e.g. https://hq.yourdomain.com/api/leads) to POST leads; empty = mailto fallback
+  var DEMO_TO = 'jon@paytonplacepowersports.com';
+  var MODULES = ['CRM','AI','Desking','DMS','Transport','Website','Digital Retail','Live Chat','Marketplace','Reporting'];
+  var LABELS = {'CRM':'CRM','AI':'AI · Ask HQ','Desking':'Desking','DMS':'DMS','Transport':'Transport & Logistics','Website':'Website','Digital Retail':'Digital retail','Live Chat':'Live chat · Colebot','Marketplace':'Marketplace conversions','Reporting':'Detailed reporting'};
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var yr=document.getElementById('yr'); if(yr) yr.textContent=new Date().getFullYear();
+
+  // ===== mobile menu =====
+  var btn=document.getElementById('menuBtn'), links=document.getElementById('mobileLinks');
+  if(btn&&links){
+    btn.addEventListener('click',function(){var open=links.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');btn.textContent=open?'CLOSE':'MENU';});
+    links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='MENU';});});
+  }
+
+  // ===== scroll reveal =====
+  var revealEls = document.querySelectorAll('.reveal, .reveal-frame, .reveal-ledger, .reveal-chat, .reveal-rep');
+  function showAll(){ revealEls.forEach(function(el){ el.classList.add('in'); }); }
+  if('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); if(e.target.id==='typeTarget'||e.target.classList.contains('reveal-frame')) startTyping(); } });
+    },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    revealEls.forEach(function(el){ io.observe(el); });
+    var sweep=function(){ revealEls.forEach(function(el){ if(el.classList.contains('in')) return; var r=el.getBoundingClientRect(); if(r.top<window.innerHeight+40){ el.classList.add('in'); if(el.classList.contains('reveal-frame')) startTyping(); } }); };
+    setTimeout(sweep,300);
+    window.addEventListener('scroll', sweep, {passive:true});
+    window.addEventListener('hashchange', function(){ setTimeout(sweep,50); setTimeout(sweep,600); });
+  } else { showAll(); }
+
+  // ===== count-ups =====
+  function fmt(n){ return n.toLocaleString('en-US'); }
+  function countUp(el){
+    var target = parseInt(el.getAttribute('data-count'),10); if(isNaN(target)) return;
+    if(reduce){ el.textContent = fmt(target); return; }
+    var start = null, dur = 1200 + Math.min(target,1000)*0.4;
+    function step(ts){ if(!start) start=ts; var p=Math.min(1,(ts-start)/dur); var e=1-Math.pow(1-p,3); el.textContent=fmt(Math.round(target*e)); if(p<1) requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+  var counted=false;
+  function runCounts(){ if(counted) return; counted=true; document.querySelectorAll('[data-count]').forEach(countUp); }
+  setTimeout(runCounts, 500);
+
+  // ===== typing in the frame =====
+  var typed=false;
+  function startTyping(){
+    var t=document.getElementById('typeTarget'); if(!t||typed) return; typed=true;
+    var text=t.getAttribute('data-text');
+    if(reduce){ t.textContent=text; return; }
+    var i=0, caret=document.createElement('span'); caret.className='caret';
+    t.textContent=''; t.appendChild(caret);
+    setTimeout(function tick(){ if(i<text.length){ caret.before(document.createTextNode(text.charAt(i))); i++; setTimeout(tick, 14 + (text.charAt(i-1)==='.'?180:0)); } else { setTimeout(function(){caret.remove();},1500); } }, 900);
+  }
+  var frame=document.querySelector('.reveal-frame'); if(frame){ var fr=frame.getBoundingClientRect(); if(fr.top<window.innerHeight){ frame.classList.add('in'); startTyping(); } }
+
+  // ===== report tabs =====
+  var REPORTS = {
+    sales: null,
+    service: {bar:'Service · 1-on-1 scorecard · week 38', kpis:[['Units prepped','31','+4 vs LW'],['Days to line','4.2','-0.8 d'],['Open ROs > 7d','6','-3'],['Tech hours billed','188','92% eff.']], rows:[['Tech','Hours','Billed','Eff.','ROs','Redo'],['Hunter R.','40','$6,120','104%','22','0'],['Miles K.','38','$5,410','96%','19','1'],['Tay S.','36','$4,880','88%','17','1']]},
+    buying: {bar:'Buying · scorecard · week 38', kpis:[['Bought','29','goal 30'],['Sold from buys','24','avg 27 d'],['Profit / unit','$3,940','+$210'],['Days supply','41','touring low']], rows:[['Buyer','Bought','Sold','Days','Profit','Prep'],['Zane M.','12','10','24','$4,210','$610'],['Cole P.','9','8','31','$3,860','$540'],['Dealer bids','8','6','29','$3,420','$720']]},
+    ads: {bar:'Ads · weekly review · week 38', kpis:[['Spend','$16,380','both stores'],['Conversations','412','$39.76 ea'],['Approvals 600+','61','$268 ea'],['Deals','19','$862 ea']], rows:[['Campaign','Spend','Conv.','Appr.','Deals','$/deal'],['CLV Big 3 · HD','$4,900','142','24','8','$613'],['COL Big 3 · Off-road','$4,200','118','17','6','$700'],['Lafayette pocket','$1,450','36','4','1','$1,450']]},
+    chat: {bar:'Chat & Marketplace · week 38', kpis:[['Colebot convos','338','24/7'],['Handed to rep','96','28%'],['Appointments','41','+9'],['Marketplace leads','63','9 deals']], rows:[['Channel','Convos','Handoff','Appts','Deals','Close'],['Website chat','121','38','16','5','4.1%'],['Messenger','154','41','19','7','4.5%'],['Marketplace replies','63','17','6','9','14.3%']]}
+  };
+  var repBody=document.getElementById('repBody'), repTabs=document.querySelectorAll('.rep-tabs button'), repBar=document.querySelector('.rep-bar');
+  var salesHTML = repBody ? repBody.innerHTML : '', salesBar = repBar ? repBar.innerHTML : '';
+  function renderReport(key){
+    if(!repBody) return;
+    if(key==='sales'||!REPORTS[key]){ repBody.innerHTML=salesHTML; repBar.innerHTML=salesBar; return; }
+    var r=REPORTS[key];
+    repBar.innerHTML=r.bar+' <span>vs goal</span>';
+    var k='<div class="rep-kpis">'+r.kpis.map(function(x){return '<div class="rk"><small>'+x[0]+'</small><b>'+x[1]+'</b><i>'+x[2]+'</i></div>';}).join('')+'</div>';
+    var hs=r.rows[0], body=r.rows.slice(1);
+    var t='<div class="wrapx"><table class="rep-table"><thead><tr>'+hs.map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+body.map(function(row){return '<tr>'+row.map(function(c){return '<td>'+c+'</td>';}).join('')+'</tr>';}).join('')+'</tbody></table></div>';
+    var bars='<div class="rep-chart"><div class="y"><span>hi</span><span></span><span>lo</span></div><div class="bars" aria-hidden="true">'+[40,55,48,62,58,70,66,74,69,80,86,94].map(function(h,i){return '<i'+(i===11?' class="a"':'')+' style="--h:'+h+'%;--i:'+i+'"></i>';}).join('')+'</div><div class="x">'+[27,28,29,30,31,32,33,34,35,36,37,38].map(function(w){return '<span>'+w+'</span>';}).join('')+'</div></div>';
+    repBody.innerHTML=k+bars+t;
+    var rep=repBody.closest('.rep'); if(rep){ rep.classList.remove('in'); void rep.offsetWidth; rep.classList.add('in'); }
+  }
+  repTabs.forEach(function(b){ b.addEventListener('click',function(){ repTabs.forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); renderReport(b.getAttribute('data-tab')); }); });
+
+  // ===== stack builder =====
+  var selected = [];
+  var blocks=document.getElementById('blocks'), stackCount=document.getElementById('stackCount');
+  function renderStack(){
+    if(!blocks) return;
+    blocks.innerHTML='';
+    if(!selected.length){ blocks.innerHTML='<div class="block empty">Pick a module to start your stack</div>'; }
+    else {
+      var host=document.createElement('div'); host.className='block host'; host.innerHTML='<span>HQ host</span><small>one database · one login</small>'; blocks.appendChild(host);
+      MODULES.forEach(function(m,i){ if(selected.indexOf(m)<0) return; var b=document.createElement('div'); b.className='block'; b.style.animationDelay=(i*.04)+'s'; b.innerHTML='<span>'+LABELS[m]+'</span><small>module</small>'; blocks.appendChild(b); });
+    }
+    if(stackCount) stackCount.textContent=selected.length+' of '+MODULES.length+' modules';
+    document.querySelectorAll('.chip').forEach(function(c){ c.classList.toggle('on', selected.indexOf(c.getAttribute('data-mod'))>=0); c.setAttribute('aria-pressed', selected.indexOf(c.getAttribute('data-mod'))>=0?'true':'false'); });
+    document.querySelectorAll('.mod-addbtn').forEach(function(b){ var on=selected.indexOf(b.getAttribute('data-add'))>=0; b.classList.toggle('on',on); b.textContent=on?'✓ In my stack':'+ Add to my stack'; });
+    document.querySelectorAll('#formChecks input').forEach(function(i){ i.checked = selected.indexOf(i.value)>=0; });
+  }
+  function toggleMod(m){ var i=selected.indexOf(m); if(i>=0) selected.splice(i,1); else selected.push(m); renderStack(); }
+  document.querySelectorAll('.chip').forEach(function(c){ c.addEventListener('click',function(){ toggleMod(c.getAttribute('data-mod')); }); });
+  document.querySelectorAll('.mod-addbtn').forEach(function(b){ b.addEventListener('click',function(){ toggleMod(b.getAttribute('data-add')); }); });
+  document.querySelectorAll('#formChecks input').forEach(function(i){ i.addEventListener('change',function(){ var idx=selected.indexOf(i.value); if(i.checked&&idx<0) selected.push(i.value); if(!i.checked&&idx>=0) selected.splice(idx,1); renderStack(); }); });
+  renderStack();
+  var stackRooftops=document.getElementById('stackRooftops'), fRooftops=document.getElementById('f-rooftops');
+  if(stackRooftops&&fRooftops){ stackRooftops.addEventListener('change',function(){ fRooftops.value=stackRooftops.value; }); }
+
+  // ===== lead delivery =====
+  function sendLead(lead, onDone){
+    lead.page = location.href; lead.at = new Date().toISOString();
+    if(LEAD_ENDPOINT){
+      fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lead)}).then(function(r){ onDone(r.ok); }).catch(function(){ onDone(false); });
+      return;
+    }
+    var body=Object.keys(lead).map(function(k){ var v=lead[k]; return k+': '+(Array.isArray(v)?v.join(', '):v); }).join('\n');
+    location.href='mailto:'+DEMO_TO+'?subject='+encodeURIComponent('HQ lead · '+(lead.dealership||lead.name||'website'))+'&body='+encodeURIComponent(body);
+    onDone(true);
+  }
+
+  // ===== demo form =====
+  var form=document.getElementById('demoForm'), sent=document.getElementById('sent');
+  if(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var req=['f-name','f-dealer','f-email'], missing=req.filter(function(id){var el=document.getElementById(id);return !el.value.trim()||(el.type==='email'&&!/.+@.+\..+/.test(el.value));});
+      if(missing.length){document.getElementById(missing[0]).focus();sent.textContent='Add your name, dealership and a working email so we can reach you.';sent.classList.add('show');return;}
+      var fd=new FormData(form);
+      var lead={source:'demo form',name:fd.get('name'),role:fd.get('role')||'',dealership:fd.get('dealership'),rooftops:fd.get('rooftops'),type:fd.get('type'),sells:fd.get('lines'),email:fd.get('email'),phone:fd.get('phone')||'',modules:fd.getAll('modules'),running_today:fd.get('stack')||''};
+      sendLead(lead,function(ok){ sent.textContent= ok ? (LEAD_ENDPOINT?'Sent. A dealer from our team replies within one business day.':'Thanks. Your request is drafted in your mail app. Hit send and we will be in touch within one business day.') : 'Something broke on our end. Email '+DEMO_TO+' and we will set it up by hand.'; sent.classList.add('show'); });
+    });
+  }
+
+  // ===== Colebot =====
+  var cb=document.getElementById('colebot'), launch=document.getElementById('cbLaunch'), log=document.getElementById('cbLog'), chips=document.getElementById('cbChips'), cbForm=document.getElementById('cbForm'), cbInput=document.getElementById('cbInput');
+  var state={step:'start', lead:{source:'Colebot'}, started:false, multi:[]};
+  function scroll(){ log.scrollTop=log.scrollHeight; }
+  function say(text, cls){ var m=document.createElement('div'); m.className='cb-m '+(cls||'bot'); m.textContent=text; log.appendChild(m); scroll(); }
+  function typing(ms, cb2){ var t=document.createElement('div'); t.className='cb-typing'; t.innerHTML='<i></i><i></i><i></i>'; log.appendChild(t); scroll(); setTimeout(function(){ t.remove(); cb2(); }, reduce?0:ms); }
+  function bot(lines, after){ var arr=Array.isArray(lines)?lines:[lines]; (function next(i){ if(i>=arr.length){ if(after) after(); return; } typing(500+Math.min(900,arr[i].length*12), function(){ say(arr[i],'bot'); next(i+1); }); })(0); }
+  function setChips(list, multi){ chips.innerHTML=''; state.multi=[]; list.forEach(function(c,i){ var b=document.createElement('button'); b.type='button'; b.textContent=c; b.style.animationDelay=(i*.05)+'s'; b.addEventListener('click',function(){ if(multi){ if(c==='Done'){ if(!state.multi.length) return; handle(state.multi.join(', '), true); } else { b.classList.toggle('sel'); var j=state.multi.indexOf(c); if(j>=0) state.multi.splice(j,1); else state.multi.push(c); } } else { handle(c, true); } }); chips.appendChild(b); }); }
+  function clearChips(){ chips.innerHTML=''; }
+  var FAQ=[
+    {k:/price|pricing|cost|how much|\$/i, a:'Pricing is set per rooftop, per module you turn on. No per-seat licenses, so hiring a Saturday porter costs you nothing. Exact numbers depend on rooftop count and modules, which is what the quote call is for.'},
+    {k:/data|export|own|leave|lock/i, a:'Your dealer group runs on its own database, you hold admin access, and every table exports in CSV and JSON on day one. There is a read API too. Leaving is never a negotiation.'},
+    {k:/lightspeed|cdk|dealertrack|dealersocket|integrat|api|700|routeone|quickbooks/i, a:'HQ runs alongside what you have. It connects to Lightspeed EVO, 700Credit, RouteOne, PEN providers, Meta and Google, Respond.io, DocuSign, Microsoft 365, Twilio and QuickBooks today, and we add connections as dealers need them.'},
+    {k:/demo|see it|walk ?through|call|meeting/i, a:'A demo is thirty minutes on a live store with real deals moving through it. I just need a few details to set it up.'},
+    {k:/colebot|you|bot|ai|chat/i, a:'I am Colebot, HQ\'s AI. On a dealer\'s site I do what I am doing now: answer in seconds, qualify the visitor, book the appointment and hand off to a rep with the full record. On this site I work for HQ.'},
+    {k:/marketplace|facebook|post/i, a:'Marketplace conversions posts and refreshes every unit from your inventory, replies instantly with a payment and photos, and tracks every reply as a lead through to the deal.'},
+    {k:/report|scorecard|numbers/i, a:'Detailed reporting is the set of weekly scorecards we run our own stores on: sales, service, buying, ads and chat, each figure next to its goal and pace. Because the tables are yours, you can export or query any of it.'},
+    {k:/desk|f&i|finance|menu|credit/i, a:'Desking puts payments, trade, rebates, fees and the F&I menu on one screen, pushes to your lenders and credit bureau from the deal, and handles forms and e-signature.'},
+    {k:/website|site|seo/i, a:'The Website module serves your site straight from your inventory: units go live the moment they are ready and drop the moment they sell, with pre-approval on every unit page and feeds to Meta and Google.'}
+  ];
+  function faq(text){ for(var i=0;i<FAQ.length;i++){ if(FAQ[i].k.test(text)) return FAQ[i].a; } return null; }
+
+  function start(){
+    if(state.started) return; state.started=true;
+    var stackNote = selected.length ? ' I see you have '+selected.length+' module'+(selected.length>1?'s':'')+' in your stack already.' : '';
+    bot(["Hey, I'm Colebot, HQ's assistant. I can walk you through the platform or get a quote in front of a real dealer on our team."+stackNote, 'What brings you in today?'], function(){ setChips(['Replace my DMS','Get more leads','Own my data','Price a stack','Just looking']); state.step='intent'; });
+  }
+  function handle(text, fromChip){
+    say(text,'me'); clearChips();
+    var s=state.step, L=state.lead;
+    if(s==='intent'){
+      L.intent=text;
+      var reply = {
+        'Replace my DMS':'Good news: you do not have to rip anything out on day one. Most dealers start with Desking or the Buying CRM beside their current DMS and move units, service and titles over as it earns it.',
+        'Get more leads':'That is Colebot, Marketplace conversions and Digital retail working together: post every unit everywhere, answer every reply in seconds, and let the customer build the deal at midnight. Every one lands on the CRM record with its source.',
+        'Own my data':'Then you are in the right place. Your own database, admin access, free export of every table in open formats, and a read API. No exit fees, ever.',
+        'Price a stack':'Pricing is per rooftop, per module, unlimited seats. Tell me the stack and rooftops and a dealer on our team sends a real number.',
+        'Just looking':'No pressure. Ask me anything about the modules, the data terms or how we run it in our own two stores.'
+      }[text] || (faq(text) || 'Got it.');
+      bot([reply, 'How many rooftops are we talking about?'], function(){ setChips(['1','2','3 to 5','6 to 12','More than 12']); state.step='rooftops'; });
+    } else if(s==='rooftops'){
+      L.rooftops=text;
+      bot('Franchise, independent, or both?', function(){ setChips(['Franchise','Independent','Both']); state.step='type'; });
+    } else if(s==='type'){
+      L.type=text;
+      if(selected.length){ L.modules=selected.slice(); bot('I will use the '+selected.length+' module'+(selected.length>1?'s':'')+' from your stack: '+selected.map(function(m){return LABELS[m];}).join(', ')+'. What are you running today that you would like to replace?', function(){ state.step='running'; }); }
+      else { bot('Which modules matter most right now? Pick any, then hit Done.', function(){ setChips(MODULES.map(function(m){return LABELS[m];}).concat(['Done']), true); state.step='modules'; }); }
+    } else if(s==='modules'){
+      L.modules=text.split(', ');
+      bot('What are you running today that you would like to replace? DMS, CRM, website vendor, anything.', function(){ state.step='running'; });
+    } else if(s==='running'){
+      L.running_today=text;
+      bot(['Thanks. Last bit so a real person can reach you.', "What's your name?"], function(){ state.step='name'; });
+    } else if(s==='name'){
+      L.name=text; bot('And the dealership name?', function(){ state.step='dealer'; });
+    } else if(s==='dealer'){
+      L.dealership=text; bot('Best email for you?', function(){ state.step='email'; });
+    } else if(s==='email'){
+      if(!/.+@.+\..+/.test(text)){ bot('That does not look like an email. Try again?', function(){}); return; }
+      L.email=text; bot('Phone, if you want a text instead of an email? Or say skip.', function(){ setChips(['Skip']); state.step='phone'; });
+    } else if(s==='phone'){
+      L.phone = /skip/i.test(text) ? '' : text;
+      var summary='Here is what I am sending over:\n• '+L.dealership+' · '+L.rooftops+' rooftop(s) · '+L.type+'\n• Stack: '+((L.modules&&L.modules.length)?L.modules.join(', '):'not specified')+'\n• Running today: '+(L.running_today||'not specified')+'\n• '+L.name+' · '+L.email+(L.phone?' · '+L.phone:'');
+      bot([summary, 'Send it to the HQ team?'], function(){ setChips(['Send it','Change something']); state.step='confirm'; });
+    } else if(s==='confirm'){
+      if(/change/i.test(text)){ bot("Sure. What's your name?", function(){ state.step='name'; }); return; }
+      sendLead(L, function(ok){
+        if(ok){ bot([LEAD_ENDPOINT?'Sent. A dealer from our team replies within one business day, usually faster.':'Your request is drafted in your mail app. Hit send and a dealer from our team replies within one business day.', 'Anything else you want to know while you are here?'], function(){ setChips(['How pricing works','Our data terms','What Colebot does for dealers']); state.step='free'; }); }
+        else { bot('Something broke on my end. Email '+DEMO_TO+' and we will set it up by hand.', function(){ state.step='free'; }); }
+      });
+    } else {
+      var a=faq(text);
+      if(/how pricing works/i.test(text)) a=faq('pricing'); if(/data terms/i.test(text)) a=faq('data'); if(/colebot does/i.test(text)) a=faq('colebot');
+      if(a){ bot([a, state.lead.email ? 'Anything else?' : 'Want me to set up a demo?'], function(){ if(!state.lead.email) { setChips(['Yes, set up a demo','Not yet']); state.step='offer'; } else { setChips(['How pricing works','Our data terms','What Colebot does for dealers']); } }); }
+      else if(s==='offer'){ if(/yes/i.test(text)){ bot('How many rooftops are we talking about?', function(){ setChips(['1','2','3 to 5','6 to 12','More than 12']); state.step='rooftops'; }); } else { bot('No problem. I am here if you change your mind.', function(){ setChips(['How pricing works','Our data terms','Set up a demo']); state.step='free'; }); } }
+      else if(/set up a demo/i.test(text)){ bot('How many rooftops are we talking about?', function(){ setChips(['1','2','3 to 5','6 to 12','More than 12']); state.step='rooftops'; }); }
+      else { bot(["Good question. I will pass it to a dealer on our team so you get a real answer, not a guess.", state.lead.email ? 'They have your details already.' : 'Want me to set up a demo so they can answer it live?'], function(){ if(!state.lead.email){ setChips(['Yes, set up a demo','Not yet']); state.step='offer'; } }); }
+    }
+  }
+  function openCb(){ cb.classList.add('open'); launch.classList.add('hide'); start(); setTimeout(function(){ cbInput.focus(); }, 300); }
+  function closeCb(){ cb.classList.remove('open'); launch.classList.remove('hide'); }
+  launch.addEventListener('click', openCb);
+  document.getElementById('cbClose').addEventListener('click', closeCb);
+  var stackChat=document.getElementById('stackChat'); if(stackChat){ stackChat.addEventListener('click', function(){ openCb(); if(state.step!=='start' && state.step!=='intent' && selected.length){ bot('You have '+selected.length+' module'+(selected.length>1?'s':'')+' in your stack: '+selected.map(function(m){return LABELS[m];}).join(', ')+'. Want a quote on that?', function(){ setChips(['Yes, set up a demo','Not yet']); state.step='offer'; }); } }); }
+  cbForm.addEventListener('submit', function(e){ e.preventDefault(); var v=cbInput.value.trim(); if(!v) return; cbInput.value=''; if(state.step==='start') start(); handle(v,false); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && cb.classList.contains('open')) closeCb(); });
+  // gentle proactive nudge once the visitor has scrolled a bit
+  var nudged=false;
+  window.addEventListener('scroll', function(){ if(nudged||cb.classList.contains('open')) return; if(window.scrollY>900){ nudged=true; launch.style.animation='floaty 1.2s ease-in-out 3'; } }, {passive:true});
+})();
+</script>
+</body>
+</html>
