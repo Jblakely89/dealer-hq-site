@@ -1310,16 +1310,18 @@ footer.site{border-top:1px solid var(--line);padding-block:40px 120px;background
   // ===== brand video =====
   var vid=document.getElementById('brand'), player=document.getElementById('player'), bigPlay=document.getElementById('bigPlay');
   if(vid){
-    var reduce2 = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var reduce2 = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches, userPaused=false;
     function showPlay(){ player.classList.remove('playing'); } function hidePlay(){ player.classList.add('playing'); }
+    function onScreen(){ var r=vid.getBoundingClientRect(); return r.bottom>40 && r.top<window.innerHeight-40; }
+    function tryPlay(){ var pr=vid.play(); if(pr&&pr.catch) pr.catch(function(){ showPlay(); }); }
     vid.addEventListener('play', hidePlay); vid.addEventListener('pause', showPlay);
-    bigPlay.addEventListener('click', function(){ vid.play().catch(function(){}); });
-    vid.addEventListener('click', function(){ if(vid.paused){ vid.play().catch(function(){}); } else { vid.pause(); } });
+    bigPlay.addEventListener('click', function(){ userPaused=false; tryPlay(); });
+    vid.addEventListener('click', function(){ if(vid.paused){ userPaused=false; tryPlay(); } else { userPaused=true; vid.pause(); } });
     if(reduce2){ vid.removeAttribute('autoplay'); vid.pause(); showPlay(); }
     else {
-      // autoplay only while on screen: saves battery, and resumes when scrolled back
-      var tryPlay=function(){ var pr=vid.play(); if(pr&&pr.catch) pr.catch(function(){ showPlay(); }); };
-      if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ tryPlay(); } else { vid.pause(); } }); },{threshold:.25}).observe(vid); } else { tryPlay(); }
+      // Keep it running whenever it is on screen (unless the viewer paused it); rest it when scrolled away.
+      var tick=function(){ if(document.hidden) return; if(onScreen()){ if(vid.paused && !userPaused) tryPlay(); } else if(!vid.paused){ vid.pause(); } };
+      setInterval(tick, 800); window.addEventListener('scroll', tick, {passive:true}); document.addEventListener('visibilitychange', tick); tick();
     }
   }
 
