@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Integrations · HQ Dealer Platform</title>
+<link rel="canonical" href="https://dealer-hq.com/integrations/">
+<meta name="description" content="HQ connects to the lenders, F&amp;I, e-signing, values, parts, phone, marketing, payments and payroll systems a dealership already runs: 700Credit, RouteOne, Dealertrack, PEN, DocuSign, J.D. Power, Parts Unlimited, Zoom Phone, Meta, Google Ads, Shopify, Worldpay, Plaid and ADP.">
+<meta property="og:title" content="Integrations · HQ Dealer Platform">
+<meta property="og:description" content="The systems HQ already talks to, from credit and F&amp;I to phones, ads, payments and payroll.">
+<meta property="og:url" content="https://dealer-hq.com/integrations/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://dealer-hq.com/og.png">
+<meta property="og:site_name" content="HQ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dealer-hq.com/og.png">
+<link rel="icon" href="https://dealer-hq.com/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="https://dealer-hq.com/favicon-32.png">
+<link rel="apple-touch-icon" href="https://dealer-hq.com/apple-touch-icon.png">
+<meta name="theme-color" content="#F25A12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=Instrument+Sans:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* tokens, type, buttons, header and footer: the same as the homepage (index.html), copied so this page stands alone */
+:root{
+  --ground:#FFFFFF; --surface:#FFFFFF; --surface-2:#F5F6F8; --surface-3:#EDEFF2; --ink:#14171B; --ink-2:#3A414A; --muted:#6B7480;
+  --line:#E2E5EA; --line-2:#EEF0F3; --accent:#F25A12; --accent-ink:#FFFFFF; --accent-soft:#FEF0E8; --accent-deep:#C9470B;
+  --display:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --radius:6px; --gutter:clamp(16px,4vw,48px); --max:1200px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;letter-spacing:-.015em;line-height:1.05;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.4rem,6vw,4.6rem);font-variation-settings:"wdth" 110;font-weight:800;letter-spacing:-.03em}
+h2{font-size:clamp(1.8rem,3.6vw,2.8rem);font-variation-settings:"wdth" 105}
+h3{font-size:1.25rem}
+p{margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter)}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{color:var(--accent);font-weight:600}
+.lede{font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--ink-2);max-width:60ch}
+section{padding-block:clamp(56px,8vw,112px)}
+section + section{border-top:1px solid var(--line)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:.95rem;letter-spacing:.01em;padding:13px 20px;border-radius:var(--radius);border:1px solid transparent;text-decoration:none;cursor:pointer;line-height:1;white-space:nowrap;transition:transform .15s var(--ease),background .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{background:var(--accent-deep);box-shadow:0 10px 24px -12px rgba(242,90,18,.7)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{background:var(--surface-2)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--display);font-weight:800}
+.mark{width:34px;height:34px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:.8rem;letter-spacing:-.04em;font-variation-settings:"wdth" 118;border-radius:4px}
+.brand span{font-size:1.05rem;letter-spacing:-.02em}
+.brand small{display:block;font-family:var(--mono);font-weight:400;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.links{display:flex;gap:26px;font-size:.92rem;font-weight:500}
+.links a{text-decoration:none;color:var(--ink-2);white-space:nowrap;position:relative}
+.links a::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:2px;background:var(--accent);transition:right .25s var(--ease)}
+.links a:hover::after,.links a[aria-current]::after{right:0}
+.links a[aria-current]{color:var(--ink)}
+.nav-cta{display:flex;gap:10px;align-items:center}
+.nav-cta .btn{padding:10px 16px;font-size:.88rem}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:var(--radius);padding:8px 10px;color:var(--ink);font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;cursor:pointer}
+@media (max-width:1040px){.links{display:none}.menu-btn{display:inline-block}.nav-cta .btn-ghost{display:none}}
+.mobile-links{display:none;border-top:1px solid var(--line);padding:12px var(--gutter) 18px;flex-direction:column;gap:12px;font-weight:500;background:#fff}
+.mobile-links a{text-decoration:none}
+.mobile-links.open{display:flex}
+@media (max-width:480px){.brand small{display:none}.nav-cta .btn-primary{padding:9px 12px;font-size:.82rem}}
+footer.site{border-top:1px solid var(--line);padding-block:40px 64px;background:var(--surface-2)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-start}
+.foot .flinks{display:flex;flex-wrap:wrap;gap:18px;font-size:.88rem}
+.foot .flinks a{text-decoration:none;color:var(--ink-2)}
+.foot small{display:block;color:var(--muted);font-size:.8rem;margin-top:12px;max-width:52ch}
+.foot .mono{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{transition-duration:.01ms!important}}
+
+/* this page */
+.intro h1 em{font-style:normal;color:var(--accent)}
+.intro .eyebrow{margin-bottom:18px}
+.intro .lede{margin-top:22px}
+.count{display:flex;flex-wrap:wrap;gap:10px 32px;margin-top:34px;font-size:.85rem;color:var(--muted)}
+.count strong{display:block;font-family:var(--display);font-size:1.5rem;color:var(--ink);font-variation-settings:"wdth" 108;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.jump a{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--ink-2);border:1px solid var(--line);border-radius:999px;padding:7px 12px;transition:border-color .15s,color .15s}
+.jump a:hover{border-color:var(--accent);color:var(--accent-deep)}
+.cat{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.6fr);gap:20px clamp(24px,5vw,72px);padding-block:clamp(28px,4vw,44px);border-top:1px solid var(--line);scroll-margin-top:80px}
+.cat:first-of-type{border-top:0;padding-top:0}
+.cat-head h2{font-size:clamp(1.35rem,2.4vw,1.75rem)}
+.cat-head p{color:var(--muted);font-size:.92rem;margin-top:10px;max-width:34ch}
+.cat-head .eyebrow{margin-bottom:10px}
+.partners{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.partner{border:1px solid var(--line);border-radius:8px;padding:18px 18px 16px;background:#fff;display:flex;flex-direction:column;gap:10px;transition:border-color .15s,box-shadow .2s var(--ease)}
+.partner:hover{border-color:#cfd4db;box-shadow:0 18px 40px -28px rgba(20,23,27,.35)}
+.partner .top{display:flex;align-items:center;gap:12px}
+.partner .ini{width:38px;height:38px;flex:none;border-radius:6px;background:var(--accent-soft);color:var(--accent-deep);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:.8rem;letter-spacing:-.03em;font-variation-settings:"wdth" 112}
+.partner h3{font-size:1.08rem;font-variation-settings:"wdth" 104}
+.partner h3 small{display:block;font-family:var(--mono);font-weight:400;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.partner p{color:var(--ink-2);font-size:.9rem;line-height:1.5}
+@media (max-width:820px){.cat{grid-template-columns:1fr}.cat-head p{max-width:none}}
+@media (max-width:420px){.partners{grid-template-columns:1fr}}
+.ask{background:var(--surface-2)}
+.ask .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
+.ask p{color:var(--ink-2);margin-top:10px;max-width:56ch}
+.fine{font-size:.78rem;color:var(--muted);margin-top:28px;max-width:80ch}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="HQ home">
+      <div class="mark">HQ</div>
+      <span>HQ<small>Dealer operating system</small></span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="/#modules">Modules</a>
+      <a href="/#stack">Build your stack</a>
+      <a href="/#data">Your data</a>
+      <a href="/#ai">Ask HQ</a>
+      <a href="/integrations/" aria-current="page">Integrations</a>
+      <a href="/#reporting">Reporting</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="/#stack">Price a stack</a>
+      <a class="btn btn-primary" href="/#demo">Book a demo</a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileLinks">MENU</button>
+    </div>
+  </div>
+  <nav class="mobile-links" id="mobileLinks" aria-label="Primary mobile">
+    <a href="/#modules">Modules</a>
+    <a href="/#stack">Build your stack</a>
+    <a href="/#data">Your data</a>
+    <a href="/#ai">Ask HQ</a>
+    <a href="/#accountability">Accountability</a>
+    <a href="/#reporting">Reporting</a>
+    <a href="/integrations/" aria-current="page">Integrations</a>
+    <a href="/#who">Who it's for</a>
+    <a href="/#demo">Book a demo</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="intro">
+  <div class="wrap">
+    <div class="eyebrow"><b>Integrations</b> · Works with what you run</div>
+    <h1>Keep your partners.<br><em>Lose the swivel chair.</em></h1>
+    <p class="lede">HQ connects to the lenders, F&amp;I providers, phones, ad platforms, payment processors and payroll systems your store already uses. The work happens on the deal, the customer card or the ledger in HQ, and nobody re-types it into a second screen.</p>
+    <div class="count">
+      <div><strong>14</strong>integration partners</div>
+      <div><strong>6</strong>areas of the store</div>
+      <div><strong>1</strong>login for your team</div>
+    </div>
+    <nav class="jump" aria-label="Integration categories">
+      <a href="#credit">Credit &amp; F&amp;I</a>
+      <a href="#signing">E-signing</a>
+      <a href="#values">Values &amp; parts</a>
+      <a href="#phone">Phone</a>
+      <a href="#marketing">Marketing</a>
+      <a href="#money">Payments &amp; payroll</a>
+    </nav>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+
+    <div class="cat" id="credit">
+      <div class="cat-head">
+        <div class="eyebrow">01</div>
+        <h2>Credit &amp; F&amp;I</h2>
+        <p>Pull credit, send the application, and sell F&amp;I products without leaving the deal.</p>
+      </div>
+      <div class="partners">
+        <article class="partner">
+          <div class="top"><div class="ini" aria-hidden="true">700</div><h3>700Credit<small>Credit reports</small></h3></div>
+          <p>Run a soft-pull prequalification or a full credit report from the deal. Results land on the customer card, and managers see the full report.</p>
+        </article>
+        <article class="partner">
+          <div class="top"><div class="ini" aria-hidden="true">R1</div><h3>RouteOne<small>Lender network</small></h3></div>
+          <p>Send the credit application to your lenders from the desk. Decisions come back onto the deal.</p>
+        </article>
+        <article class="partner">
+          <div class="top"><div class="ini" aria-hidden="true">DT</div><h3>Dealertrack<small>Lender network</small></h3></div>
+          <p>Send the same application through Dealertrack F&amp;I. Each store picks its lender network, and a store can run both.</p>
+        </article>
+        <article class="partner">
+          <div class="top"><div class="ini" aria-hidden="true">PEN</div><h3>PEN<small>F&amp;I product rating</small></h3></div>
+          <p>Service contracts, GAP and other products come in through the Provider Exchange Network with live rates. They're presented on the F&amp;I menu and contracted with the deal.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="cat" id="signing">
+      <div class="cat-head">
+        <div class="eyebrow">02</div>
+        <h2>E-signing</h2>
+        <p>The deal jacket goes out for signature and comes back filed.</p>
+      </div>
+      <div class="partners">
+        <article class="partner">
+          <div class="top"><div class="ini" aria-hidden="true">DS</div><h3>DocuSign<small>E-signature</small></h3></div>
+          <p>Send deal paperwork and buying packages for signature from HQ. Signed copies file back to the deal automatically.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="cat" id="values">
+      <div class="cat-head">
+        <div class="eyebrow">03</div>
+        <h2>Values &amp; parts</h2>
+        <p>Book values on every unit, and accessories that actually fit it.</p>
+      </div>
+      <div class="partners">
+        <article class="partner">
+          <div class="top"><div class="ini" aria-hidden="true">JDP</div><h3>J.D. Power Connect<small>Unit values &amp; bookouts</small></h3></div>
+          <p>Powersports values on every unit in stock and every trade. The bookout sheet is ready for the funding packet: this VIN, these options, this edition, today.</p>
+        </article>
+        <article class="partner">
+          <div class="top"><div class="ini" aria-hidden="true">PU</div><h3>Parts Unlimited<small>Accessories catalog</small></h3></div>
+          <p>Pull accessories from the live catalog, checked for fitment against the unit. Add them to a deal on the desk or let the customer add them online.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="cat" id="phone">
+      <div class="cat-head">
+        <div class="eyebrow">04</div>
+        <h2>Phone</h2>
+        <p>Every call lands on the customer card it belongs to.</p>
+      </div>
+      <div class="partners">
+        <article class="partner">
+          <div class="top"><div class="ini" aria-hidden="true">ZP</div><h3>Zoom Phone<small>Calls &amp; voicemail</small></h3></div>
+          <p>Calls are matched to the customer, recorded, transcribed and read for what was promised. Missed calls and voicemails alert the right person while the lead is still warm.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="cat" id="marketing">
+      <div class="cat-head">
+        <div class="eyebrow">05</div>
+        <h2>Marketing</h2>
+        <p>Leads come in, conversations stay together, and the ad platforms learn who actually bought.</p>
+      </div>
+      <div class="partners">
+        <article class="partner">
+          <div class="top"><div class="ini" aria-hidden="true">M</div><h3>Meta<small>Facebook &amp; Instagram</small></h3></div>
+          <p>Lead Ads land in the CRM as they're submitted. Messenger and Instagram conversations are answered from HQ, and ad spend sits next to the deals it produced.</p>
+        </article>
+        <article class="partner">
+          <div class="top"><div class="ini" aria-hidden="true">G</div><h3>Google Ads<small>Search &amp; Performance Max</small></h3></div>
+          <p>Sold units go back to Google as conversions, so campaigns optimize toward buyers instead of form fills.</p>
+        </article>
+        <article class="partner">
+          <div class="top"><div class="ini" aria-hidden="true">S</div><h3>Shopify<small>Online parts store</small></h3></div>
+          <p>Store visits, carts, abandoned carts, purchases and revenue all show up in HQ's marketing reports, tied to the customer when we know who it is.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="cat" id="money">
+      <div class="cat-head">
+        <div class="eyebrow">06</div>
+        <h2>Payments &amp; payroll</h2>
+        <p>Take the money, match the bank, pay the team.</p>
+      </div>
+      <div class="partners">
+        <article class="partner">
+          <div class="top"><div class="ini" aria-hidden="true">WP</div><h3>Worldpay<small>Card payments</small></h3></div>
+          <p>Take deposits and payments through hosted card checkout at the cashier. Receipts post to the deal and the ledger.</p>
+        </article>
+        <article class="partner">
+          <div class="top"><div class="ini" aria-hidden="true">P</div><h3>Plaid<small>Bank feed</small></h3></div>
+          <p>Bank transactions flow into HQ's general ledger every day, ready to reconcile without a downloaded statement.</p>
+        </article>
+        <article class="partner">
+          <div class="top"><div class="ini" aria-hidden="true">ADP</div><h3>ADP<small>Payroll</small></h3></div>
+          <p>HQ builds the payroll register from hours and commissions, and a manager approves it. It then goes to ADP to be paid.</p>
+        </article>
+      </div>
+    </div>
+
+    <p class="fine">Product names, logos and trademarks belong to their respective owners. Their appearance here means HQ connects to that product. It does not mean the owner endorses HQ. Some integrations need your own account with the provider.</p>
+  </div>
+</section>
+
+<section class="ask">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow"><b>Don't see yours?</b></div>
+      <h2>Tell us what you run.</h2>
+      <p>HQ is built to connect. If your store depends on a system that isn't listed here, bring it to the demo and we'll show you how it fits.</p>
+    </div>
+    <a class="btn btn-primary" href="/#demo">Book a demo</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap foot">
+    <div>
+      <a class="brand" href="/" aria-label="HQ home"><div class="mark">HQ</div><span>HQ<small>Dealer operating system</small></span></a>
+      <small>CRM, AI, desking, DMS, titles, transport, website, marketing conversions, pricing, alerts, call auditing, reviews, digital retail, live chat and reporting on one host, for franchise and independent dealers who want control of their data.</small>
+    </div>
+    <div>
+      <div class="flinks"><a href="/#modules">Modules</a><a href="/#stack">Build your stack</a><a href="/#data">Your data</a><a href="/#ai">Ask HQ</a><a href="/#reporting">Reporting</a><a href="/integrations/">Integrations</a><a href="/#demo">Book a demo</a></div>
+      <small class="mono" style="margin-top:14px">© <span id="yr">2026</span> HQ. Built in a dealership.</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('menuBtn'), links=document.getElementById('mobileLinks');
+  btn.addEventListener('click',function(){var o=links.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false');});
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
