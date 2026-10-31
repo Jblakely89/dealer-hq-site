@@ -13,7 +13,7 @@
 <meta property="og:image" content="https://dealer-hq.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="HQ: the whole dealership on one platform.">
+<meta property="og:image:alt" content="HQ: the whole dealership. One source of truth. One platform, one bill.">
 <meta property="og:site_name" content="HQ">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://dealer-hq.com/og.png">
@@ -144,6 +144,12 @@ section{padding-block:clamp(56px,8vw,104px)}
 .ring{display:flex;align-items:center;gap:10px}
 .ring svg{transform:rotate(-90deg);flex:none} .ring .tr{stroke:var(--n3)} .ring .pr{stroke:var(--ac);stroke-linecap:round;transition:stroke-dashoffset 1.2s cubic-bezier(.2,.8,.2,1)}
 .ring b{display:block;font:700 22px/1 var(--cond);color:var(--hi)} .ring span{display:block;font-size:11px;color:var(--nmute)} .ring em{font-style:normal;color:var(--tgood);font-weight:700}
+/* the walkthrough: the board's wide card steps through one customer's day across departments (replaces the old tour video) */
+.md7-hh{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.md7-dots{display:flex;gap:5px} .md7-dots i{width:7px;height:7px;border-radius:50%;background:var(--n3);transition:all .3s} .md7-dots i.on{background:var(--orange);width:20px;border-radius:4px} .md7-dots i.done{background:var(--tgood)}
+.md7-n1{min-height:178px} .md7-n1.out{animation:md7out .22s ease-in forwards} .md7-n1.in{animation:md7in .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes md7out{to{opacity:0;transform:translateX(-24px)}} @keyframes md7in{from{opacity:0;transform:translateX(24px)}}
+.md7-t.pulse{animation:tpulse .9s ease-out} @keyframes tpulse{30%{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 35%,transparent)}}
 .board-note{margin-top:10px;font:500 10.5px/1.3 var(--mono);color:var(--nmute);text-align:right}
 @media(max-width:560px){.md2-six{grid-template-columns:repeat(2,minmax(0,1fr))} .md7-bub,.md7-acts{margin-left:0} .md2-six .md7-t:nth-child(n+5){display:none} .board{padding:12px} .md7-n{font-size:32px}}
 
@@ -364,11 +370,13 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
     <div class="board reveal" role="img" aria-label="Preview of HQ's My Day board for a salesperson: the next customer to call, six tiles for leads, follow-ups, deals, credit, deliveries and the month's goal">
       <div class="board-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="url">hq.yourstore.com/sales/today</span></div>
       <div class="board-hd" aria-hidden="true"><div><h4>Good morning, <em>Zane</em></h4><small>SAT · 8:04 AM · MY DAY</small></div></div>
-      <div class="md7-hero" aria-hidden="true">
-        <span class="md7-kick"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Your next move</span>
+      <div class="md7-hero" id="tour" aria-hidden="true">
+        <div class="md7-hh"><span class="md7-kick" id="tourKick"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><span>Your next move</span></span><span class="md7-dots" id="tourDots"><i class="on"></i><i></i><i></i><i></i></span></div>
+        <div class="md7-n1" id="scene">
         <div class="md7-who"><span class="md7-av" style="--av:#e0663a">MT</span><div><b>Marcus T.</b><span>Asked about the touring bike at 11:40 PM. Riley answered and set a 10:00 visit.</span></div></div>
         <div class="md7-bub"><b>RILEY DRAFTED</b>Morning Marcus, it's Zane. The bike is out front and ready for you at 10. Want me to have the trade numbers ready too?</div>
         <div class="md7-acts"><span class="p">Send it</span><span class="s">Call</span></div>
+        </div>
       </div>
       <div class="md2-six" aria-hidden="true">
         <div class="md7-t hot" style="--ac:#ff6b4a"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H9l-5 4z"/></svg></i><span class="md7-l">New leads</span><span class="md7-live">NOW</span></div><div class="md7-n" data-count="6">6</div><div class="md7-h"><b>3</b> web · <b>2</b> Messenger · <b>1</b> call</div></div>
@@ -682,6 +690,24 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
   // ===== count-ups + the month ring =====
   function fireBoard(){ document.querySelectorAll('[data-count]').forEach(function(el){ var n=parseInt(el.getAttribute('data-count'),10); if(reduce){el.textContent=n;return;} var t0=performance.now(); el.textContent='0'; (function f(){ var p=Math.min(1,(performance.now()-t0)/1100); el.textContent=Math.round(n*(1-Math.pow(1-p,3))); if(p<1) requestAnimationFrame(f); })(); });
     var pr=document.getElementById('ringPr'); if(pr) setTimeout(function(){ pr.style.strokeDashoffset=(119.4*(1-9/12)).toFixed(1); }, reduce?0:200); }
+
+  // ===== the walkthrough: one customer through the store, on the board's own wide card =====
+  var SCENES=[
+    {k:'Your next move',av:'MT',c:'#e0663a',who:'Marcus T.',why:'Asked about the touring bike at 11:40 PM. Riley answered and set a 10:00 visit.',bt:'RILEY DRAFTED',bub:"Morning Marcus, it's Zane. The bike is out front and ready for you at 10. Want me to have the trade numbers ready too?",a:['Send it','Call'],t:0},
+    {k:'Finance · on the desk',av:'MT',c:'#4c8dff',who:'Marcus T. · deal',why:'Trade appraised, credit pulled from the deal, lender decision back on the record.',bt:'HQ',bub:'Decision is in. Menu is ready with the products he asked about. Forms are filled from the record.',a:['Present menu','Send to sign'],t:2},
+    {k:'Signed · dispatch',av:'MT',c:'#2fcf7a',who:'Delivery booked',why:'Marcus signed on his phone. He picked Saturday 9:30 from the booking link.',bt:'DISPATCH',bub:'Run built: 2 stops, trailer has room. Driver gets the stops, photos and signature on his phone.',a:['View run','Text Marcus'],t:4},
+    {k:'Office · the books',av:'GL',c:'#a78bfa',who:'Deal posted',why:'The sold deal posted to the general ledger. The deposit matched on the bank feed.',bt:'ACCOUNTING',bub:'Funding receivable open for the lender. Nothing re-typed between sales, F&I, dispatch and the books.',a:['Open the GL','Reconcile'],t:5}
+  ];
+  var tour=document.getElementById('tour'), scene=document.getElementById('scene'), dots=document.querySelectorAll('#tourDots i'), kick=document.querySelector('#tourKick span'), tiles=document.querySelectorAll('.board .md2-six .md7-t'), si=0, paused=false;
+  function esc(x){ return String(x).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function drawScene(i){ var d=SCENES[i];
+    scene.innerHTML='<div class="md7-who"><span class="md7-av" style="--av:'+d.c+'">'+esc(d.av)+'</span><div><b>'+esc(d.who)+'</b><span>'+esc(d.why)+'</span></div></div><div class="md7-bub"><b>'+esc(d.bt)+'</b>'+esc(d.bub)+'</div><div class="md7-acts"><span class="p">'+esc(d.a[0])+'</span><span class="s">'+esc(d.a[1])+'</span></div>';
+    kick.textContent=d.k; dots.forEach(function(x,j){ x.className=j===i?'on':(j<i?'done':''); });
+    var t=tiles[d.t]; if(t){ t.classList.remove('pulse'); void t.offsetWidth; t.classList.add('pulse'); } }
+  function step(){ if(paused||document.hidden) return; scene.classList.add('out'); setTimeout(function(){ si=(si+1)%SCENES.length; drawScene(si); scene.classList.remove('out'); scene.classList.add('in'); setTimeout(function(){ scene.classList.remove('in'); },400); },230); }
+  if(tour&&scene&&!reduce){ tour.addEventListener('mouseenter',function(){paused=true;}); tour.addEventListener('mouseleave',function(){paused=false;}); setInterval(step,5200); }
+  // the dots step it by hand too, so a reduced-motion visitor still gets the whole walkthrough
+  dots.forEach(function(d,j){ d.style.cursor='pointer'; d.addEventListener('click',function(e){ e.stopPropagation(); si=j; drawScene(j); }); });
 
   // ===== scroll reveal =====
   var els=document.querySelectorAll('.reveal, .trk'), fired=false;
