@@ -214,6 +214,57 @@ section{padding-block:clamp(56px,8vw,104px)}
 @media(min-width:1140px){.caps.c4{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .cap .tag{margin-left:auto;font:700 10px/1 var(--mono);letter-spacing:.08em;color:var(--ac);text-transform:uppercase}
 
+/* ---------- the screens: test-data renders of HQ's own screens, in their own classes ---------- */
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.tabs button{min-height:42px;padding:0 14px;border-radius:9px;border:1px solid var(--nline);background:var(--n1);color:var(--nmute);font:700 14px/1 var(--cond);letter-spacing:.09em;text-transform:uppercase;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--orange);border-color:var(--orange);color:#fff}
+.scr{border:1px solid var(--nline);border-radius:18px;background:var(--n1);box-shadow:var(--shadow);padding:14px;min-width:0}
+.scr[hidden]{display:none}
+.scr-bar{display:flex;align-items:center;gap:10px;margin-bottom:12px;font:600 11px/1 var(--mono);color:var(--nmute)}
+.scr-bar .url{flex:1;min-width:0;padding:7px 10px;border-radius:7px;background:var(--n2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.scr-bar .td{flex:none;padding:5px 8px;border-radius:6px;background:color-mix(in srgb,var(--twarn) 16%,transparent);color:var(--twarn);font:700 11px/1 var(--cond);letter-spacing:.1em;text-transform:uppercase}
+.sg{display:grid;gap:10px} @media(min-width:900px){.sg{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}}
+.pn{border:1px solid var(--nline);border-radius:12px;background:var(--n2);padding:12px 14px;min-width:0}
+.pn-h{font:700 13px/1.2 var(--cond);letter-spacing:.09em;text-transform:uppercase;color:var(--nmute);margin-bottom:8px;display:flex;justify-content:space-between;gap:8px}
+.who2{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.who2 .md7-av{width:44px;height:44px;font-size:16px}
+.who2 b{display:block;font:700 26px/1 var(--cond);text-transform:uppercase;color:var(--hi)} .who2 small{display:block;margin-top:4px;font-size:13px;color:var(--nmute)}
+.who2 .acts{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.chipb{display:inline-flex;align-items:center;height:34px;padding:0 12px;border-radius:9px;font:700 13px/1 var(--cond);letter-spacing:.09em;text-transform:uppercase;border:1px solid var(--nline);background:var(--n1);color:var(--hi)}
+.chipb.p{background:linear-gradient(180deg,var(--orange-hi),var(--orange));border-color:var(--orange);color:#fff}
+.stage{position:relative;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));margin:14px 0 4px}
+.stage::before{content:"";position:absolute;left:7%;right:7%;top:9px;height:3px;background:var(--n3)}
+.stage::after{content:"";position:absolute;left:7%;width:57%;top:9px;height:3px;background:var(--tgood)}
+.stage span{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:5px;font:600 10px/1.1 var(--mono);color:var(--nmute);text-align:center}
+.stage span i{width:21px;height:21px;border-radius:50%;background:var(--n2);border:2px solid var(--n3)}
+.stage span.y i{background:var(--tgood);border-color:var(--tgood)} .stage span.at i{background:var(--orange);border-color:var(--orange);box-shadow:0 0 0 4px rgba(242,106,27,.25)} .stage span.at{color:var(--hi)}
+.nextl{margin-top:10px;padding:9px 12px;border-radius:9px;background:rgba(242,106,27,.12);font-size:13.5px;color:var(--ntext)} .nextl b{color:var(--orange);font:700 12px/1 var(--cond);letter-spacing:.1em;text-transform:uppercase;margin-right:6px}
+.conv{display:flex;flex-direction:column;gap:7px}
+.conv .m{max-width:88%;font-size:13px}
+.conv .ev{align-self:center;font:600 10.5px/1.2 var(--mono);color:var(--nmute);padding:4px 8px;border-radius:6px;background:var(--n1)}
+.fx{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 12px;font-size:13.5px}
+.fx>span{padding:7px 0;border-top:1px solid var(--nline);color:var(--nmute)} .fx>b{padding:7px 0;border-top:1px solid var(--nline);color:var(--hi);text-align:right;font-weight:600}
+.fx>span:first-child,.fx>span:first-child+b{border-top:0}
+.fx .tot{color:var(--hi);font:700 15px/1.2 var(--cond);letter-spacing:.06em;text-transform:uppercase} .fx b.tot{font:700 18px/1.2 var(--cond)}
+.band{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:10px;padding:12px 14px;border-radius:12px;background:var(--n2);border:1px solid var(--nline);margin-bottom:10px}
+.band span{display:block;font:600 10px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--nmute)} .band b{display:block;margin-top:5px;font:700 18px/1.1 var(--cond);letter-spacing:.03em;color:var(--hi)}
+.steps5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;margin-bottom:10px}
+.steps5 span{padding:9px 4px;border-radius:7px;background:var(--n2);text-align:center;font:700 12px/1.1 var(--cond);letter-spacing:.07em;text-transform:uppercase;color:var(--nmute)}
+.steps5 span.y{color:var(--tgood)} .steps5 span.at{background:var(--orange);color:#fff}
+.menu3{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))}
+.tier{border:1px solid var(--nline);border-radius:12px;padding:12px;background:var(--n2)} .tier.pick{border-color:var(--orange);background:radial-gradient(90% 120% at 0% 0%,rgba(242,106,27,.18),transparent 60%),var(--n2)}
+.tier h4{margin:0 0 8px;font:700 20px/1 var(--cond);letter-spacing:.06em;text-transform:uppercase;color:var(--hi)} .tier.pick h4{color:var(--orange)}
+.tier ul{margin:0;padding:0;list-style:none;display:grid;gap:5px;font-size:13px} .tier li::before{content:"✓ ";color:var(--tgood);font-weight:700} .tier li.no{color:var(--nmute)} .tier li.no::before{content:"– ";color:var(--nmute)}
+.buy{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,.7fr));gap:4px 10px;align-items:center;padding:9px 2px;border-top:1px solid var(--nline);font-size:13px}
+.buy.hd{border-top:0;font:600 10px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--nmute)}
+.buy b{font:700 15px/1.1 var(--cond);letter-spacing:.04em;text-transform:uppercase;color:var(--hi)} .buy .n{font:700 17px/1 var(--cond);color:var(--hi);text-align:right} .buy .n.g{color:var(--tgood)} .buy .n.o{color:var(--orange)}
+.buy small{display:block;font-size:11.5px;color:var(--nmute)}
+@media(max-width:560px){.who2 .acts{margin-left:0;width:100%} .stage span{font-size:0;gap:0} .buy{grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,.7fr))} .buy .x{display:none}}
+.shotnote{margin-top:10px;font:500 11px/1.3 var(--mono);color:var(--nmute);text-align:right}
+/* ---------- who it's for ---------- */
+.whofor{margin-top:clamp(28px,4vw,44px);display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.whofor .pn{background:var(--n1);padding:16px} .whofor h3{font-size:24px;margin:6px 0 8px} .whofor p{font-size:14.5px;color:var(--nmute)}
+.whofor ul{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:6px;font-size:14px} .whofor li::before{content:"✓ ";color:var(--tgood);font-weight:700}
 /* ---------- Riley ---------- */
 .riley{background:linear-gradient(180deg,var(--n0),var(--n1));border-block:1px solid var(--nline)}
 .rgrid{display:grid;gap:28px} @media(min-width:960px){.rgrid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:56px}}
@@ -330,6 +381,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
     <nav class="links" aria-label="Primary">
       <a href="#one-bill">One bill</a>
       <a href="#capabilities">Capabilities</a>
+      <a href="#screens">Screens</a>
       <a href="#riley">Riley AI</a>
       <a href="#data">Your data</a>
       <a href="/integrations/">Integrations</a>
@@ -341,7 +393,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
     </div>
   </div>
   <nav class="menu" id="menu" aria-label="Primary mobile">
-    <a href="#one-bill">One bill</a><a href="#capabilities">Capabilities</a><a href="#riley">Riley AI</a><a href="#data">Your data</a><a href="/integrations/">Integrations</a>
+    <a href="#one-bill">One bill</a><a href="#capabilities">Capabilities</a><a href="#screens">Screens</a><a href="#riley">Riley AI</a><a href="#data">Your data</a><a href="/integrations/">Integrations</a>
     <a class="go" href="#demo">Book a demo</a>
   </nav>
 </header>
@@ -429,7 +481,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
         <p>A lead becomes a customer, a credit app, a signed deal, a delivery, a service visit and a journal entry without anybody typing it twice. Every department reads the same numbers, so the Monday meeting is about the business, not about whose report is right.</p>
         <span class="inbill-h">All on the one bill</span>
         <div class="inbill"><span>CRM + Riley AI</span><span>Desking &amp; F&amp;I</span><span>Credit</span><span>E-sign</span><span>Inventory &amp; pricing</span><span>Buying</span><span>Website &amp; chat</span><span>Texting</span><span>Reviews</span><span>Service &amp; parts</span><span>Dispatch</span><span>GL &amp; bank feed</span><span>Reports</span></div>
-        <a class="md7-go" href="#demo">Map my stack in a demo</a>
+        <a class="md7-go" href="#demo">Book a demo</a>
       </div>
     </div>
     <p class="bill-foot reveal">Run HQ beside what you have and switch departments over at your pace. Nobody has to rip out a system on day one.</p>
@@ -508,9 +560,81 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
         <ul><li>My Day boards for every role</li><li>Weekly 1-on-1 scorecards by department</li><li>Ad spend traced to leads, apps and sales</li><li>Company pulse and month plan for the owner</li></ul></article>
     </div>
     <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;align-items:center" class="reveal">
-      <a class="md7-go" href="#demo">See it on a store like yours</a>
+      <a class="md7-go" href="#demo">Book a demo</a>
       <a class="md7-btn" href="/integrations/">Integrations</a>
     </div>
+  </div>
+</section>
+
+<!-- ================= the screens ================= -->
+<section id="screens" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh two">
+      <div class="reveal"><span class="kick">The screens</span><h2 style="margin-top:12px">One record, <em>every desk.</em></h2></div>
+      <p class="lede reveal">The same customer, deal and unit, as each department sees them. These are HQ's own screens, drawn with made-up test data.</p>
+    </div>
+    <div class="tabs reveal" role="tablist" aria-label="HQ screens">
+      <button type="button" role="tab" aria-selected="true" aria-controls="scr-card" id="tab-card">Customer card</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="scr-desk" id="tab-desk">Deal Desk</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="scr-fi" id="tab-fi">F&amp;I menu</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="scr-demand" id="tab-demand">Demand center</button>
+    </div>
+
+    <div class="scr reveal" id="scr-card" role="tabpanel" aria-labelledby="tab-card">
+      <div class="scr-bar"><span class="url">hq.yourstore.com/customers/casey-example</span><span class="td">Test data</span></div>
+      <div class="pn">
+        <div class="who2"><span class="md7-av" style="--av:#a78bfa">CE</span><div><b>Casey Example</b><small>Facebook lead · 2 days ago · wants the touring bike</small></div>
+          <div class="acts"><span class="chipb p">Hand to F&amp;I</span><span class="chipb">Call</span><span class="chipb">Text</span></div></div>
+        <div class="stage" aria-label="Lead, talking, quick quote and full app done; desked now"><span class="y"><i></i>Lead</span><span class="y"><i></i>Talking</span><span class="y"><i></i>Quick quote</span><span class="y"><i></i>Full app</span><span class="at"><i></i>Desked</span><span><i></i>Sold</span><span><i></i>Delivered</span></div>
+        <div class="nextl"><b>Next</b>Desked, not with F&amp;I yet. Lender decision is on the deal. Menu and contract next.</div>
+      </div>
+      <div class="sg" style="margin-top:10px">
+        <div class="pn"><div class="pn-h">Conversation <span>Riley, texts and calls</span></div>
+          <div class="conv"><span class="ev">Quick quote back · prequalified</span><div class="m r">Here is your credit application, mostly filled in from what you gave us.</div><span class="ev">Full app in · sent to the desk</span><div class="m r">Good news Casey, your numbers are ready. When is a good time to go over them?</div><div class="m c">after 5 works</div></div></div>
+        <div class="pn"><div class="pn-h">Deal</div>
+          <div class="fx"><span>Unit</span><b>Touring bike · stock T-2291</b><span>Trade</span><b>2016 cruiser · 14k mi</b><span>Credit</span><b style="color:var(--tgood)">Prequalified</b><span>Deal road</span><b>Worksheet · step 5 of 13</b><span>Follow-up</span><b>Today 5:15 PM · call</b></div></div>
+      </div>
+    </div>
+
+    <div class="scr" id="scr-desk" role="tabpanel" aria-labelledby="tab-desk" hidden>
+      <div class="scr-bar"><span class="url">hq.yourstore.com/desk/deals/D-1042</span><span class="td">Test data</span></div>
+      <div class="band"><div><span>Buyer</span><b>Casey Example</b></div><div><span>Unit</span><b>Touring bike · T-2291</b></div><div><span>Trade</span><b>2016 cruiser</b></div><div><span>Lender</span><b>Decision in</b></div></div>
+      <div class="sg">
+        <div class="pn"><div class="pn-h">Worksheet <span>edits stamp who and when</span></div>
+          <div class="fx"><span>Selling price</span><b>18,900</b><span>Accessories</span><b>640</b><span>Doc fee</span><b>199</b><span>Trade allowance</span><b>−6,500</b><span>Trade payoff</span><b>2,150</b><span>Tax</span><b>912</b><span class="tot">Total</span><b class="tot">16,301</b></div></div>
+        <div class="pn"><div class="pn-h">Gross</div>
+          <div class="fx"><span>Front</span><b style="color:var(--tgood)">2,410</b><span>Back</span><b style="color:var(--tgood)">1,180</b><span>Accessories</span><b>220</b><span class="tot">Deal</span><b class="tot">3,810</b></div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px"><span class="chipb p">Send to lender</span><span class="chipb">Print</span></div></div>
+      </div>
+    </div>
+
+    <div class="scr" id="scr-fi" role="tabpanel" aria-labelledby="tab-fi" hidden>
+      <div class="scr-bar"><span class="url">hq.yourstore.com/finance/deals/D-1042/menu</span><span class="td">Test data</span></div>
+      <div class="steps5"><span class="y">1 · Rate</span><span class="at">2 · Menu</span><span>3 · Generate</span><span>4 · Display</span><span>5 · Sign</span></div>
+      <div class="menu3">
+        <div class="tier pick"><h4>Platinum</h4><ul><li>Service contract 48 mo</li><li>GAP</li><li>Tire &amp; wheel</li><li>Paint &amp; fabric</li><li>Theft</li></ul></div>
+        <div class="tier"><h4>Gold</h4><ul><li>Service contract 36 mo</li><li>GAP</li><li>Tire &amp; wheel</li><li class="no">Paint &amp; fabric</li><li class="no">Theft</li></ul></div>
+        <div class="tier"><h4>Silver</h4><ul><li>Service contract 24 mo</li><li>GAP</li><li class="no">Tire &amp; wheel</li><li class="no">Paint &amp; fabric</li><li class="no">Theft</li></ul></div>
+      </div>
+      <div class="nextl" style="margin-top:10px"><b>HQ</b>Products rated live from your providers for this unit. The chosen tier's contracts generate, fill from the deal and go out to sign.</div>
+    </div>
+
+    <div class="scr" id="scr-demand" role="tabpanel" aria-labelledby="tab-demand" hidden>
+      <div class="scr-bar"><span class="url">hq.yourstore.com/buying/demand</span><span class="td">Test data</span></div>
+      <div class="md2-six" style="margin:0 0 10px">
+        <div class="md7-t hot" style="--ac:var(--orange)"><div class="md7-top"><span class="md7-l">Need now</span></div><div class="md7-n">7</div><div class="md7-h"><b>11</b> units short</div></div>
+        <div class="md7-t" style="--ac:#2fcf7a"><div class="md7-top"><span class="md7-l">Hot sellers</span></div><div class="md7-n">6</div><div class="md7-h">sell in 21 d or less</div></div>
+        <div class="md7-t" style="--ac:#ff6b4a"><div class="md7-top"><span class="md7-l">Aging</span></div><div class="md7-n">5</div><div class="md7-h"><b>2</b> exit now</div></div>
+      </div>
+      <div class="pn"><div class="pn-h">Buy list <span>ranked by speed, gross and leads</span></div>
+        <div class="buy hd"><span>Target</span><span class="n" style="font:inherit">Sold 30/60/90</span><span class="n" style="font:inherit">Days to sell</span><span class="n x" style="font:inherit">Leads / unit</span></div>
+        <div class="buy"><span><b>Touring bike</b><small>2019–2022 · under 18k mi · buy 3</small></span><span class="n">4·7·10</span><span class="n g">14 d</span><span class="n x">6.4</span></div>
+        <div class="buy"><span><b>Sport side-by-side</b><small>2018–2021 · under 1,400 hrs · buy 2</small></span><span class="n">3·5·6</span><span class="n g">18 d</span><span class="n x">4.1</span></div>
+        <div class="buy"><span><b>Utility ATV</b><small>2017–2022 · under 900 hrs · buy 2</small></span><span class="n">2·4·7</span><span class="n g">21 d</span><span class="n x">3.0</span></div>
+        <div class="buy"><span><b>Three-wheel touring</b><small>2016–2020 · stop: 4 on the lot</small></span><span class="n">0·1·2</span><span class="n o">96 d</span><span class="n x">0.8</span></div>
+      </div>
+    </div>
+    <p class="shotnote">Shown with test data. Names, units and numbers are made up.</p>
   </div>
 </section>
 
@@ -555,11 +679,15 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
       <div class="dc reveal"><span class="no">04</span><b>AI that learns from you only</b><span>Riley and Ask HQ work from your store's records and nobody else's.</span></div>
     </div>
 
+    <div class="whofor">
+      <div class="pn reveal"><span class="kick">Franchise dealers</span><h3>Keep the factory happy. Keep the data yours.</h3><p>Factory units and incentives sit next to your pre-owned on one desk, with warranty and customer-pay service on the same record.</p><ul><li>OEM inventory and programs on the desk</li><li>Warranty and customer-pay ROs</li><li>Multi-store from day one</li></ul></div>
+      <div class="pn reveal"><span class="kick">Independent dealers</span><h3>Enterprise tools for an independent store.</h3><p>You buy from the public, desk your own deals and move your own units. HQ was built for exactly that.</p><ul><li>Buying is a first-class desk</li><li>Your own website, served from your inventory</li><li>One record for sales, service and the books</li></ul></div>
+    </div>
     <div class="proof reveal" id="proof">
       <div>
         <span class="kick">Built in a dealership</span>
         <blockquote style="margin-top:14px">"The biggest reason I built this was to have all my data fed to me, get alerts when something needs a hand, and hold a team accountable when trends start."
-          <footer>Founding dealer · Indiana</footer></blockquote>
+          <footer>Founding dealer · built and run at a real dealership</footer></blockquote>
       </div>
       <div>
         <div class="facts">
@@ -567,7 +695,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
           <div><b>Daily</b><span>releases shaped by the floor</span></div>
           <div><b>1</b><span>platform, every department</span></div>
         </div>
-        <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px"><a class="md7-go" href="#demo">Talk to a dealer who runs it</a></div>
+        <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px"><a class="md7-go" href="#demo">Book a demo</a></div>
       </div>
     </div>
   </div>
@@ -627,7 +755,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
       </details>
       <input type="text" name="website" id="f-website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
       <div class="form-foot">
-        <button class="md7-go" type="submit">Request my demo</button>
+        <button class="md7-go" type="submit">Book a demo</button>
         <small>No mailing list. No drip campaign. One reply from a person.</small>
       </div>
       <div class="sent" id="sent" role="status"></div>
@@ -645,7 +773,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
     </div>
     <div>
       <div class="flinks"><a href="#one-bill">One bill</a><a href="#capabilities">Capabilities</a><a href="#riley">Riley AI</a><a href="#data">Your data</a><a href="/integrations/">Integrations</a><a href="#demo">Book a demo</a></div>
-      <small>© <span id="yr">2026</span> Payton Place Powersports. All rights reserved. HQ is built and operated by Payton Place Powersports · 710 S Marr Rd, Columbus, IN · <a href="https://hq.paytonplaceauto.com/privacy">Privacy policy</a></small>
+      <small>© <span id="yr">2026</span> HQ. Built and run at a real dealership. All rights reserved. · <a href="https://hq.paytonplaceauto.com/privacy">Privacy policy</a></small>
     </div>
   </div>
 </footer>
@@ -723,6 +851,10 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
   var pin=document.getElementById('pin'), demo=document.getElementById('demo');
   if(pin&&demo&&'IntersectionObserver' in window){ new IntersectionObserver(function(es){ pin.classList.toggle('hide', es[0].isIntersecting); },{threshold:.05}).observe(demo); }
 
+  // ===== the screens: tabs =====
+  var tabs=document.querySelectorAll('.tabs [role=tab]');
+  tabs.forEach(function(t){ t.addEventListener('click',function(){ tabs.forEach(function(x){ var on=x===t; x.setAttribute('aria-selected',on?'true':'false'); var pnl=document.getElementById(x.getAttribute('aria-controls')); if(pnl){ pnl.hidden=!on; if(on) pnl.classList.add('in'); } }); }); });
+
   // ===== what matters most: the form's checks, shared with Colebot =====
   var selected=[];
   document.querySelectorAll('#formChecks input').forEach(function(i){ i.addEventListener('change',function(){ var k=selected.indexOf(i.value); if(i.checked&&k<0) selected.push(i.value); if(!i.checked&&k>=0) selected.splice(k,1); }); });
@@ -752,7 +884,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
       var b=form.querySelector('button[type=submit]'); b.disabled=true; b.textContent='Sending…';
       var fd=new FormData(form);
       var lead={source:'demo form',name:fd.get('name'),role:fd.get('role')||'',dealership:fd.get('dealership'),rooftops:fd.get('rooftops'),type:fd.get('type'),sells:fd.get('lines'),email:fd.get('email'),phone:fd.get('phone')||'',modules:fd.getAll('modules'),running_today:fd.get('stack')||''};
-      sendLead(lead,function(ok,how){ b.disabled=false; b.textContent='Request my demo'; sent.textContent= how==='hq'?'Sent. Your request is on our desk and a dealer from our team replies within one business day.':'Thanks. Your request is drafted in your mail app. Hit send and we will be in touch within one business day.'; sent.className='sent show'; });
+      sendLead(lead,function(ok,how){ b.disabled=false; b.textContent='Book a demo'; sent.textContent= how==='hq'?'Sent. Your request is on our desk and a dealer from our team replies within one business day.':'Thanks. Your request is drafted in your mail app. Hit send and we will be in touch within one business day.'; sent.className='sent show'; });
     });
   }
 
