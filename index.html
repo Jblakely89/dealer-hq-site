@@ -23,11 +23,16 @@
 <link rel="icon" type="image/png" sizes="32x32" href="https://dealer-hq.com/favicon-32.png">
 <link rel="apple-touch-icon" href="https://dealer-hq.com/apple-touch-icon.png">
 <meta name="theme-color" content="#14213d">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<!-- fonts are served from this site (Jon 11/1): no third-party font calls, no render-blocking stylesheet; the two the hero paints with are preloaded. OFL, see /fonts/OFL.txt -->
+<link rel="preload" href="/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin>
 <script>try{var t=localStorage.getItem('hq-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 <style>
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/barlow-condensed-600.woff2) format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/barlow-condensed-700.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/ibm-plex-sans-var.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/ibm-plex-mono-500.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/ibm-plex-mono-600.woff2) format("woff2")}
 /* The house look is HQ's own My Day board: the navy ramp, Barlow Condensed caps, one orange accent, tiles with a coloured
    top rule and an icon, a wide hero card. Tokens carry both themes; nothing below types a colour outside them except the
    per-tile accents (--ac), which are the same accents the board uses. */
@@ -71,7 +76,7 @@ section{padding-block:clamp(56px,8vw,104px)}
 .top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--n0) 86%,transparent);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--nline)}
 .nav{display:flex;align-items:center;gap:14px;height:62px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--hi);flex:none}
-.mark{display:grid;place-items:center;width:36px;height:36px;border-radius:9px;background:var(--orange);color:#fff;font:800 15px/1 var(--cond);letter-spacing:.04em;box-shadow:0 6px 16px -6px rgba(242,106,27,.8)}
+.mark{display:grid;place-items:center;width:36px;height:36px;border-radius:9px;background:var(--orange);color:#fff;font:800 19px/1 var(--cond);letter-spacing:.04em;box-shadow:0 6px 16px -6px rgba(242,106,27,.8)}
 .brand b{font:700 22px/1 var(--cond);letter-spacing:.04em} .brand small{display:block;font:600 10px/1 var(--mono);letter-spacing:.08em;color:var(--nmute);text-transform:uppercase;margin-top:3px}
 .links{display:none;gap:4px;margin-left:12px}
 .links a{padding:8px 10px;border-radius:8px;text-decoration:none;font:700 14.5px/1 var(--cond);letter-spacing:.09em;text-transform:uppercase;color:var(--nmute)}
@@ -370,14 +375,112 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
 .cb-in button{width:46px;border:0;border-radius:9px;background:var(--orange);color:#fff;cursor:pointer;display:grid;place-items:center} .cb-in button svg{width:20px;height:20px}
 .cb-foot{padding:0 14px 10px;font-size:11px;color:var(--nmute)}
 
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .reveal{opacity:1;transform:none}}
+/* ==========================================================================================================
+   MOTION + DEMO PUSH (Jon 11/1: "add some animations ... really make it captivating ... push for people to ask for a demo").
+   Every animation below moves transform, opacity or colour only, so nothing reflows and nothing shifts the page;
+   everything that moves stops under prefers-reduced-motion (the last rule in this sheet). */
+.tnum{font-variant-numeric:tabular-nums}
+/* reading progress under the top bar */
+.prog{position:absolute;left:0;right:0;bottom:-1px;height:2px;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--orange),#ffb020);pointer-events:none}
+/* the top bar's demo button shows at every width, phones included; the brand's sub-line makes room for it */
+.nav-r .md7-go{display:inline-flex!important;position:relative;overflow:hidden}
+.nav-r .md7-go::after,.pin .md7-go::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);animation:shine 7s ease-in-out 2.5s infinite;pointer-events:none}
+@keyframes shine{0%,78%{transform:translateX(-120%)}92%,100%{transform:translateX(120%)}}
+/* under 440 px the logo mark alone carries the brand (its words stay for screen readers) so the demo button fits */
+@media(max-width:439px){.brand>span:last-child{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap} .nav{gap:10px} .nav-r{gap:6px}}
+
+/* hero: drifting light, a shimmering promise, the board floats and tilts toward the pointer */
+.hero::before{animation:drift 14s ease-in-out infinite alternate} .hero::after{animation:drift 18s ease-in-out infinite alternate-reverse}
+@keyframes drift{to{transform:translate3d(-6%,8%,0) scale(1.08)}}
+.hero h1 em{background:linear-gradient(90deg,var(--orange) 0%,#ffb020 25%,var(--orange) 50%,#ffb020 75%,var(--orange) 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 8s linear infinite}
+@keyframes sheen{to{background-position:-200% 0}}
+:root[data-theme="light"] .hero h1 em{background-image:linear-gradient(90deg,#d4560c 0%,var(--orange) 25%,#d4560c 50%,var(--orange) 75%,#d4560c 100%)}
+.hero-ones div{animation:pop .55s cubic-bezier(.2,.8,.2,1) both} .hero-ones div:nth-child(2){animation-delay:.08s} .hero-ones div:nth-child(3){animation-delay:.16s} .hero-ones div:nth-child(4){animation-delay:.24s}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.94)}}
+.hero-trust{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-top:14px;font:600 12px/1.3 var(--mono);letter-spacing:.03em;color:var(--nmute)}
+.hero-trust span{display:inline-flex;align-items:center;gap:6px} .hero-trust i{width:7px;height:7px;border-radius:50%;background:var(--tgood);box-shadow:0 0 0 0 rgba(95,211,141,.6);animation:live 1.8s infinite}
+@keyframes live{70%,100%{box-shadow:0 0 0 7px rgba(95,211,141,0)}}
+.board-wrap{perspective:1400px;min-width:0}
+.board.in{animation:floaty2 7s ease-in-out 1s infinite}
+@keyframes floaty2{50%{translate:0 -6px}}
+.board.tilting{transition:transform .25s ease-out} .board{transform-style:preserve-3d}
+/* the live flow: lead -> Riley -> credit -> signed -> funded, stepped by the walkthrough above it */
+.flow{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin:12px 2px 2px;padding-top:2px}
+.flow::before,.flow-fill{content:"";position:absolute;left:10%;right:10%;top:9px;height:3px;border-radius:2px;background:var(--n3)}
+.flow-fill{background:linear-gradient(90deg,#2fcf7a,var(--orange));transform-origin:0 50%;transform:scaleX(0);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.flow span{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:5px;font:700 10.5px/1 var(--cond);letter-spacing:.1em;text-transform:uppercase;color:var(--nmute);text-align:center;transition:color .4s}
+.flow span i{width:21px;height:21px;border-radius:50%;background:var(--n2);border:2px solid var(--n3);transition:background .4s,border-color .4s,transform .4s}
+.flow span.y{color:var(--hi)} .flow span.y i{background:#2fcf7a;border-color:#2fcf7a}
+.flow span.at{color:var(--orange)} .flow span.at i{background:var(--orange);border-color:var(--orange);transform:scale(1.15);box-shadow:0 0 0 0 rgba(242,106,27,.6);animation:flowping 1.4s infinite}
+@keyframes flowping{70%,100%{box-shadow:0 0 0 8px rgba(242,106,27,0)}}
+.flow-pkt{position:absolute;top:6px;left:10%;width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 10px 2px rgba(242,106,27,.9);opacity:0;pointer-events:none}
+.flow.run .flow-pkt{animation:pkt 1.1s cubic-bezier(.4,0,.2,1)}
+@keyframes pkt{0%{opacity:0;transform:translateX(var(--from,0))}15%,85%{opacity:1}100%{opacity:0;transform:translateX(var(--to,0))}}
+
+/* vendor stack: when HQ's column lands, the separate contracts get struck through one after another */
+.vrow{position:relative} .vrow::after{content:"";position:absolute;left:38px;right:0;top:50%;height:2px;background:var(--tcrit);opacity:.55;transform-origin:0 50%;transform:scaleX(0);transition:transform .45s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0) * 110ms + .3s)}
+.js .stackcol.in .vrow::after{transform:scaleX(1)}
+.hqcol.in{animation:glow 3.2s ease-in-out 1.6s 2}
+@keyframes glow{50%{box-shadow:0 22px 60px -14px rgba(242,106,27,.95)}}
+
+/* capability tiles: depth on hover (pointer devices only; the JS sets --rx/--ry/--mx/--my) */
+.cap.md7-t{transform-style:preserve-3d}
+.cap.md7-t::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(360px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--ac) 22%,transparent),transparent 45%);opacity:0;transition:opacity .25s;pointer-events:none}
+.cap.md7-t.tilt{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-4px);border-color:color-mix(in srgb,var(--ac) 60%,transparent);box-shadow:0 22px 40px -18px color-mix(in srgb,var(--ac) 85%,transparent)}
+.cap.md7-t.tilt::after{opacity:1}
+.cap.md7-t:hover .md7-ic{animation:icbump .5s cubic-bezier(.2,.8,.2,1)} @keyframes icbump{40%{transform:translateY(-3px) scale(1.12)}}
+
+/* the screens: all four panels share one cell, so switching never changes the section's height (no layout shift) */
+.scr-stack{display:grid} .scr-stack>.scr{grid-area:1/1}
+.scr-stack>.scr[hidden]{display:block;visibility:hidden;opacity:0;pointer-events:none}
+.scr-stack>.scr.show{animation:scrin .45s cubic-bezier(.2,.8,.2,1)} @keyframes scrin{from{opacity:0;transform:translateY(10px) scale(.99)}}
+.tabs button{position:relative;overflow:hidden}
+.tabs.auto button[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.75);transform-origin:0 50%;animation:tabfill var(--cyc,6s) linear forwards}
+.tabs.auto.paused button[aria-selected="true"]::after{animation-play-state:paused}
+@keyframes tabfill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* a demo ask after every section */
+.cta-strip{margin-top:clamp(24px,3.4vw,36px);display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;padding:16px 18px;border:1px solid color-mix(in srgb,var(--orange) 40%,var(--nline));border-radius:16px;
+  background:radial-gradient(80% 140% at 0% 0%,rgba(242,106,27,.16),transparent 60%),var(--n1)}
+.cta-strip p{flex:1 1 280px;font:700 clamp(19px,2vw,23px)/1.15 var(--cond);letter-spacing:.04em;text-transform:uppercase;color:var(--hi)} .cta-strip p small{display:block;margin-top:5px;font:400 14px/1.45 var(--sans);letter-spacing:0;text-transform:none;color:var(--nmute)}
+.cta-strip .acts{display:flex;flex-wrap:wrap;gap:8px} .cta-strip .md7-go svg{transition:transform .2s} .cta-strip .md7-go:hover svg{transform:translateX(3px)}
+@media(max-width:560px){.cta-strip .acts{width:100%} .cta-strip .acts>*{flex:1 1 auto}}
+
+/* the phone bar: what you get, and the button */
+.pin{align-items:center}
+.pin-t{display:flex;flex-direction:column;gap:3px;flex:none} .pin-t b{font:700 15px/1 var(--cond);letter-spacing:.07em;text-transform:uppercase;color:var(--hi)} .pin-t small{font:600 10.5px/1 var(--mono);color:var(--nmute)}
+.pin .md7-go{position:relative;overflow:hidden}
+.pin.hide{pointer-events:none}
+
+/* Colebot's nudge: one bubble, once a visit, when the reader is deep enough to care */
+.cb-nudge{position:fixed;right:16px;bottom:80px;z-index:61;width:min(300px,calc(100vw - 32px));padding:14px 14px 12px;border:1px solid var(--nline);border-radius:16px 16px 4px 16px;background:var(--n1);box-shadow:0 24px 50px -18px rgba(0,0,0,.65);
+  opacity:0;transform:translateY(12px) scale(.96);transform-origin:100% 100%;transition:opacity .3s,transform .35s cubic-bezier(.2,.8,.2,1);pointer-events:none;visibility:hidden}
+.cb-nudge.show{opacity:1;transform:none;pointer-events:auto;visibility:visible}
+.cb-nudge p{font-size:14px;line-height:1.45;color:var(--ntext);padding-right:22px} .cb-nudge p b{display:block;margin-bottom:3px;font:700 15px/1.1 var(--cond);letter-spacing:.06em;text-transform:uppercase;color:var(--hi)}
+.cb-nudge .x{position:absolute;top:6px;right:6px;width:32px;height:32px;border:0;border-radius:8px;background:transparent;color:var(--nmute);font-size:20px;cursor:pointer} .cb-nudge .x:hover{background:var(--n2)}
+.cb-nudge .row{display:flex;gap:8px;margin-top:10px}
+.cb-nudge .row button{min-height:40px;padding:0 12px;border-radius:9px;font:700 13px/1 var(--cond);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.cb-nudge .go{flex:1;border:0;background:linear-gradient(180deg,var(--orange-hi),var(--orange));color:#fff} .cb-nudge .no{border:1px solid var(--nline);background:var(--n2);color:var(--hi)}
+@media(max-width:899px){.cb-nudge{right:12px;bottom:148px}}
+/* while the phone bar is tucked away (over the hero and the form) the chat button drops into its place: a transform, so nothing shifts */
+@media(max-width:899px){.cb-launch{transition:transform .25s} .pin-off .cb-launch{transform:translateY(68px)} .cb-nudge{transition:opacity .3s,transform .35s cubic-bezier(.2,.8,.2,1),translate .25s} .pin-off .cb-nudge{translate:0 68px}}
+.cb-launch.ping .av{animation:avping 1.4s 3} @keyframes avping{0%{box-shadow:0 0 0 0 rgba(242,106,27,.7)}80%,100%{box-shadow:0 0 0 12px rgba(242,106,27,0)}}
+
+/* the shorter form */
+.md2-form .req{color:var(--orange)}
+.md2-form [aria-invalid="true"]{border-color:var(--tcrit)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--tcrit) 22%,transparent)}
+.fh .quick{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:5px 9px;border-radius:7px;background:color-mix(in srgb,var(--tgood) 14%,transparent);color:var(--tgood);font:700 11px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.md2-form.done{animation:formok .7s cubic-bezier(.2,.8,.2,1)} @keyframes formok{30%{box-shadow:0 0 0 4px color-mix(in srgb,var(--tgood) 45%,transparent)}}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .reveal{opacity:1;transform:none}
+  .board.in{translate:none} .cap.md7-t.tilt{transform:none} .flow-pkt{display:none}}
 </style>
 </head>
 <body>
 
 <header class="top">
   <div class="wrap nav">
-    <a class="brand" href="#top" aria-label="HQ home"><span class="mark">HQ</span><span><b>HQ</b><small>Dealer platform</small></span></a>
+    <a class="brand" href="#top"><span class="mark" aria-hidden="true">HQ</span><span><b>HQ</b><small>Dealer platform</small></span></a>
     <nav class="links" aria-label="Primary">
       <a href="#one-bill">One bill</a>
       <a href="#capabilities">Capabilities</a>
@@ -396,6 +499,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
     <a href="#one-bill">One bill</a><a href="#capabilities">Capabilities</a><a href="#screens">Screens</a><a href="#riley">Riley AI</a><a href="#data">Your data</a><a href="/integrations/">Integrations</a>
     <a class="go" href="#demo">Book a demo</a>
   </nav>
+  <span class="prog" id="prog" aria-hidden="true"></span>
 </header>
 
 <main id="top">
@@ -411,6 +515,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
         <a class="md7-go" href="#demo">Book a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="md7-btn" href="#one-bill">See what it replaces</a>
       </div>
+      <div class="hero-trust"><span><i></i>30-minute live demo</span><span>A dealer replies within one business day</span></div>
       <div class="hero-ones" aria-label="What one platform means">
         <div><b>1</b><span>record per customer</span></div>
         <div><b>1</b><span>login for every role</span></div>
@@ -419,7 +524,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
       </div>
     </div>
 
-    <div class="board reveal" role="img" aria-label="Preview of HQ's My Day board for a salesperson: the next customer to call, six tiles for leads, follow-ups, deals, credit, deliveries and the month's goal">
+    <div class="board-wrap"><div class="board reveal" id="board" role="img" aria-label="Preview of HQ's My Day board for a salesperson: the next customer to call, six tiles for leads, follow-ups, deals, credit, deliveries and the month's goal">
       <div class="board-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="url">hq.yourstore.com/sales/today</span></div>
       <div class="board-hd" aria-hidden="true"><div><h4>Good morning, <em>Zane</em></h4><small>SAT · 8:04 AM · MY DAY</small></div></div>
       <div class="md7-hero" id="tour" aria-hidden="true">
@@ -439,8 +544,10 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
         <div class="md7-t" style="--ac:var(--orange)"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-8"/></svg></i><span class="md7-l">The month</span></div>
           <div class="ring"><svg width="46" height="46" viewBox="0 0 46 46"><circle class="tr" cx="23" cy="23" r="19" fill="none" stroke-width="5"/><circle class="pr" id="ringPr" cx="23" cy="23" r="19" fill="none" stroke-width="5" stroke-dasharray="119.4" stroke-dashoffset="119.4"/></svg><div><b>9 / 12</b><span><em>ahead</em> of pace</span></div></div></div>
       </div>
+      <div class="flow" id="flow" aria-hidden="true"><span class="flow-fill" id="flowFill"></span><span class="flow-pkt" id="flowPkt"></span>
+        <span><i></i>Lead</span><span><i></i>Riley</span><span><i></i>Credit</span><span><i></i>Signed</span><span><i></i>Funded</span></div>
       <div class="board-note" aria-hidden="true">Shown with test data</div>
-    </div>
+    </div></div>
   </div>
 </section>
 
@@ -479,7 +586,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
           <div><b>0</b><span>re-keying</span></div>
         </div>
         <p>A lead becomes a customer, a credit app, a signed deal, a delivery, a service visit and a journal entry without anybody typing it twice. Every department reads the same numbers, so the Monday meeting is about the business, not about whose report is right.</p>
-        <span class="inbill-h">All on the one bill</span>
+        <span class="inbill-h">All <b class="tnum" data-to="13">13</b> on the one bill</span>
         <div class="inbill"><span>CRM + Riley AI</span><span>Desking &amp; F&amp;I</span><span>Credit</span><span>E-sign</span><span>Inventory &amp; pricing</span><span>Buying</span><span>Website &amp; chat</span><span>Texting</span><span>Reviews</span><span>Service &amp; parts</span><span>Dispatch</span><span>GL &amp; bank feed</span><span>Reports</span></div>
         <a class="md7-go" href="#demo">Book a demo</a>
       </div>
@@ -511,6 +618,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
       <div class="reveal"><b>One set of numbers</b><span>Sales, F&amp;I, service and accounting read the same rows, live.</span></div>
       <div class="reveal"><b>One audit trail</b><span>Every change stamped with who, what and when. Nothing is deleted.</span></div>
     </div>
+    <div class="cta-strip reveal"><p>Watch one record move through a store.<small>In the demo we take a lead from first text to a posted deal, live, on one screen.</small></p><div class="acts"><a class="md7-go" href="#demo">Book a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><button class="md7-btn js-cb" type="button">Ask Colebot</button></div></div>
   </div>
 </section>
 
@@ -580,7 +688,8 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
       <button type="button" role="tab" aria-selected="false" aria-controls="scr-demand" id="tab-demand">Demand center</button>
     </div>
 
-    <div class="scr reveal" id="scr-card" role="tabpanel" aria-labelledby="tab-card">
+    <div class="scr-stack" id="scrStack">
+    <div class="scr reveal show" id="scr-card" role="tabpanel" aria-labelledby="tab-card">
       <div class="scr-bar"><span class="url">hq.yourstore.com/customers/casey-example</span><span class="td">Test data</span></div>
       <div class="pn">
         <div class="who2"><span class="md7-av" style="--av:#a78bfa">CE</span><div><b>Casey Example</b><small>Facebook lead · 2 days ago · wants the touring bike</small></div>
@@ -634,7 +743,9 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
         <div class="buy"><span><b>Three-wheel touring</b><small>2016–2020 · stop: 4 on the lot</small></span><span class="n">0·1·2</span><span class="n o">96 d</span><span class="n x">0.8</span></div>
       </div>
     </div>
+    </div>
     <p class="shotnote">Shown with test data. Names, units and numbers are made up.</p>
+    <div class="cta-strip reveal"><p>Picture these screens with your units on them.<small>Bring your vendor list. We map what HQ takes over and in what order.</small></p><div class="acts"><a class="md7-go" href="#demo">Book a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><button class="md7-btn js-cb" type="button">Ask a question</button></div></div>
   </div>
 </section>
 
@@ -662,6 +773,9 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
         <div class="m sys">Appointment set · handed to Zane · on his My Day</div>
       </div>
     </div>
+  </div>
+  <div class="wrap">
+    <div class="cta-strip reveal"><p>See Riley answer a lead, live.<small>The demo runs on a working store, so you watch the hand-off to a rep as it happens.</small></p><div class="acts"><a class="md7-go" href="#demo">Book a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><button class="md7-btn js-cb" type="button">Try Colebot now</button></div></div>
   </div>
 </section>
 
@@ -691,7 +805,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
       </div>
       <div>
         <div class="facts">
-          <div><b>2</b><span>rooftops run on it daily</span></div>
+          <div><b class="tnum" data-to="2">2</b><span>rooftops run on it daily</span></div>
           <div><b>Daily</b><span>releases shaped by the floor</span></div>
           <div><b>1</b><span>platform, every department</span></div>
         </div>
@@ -715,26 +829,22 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
       </div>
     </div>
     <form id="demoForm" class="md2-form reveal" novalidate>
-      <div class="fh">Request a demo<small>A dealer from our team replies within one business day.</small></div>
-      <div class="f2">
-        <label for="f-name">Your name<input id="f-name" name="name" autocomplete="name" required></label>
-        <label for="f-dealer">Dealership<input id="f-dealer" name="dealership" autocomplete="organization" required></label>
-      </div>
-      <div class="f2">
-        <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required></label>
-        <label for="f-phone"><span>Phone <span class="opt">· optional</span></span><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></label>
-      </div>
-      <label for="f-rooftops">Rooftops
-        <select id="f-rooftops" name="rooftops"><option>1</option><option>2</option><option>3 to 5</option><option>6 to 12</option><option>More than 12</option></select>
-      </label>
+      <div class="fh">Request a demo<small>Three fields. A dealer from our team replies within one business day.</small><span class="quick">About 20 seconds</span></div>
+      <label for="f-name"><span>Your name <span class="req" aria-hidden="true">*</span></span><input id="f-name" name="name" autocomplete="name" required></label>
+      <label for="f-dealer"><span>Dealership <span class="req" aria-hidden="true">*</span></span><input id="f-dealer" name="dealership" autocomplete="organization" required></label>
+      <label for="f-email"><span>Work email <span class="req" aria-hidden="true">*</span></span><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required></label>
       <details class="more">
-        <summary>Tell us more <span class="opt" style="font:500 12px var(--sans);text-transform:none;letter-spacing:0">optional</span></summary>
+        <summary>Add phone, rooftops and more <span class="opt" style="font:500 12px var(--sans);text-transform:none;letter-spacing:0">optional</span></summary>
         <div class="inner">
           <div class="f2">
-            <label for="f-role">Role<input id="f-role" name="role" placeholder="Dealer principal, GM, GSM…"></label>
-            <label for="f-type">Dealer type<select id="f-type" name="type"><option>Franchise</option><option>Independent</option><option>Both</option></select></label>
+            <label for="f-phone">Phone<input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></label>
+            <label for="f-rooftops">Rooftops<select id="f-rooftops" name="rooftops"><option value="">Choose</option><option>1</option><option>2</option><option>3 to 5</option><option>6 to 12</option><option>More than 12</option></select></label>
           </div>
-          <label for="f-lines">What you sell<select id="f-lines" name="lines"><option>Powersports</option><option>Auto</option><option>Powersports and auto</option><option>RV or marine</option><option>Other</option></select></label>
+          <div class="f2">
+            <label for="f-role">Role<input id="f-role" name="role" placeholder="Dealer principal, GM, GSM…"></label>
+            <label for="f-type">Dealer type<select id="f-type" name="type"><option value="">Choose</option><option>Franchise</option><option>Independent</option><option>Both</option></select></label>
+          </div>
+          <label for="f-lines">What you sell<select id="f-lines" name="lines"><option value="">Choose</option><option>Powersports</option><option>Auto</option><option>Powersports and auto</option><option>RV or marine</option><option>Other</option></select></label>
           <fieldset>
             <legend>What matters most?</legend>
             <div class="checks" id="formChecks">
@@ -768,7 +878,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
 <footer class="site">
   <div class="wrap foot">
     <div>
-      <a class="brand" href="#top" aria-label="HQ home"><span class="mark">HQ</span><span><b>HQ</b><small>Dealer platform</small></span></a>
+      <a class="brand" href="#top"><span class="mark" aria-hidden="true">HQ</span><span><b>HQ</b><small>Dealer platform</small></span></a>
       <small>One platform for the whole dealership: CRM and Riley AI, desking, F&amp;I and credit, e-sign, inventory and pricing, buying, website and chat, service and parts, dispatch, accounting with a live bank feed, and reports. One source of truth. One bill.</small>
     </div>
     <div>
@@ -778,7 +888,14 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
   </div>
 </footer>
 
-<div class="pin" id="pin"><a class="md7-go" href="#demo">Book a demo</a></div>
+<div class="pin hide" id="pin"><span class="pin-t"><b>See HQ live</b><small>30 min · real deals</small></span><a class="md7-go" href="#demo">Book a demo</a></div>
+
+<!-- Colebot's one nudge per visit (shown by the script at the right depth) -->
+<div class="cb-nudge" id="cbNudge" role="dialog" aria-label="Colebot suggestion" aria-hidden="true">
+  <button type="button" class="x" id="cbNudgeX" aria-label="Dismiss">×</button>
+  <p><b>Colebot here</b>Want to see this on your own store? I can line up a 30-minute demo in about a minute.</p>
+  <div class="row"><button type="button" class="go" id="cbNudgeGo">Set up a demo</button><button type="button" class="no" id="cbNudgeNo">Not now</button></div>
+</div>
 
 <!-- Colebot -->
 <button class="cb-launch" id="cbLaunch" type="button" aria-haspopup="dialog" aria-controls="colebot" aria-label="Chat with Colebot"><span class="av">C</span><span class="lbl">Chat with Colebot</span><span class="dot" aria-hidden="true"></span></button>
@@ -831,15 +948,35 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
   function drawScene(i){ var d=SCENES[i];
     scene.innerHTML='<div class="md7-who"><span class="md7-av" style="--av:'+d.c+'">'+esc(d.av)+'</span><div><b>'+esc(d.who)+'</b><span>'+esc(d.why)+'</span></div></div><div class="md7-bub"><b>'+esc(d.bt)+'</b>'+esc(d.bub)+'</div><div class="md7-acts"><span class="p">'+esc(d.a[0])+'</span><span class="s">'+esc(d.a[1])+'</span></div>';
     kick.textContent=d.k; dots.forEach(function(x,j){ x.className=j===i?'on':(j<i?'done':''); });
-    var t=tiles[d.t]; if(t){ t.classList.remove('pulse'); void t.offsetWidth; t.classList.add('pulse'); } }
+    var t=tiles[d.t]; if(t){ t.classList.remove('pulse'); void t.offsetWidth; t.classList.add('pulse'); }
+    flowTo(FLOW_AT[i]); }
+  // the live flow under the board: scene i lights its step, a packet runs from the last step to this one
+  var FLOW_AT=[1,2,3,4], flow=document.getElementById('flow'), flowFill=document.getElementById('flowFill'), flowPkt=document.getElementById('flowPkt'), flowSteps=flow?flow.querySelectorAll(':scope>span:not(.flow-fill):not(.flow-pkt)'):[], flowLast=0;
+  function flowTo(k){ if(!flow) return; flowSteps.forEach(function(x,j){ x.className=j<k?'y':(j===k?'at':''); });
+    flowFill.style.transform='scaleX('+(k/(flowSteps.length-1)).toFixed(3)+')';
+    if(!reduce && flowPkt){ var w=flow.clientWidth*0.8/(flowSteps.length-1), from=(k<flowLast?0:flowLast)*w, to=k*w; flowPkt.style.setProperty('--from',from+'px'); flowPkt.style.setProperty('--to',to+'px'); flow.classList.remove('run'); void flow.offsetWidth; flow.classList.add('run'); }
+    flowLast=k; }
+  // the card never changes height between scenes: measure the tallest once (and on resize), hold it as a floor
+  function holdScene(){ if(!scene) return; var cur=si, mx=0; scene.style.minHeight=''; for(var j=0;j<SCENES.length;j++){ drawSceneQuiet(j); mx=Math.max(mx,scene.offsetHeight); } drawSceneQuiet(cur); scene.style.minHeight=mx+'px'; }
+  function drawSceneQuiet(i){ var d=SCENES[i]; scene.innerHTML='<div class="md7-who"><span class="md7-av" style="--av:'+d.c+'">'+esc(d.av)+'</span><div><b>'+esc(d.who)+'</b><span>'+esc(d.why)+'</span></div></div><div class="md7-bub"><b>'+esc(d.bt)+'</b>'+esc(d.bub)+'</div><div class="md7-acts"><span class="p">'+esc(d.a[0])+'</span><span class="s">'+esc(d.a[1])+'</span></div>'; }
+  if(scene){ holdScene(); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(holdScene); var rz; addEventListener('resize',function(){ clearTimeout(rz); rz=setTimeout(holdScene,150); }); }
+  flowTo(FLOW_AT[0]);
   function step(){ if(paused||document.hidden) return; scene.classList.add('out'); setTimeout(function(){ si=(si+1)%SCENES.length; drawScene(si); scene.classList.remove('out'); scene.classList.add('in'); setTimeout(function(){ scene.classList.remove('in'); },400); },230); }
   if(tour&&scene&&!reduce){ tour.addEventListener('mouseenter',function(){paused=true;}); tour.addEventListener('mouseleave',function(){paused=false;}); setInterval(step,5200); }
+  var fine=window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  var board=document.getElementById('board');
+  if(board && fine && !reduce){ board.addEventListener('pointermove',function(e){ var r=board.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5; board.classList.add('tilting'); board.style.transform='rotateY('+(x*5).toFixed(2)+'deg) rotateX('+(-y*4).toFixed(2)+'deg)'; });
+    board.addEventListener('pointerleave',function(){ board.style.transform=''; }); }
   // the dots step it by hand too, so a reduced-motion visitor still gets the whole walkthrough
   dots.forEach(function(d,j){ d.style.cursor='pointer'; d.addEventListener('click',function(e){ e.stopPropagation(); si=j; drawScene(j); }); });
 
   // ===== scroll reveal =====
   var els=document.querySelectorAll('.reveal, .trk'), fired=false;
-  function show(el){ el.classList.add('in'); if(!fired && el.classList.contains('board')){ fired=true; fireBoard(); } if(el.classList.contains('track')){ var t=document.getElementById('trk'); if(t) t.classList.add('in'); } }
+  // counters only of facts HQ can back (13 modules on the bill, 2 rooftops); they run when their block reveals
+  function countUp(el){ var n=parseInt(el.getAttribute('data-to'),10); if(reduce||!n){ el.textContent=n; return; } var t0=performance.now(); el.textContent='0'; (function f(){ var p=Math.min(1,(performance.now()-t0)/1200); el.textContent=Math.round(n*(1-Math.pow(1-p,3))); if(p<1) requestAnimationFrame(f); })(); }
+  document.querySelectorAll('.stackcol .vrow').forEach(function(r,i){ r.style.setProperty('--i',i); });
+  function show(el){ el.classList.add('in'); if(!fired && el.classList.contains('board')){ fired=true; fireBoard(); } if(el.classList.contains('track')){ var t=document.getElementById('trk'); if(t) t.classList.add('in'); }
+    el.querySelectorAll && el.querySelectorAll('[data-to]').forEach(function(c){ if(!c.dataset.ran){ c.dataset.ran='1'; countUp(c); } }); }
   if('IntersectionObserver' in window && !reduce){
     var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ show(e.target); io.unobserve(e.target); } }); },{rootMargin:'0px 0px -6% 0px',threshold:.06});
     els.forEach(function(el){ io.observe(el); });
@@ -849,11 +986,43 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
 
   // ===== pinned phone CTA hides while the form is on screen =====
   var pin=document.getElementById('pin'), demo=document.getElementById('demo');
-  if(pin&&demo&&'IntersectionObserver' in window){ new IntersectionObserver(function(es){ pin.classList.toggle('hide', es[0].isIntersecting); },{threshold:.05}).observe(demo); }
+  var hero=document.querySelector('.hero'), vis={hero:true,demo:false};
+  function pinSet(){ var off=vis.hero||vis.demo; pin.classList.toggle('hide', off); root.classList.toggle('pin-off', off); }
+  root.classList.add('pin-off');
+  if(pin&&demo&&hero&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ vis.demo=es[0].isIntersecting; pinSet(); },{threshold:.05}).observe(demo);
+    new IntersectionObserver(function(es){ vis.hero=es[0].isIntersecting; pinSet(); },{rootMargin:'-55% 0px 0px 0px'}).observe(hero);
+  } else if(pin){ pin.classList.remove('hide'); root.classList.remove('pin-off'); }
+
+  // ===== reading progress =====
+  var prog=document.getElementById('prog'), ticking=false;
+  function progSet(){ ticking=false; var h=document.documentElement.scrollHeight-innerHeight; prog.style.transform='scaleX('+(h>0?Math.min(1,scrollY/h):0).toFixed(4)+')'; }
+  if(prog){ addEventListener('scroll',function(){ if(!ticking){ ticking=true; requestAnimationFrame(progSet); } },{passive:true}); progSet(); }
+
+  // ===== capability tiles: depth on hover =====
+  if(fine && !reduce){ document.querySelectorAll('.cap.md7-t').forEach(function(c){
+    c.addEventListener('pointerenter',function(){ c.style.transition='transform .12s ease-out, box-shadow .18s, border-color .18s'; c.classList.add('tilt'); });
+    c.addEventListener('pointermove',function(e){ var r=c.getBoundingClientRect(), x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
+      c.style.setProperty('--ry',((x-.5)*8).toFixed(2)+'deg'); c.style.setProperty('--rx',((.5-y)*7).toFixed(2)+'deg'); c.style.setProperty('--mx',(x*100).toFixed(1)+'%'); c.style.setProperty('--my',(y*100).toFixed(1)+'%'); });
+    c.addEventListener('pointerleave',function(){ c.classList.remove('tilt'); c.style.removeProperty('--rx'); c.style.removeProperty('--ry'); }); }); }
 
   // ===== the screens: tabs =====
   var tabs=document.querySelectorAll('.tabs [role=tab]');
-  tabs.forEach(function(t){ t.addEventListener('click',function(){ tabs.forEach(function(x){ var on=x===t; x.setAttribute('aria-selected',on?'true':'false'); var pnl=document.getElementById(x.getAttribute('aria-controls')); if(pnl){ pnl.hidden=!on; if(on) pnl.classList.add('in'); } }); }); });
+  var tabList=document.querySelector('.tabs'), CYC=6000, cycT=null, cycOn=false, cycStopped=reduce, cycHold=false;
+  function pick(t, focus){ tabs.forEach(function(x){ var on=x===t; x.setAttribute('aria-selected',on?'true':'false'); x.tabIndex=on?0:-1; var pnl=document.getElementById(x.getAttribute('aria-controls')); if(pnl){ pnl.hidden=!on; pnl.classList.remove('show'); if(on){ pnl.classList.add('in'); void pnl.offsetWidth; pnl.classList.add('show'); } } }); if(focus) t.focus(); }
+  tabs.forEach(function(t,i){ t.tabIndex=t.getAttribute('aria-selected')==='true'?0:-1;
+    t.addEventListener('click',function(e){ if(e.isTrusted!==false) stopCycle(); pick(t); });
+    t.addEventListener('keydown',function(e){ var k=e.key, j=k==='ArrowRight'?i+1:k==='ArrowLeft'?i-1:k==='Home'?0:k==='End'?tabs.length-1:null; if(j===null) return; e.preventDefault(); stopCycle(); pick(tabs[(j+tabs.length)%tabs.length],true); }); });
+  function cur(){ for(var i=0;i<tabs.length;i++) if(tabs[i].getAttribute('aria-selected')==='true') return i; return 0; }
+  function tick(){ cycT=null; if(cycStopped||!cycOn) return; if(cycHold||document.hidden){ cycT=setTimeout(tick,CYC); return; } pick(tabs[(cur()+1)%tabs.length]); restartBar(); cycT=setTimeout(tick,CYC); }
+  function restartBar(){ if(!tabList) return; tabList.classList.remove('auto'); void tabList.offsetWidth; if(!cycStopped&&cycOn) tabList.classList.add('auto'); }
+  function stopCycle(){ cycStopped=true; clearTimeout(cycT); if(tabList) tabList.classList.remove('auto','paused'); }
+  var scrSec=document.getElementById('screens'), stack=document.getElementById('scrStack');
+  if(tabList) tabList.style.setProperty('--cyc',CYC+'ms');
+  if(scrSec&&!reduce&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ var on=es[0].isIntersecting; if(on===cycOn||cycStopped) return; cycOn=on; clearTimeout(cycT); if(on){ restartBar(); cycT=setTimeout(tick,CYC); } else if(tabList) tabList.classList.remove('auto'); },{threshold:.35}).observe(scrSec);
+    [stack,tabList].forEach(function(el){ if(!el) return; el.addEventListener('pointerenter',function(){ cycHold=true; tabList.classList.add('paused'); }); el.addEventListener('pointerleave',function(){ cycHold=false; tabList.classList.remove('paused'); }); el.addEventListener('focusin',function(){ cycHold=true; tabList.classList.add('paused'); }); el.addEventListener('focusout',function(){ cycHold=false; tabList.classList.remove('paused'); }); });
+  }
 
   // ===== what matters most: the form's checks, shared with Colebot =====
   var selected=[];
@@ -877,14 +1046,16 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
   // ===== demo form =====
   var form=document.getElementById('demoForm'), sent=document.getElementById('sent');
   if(form){
+    form.addEventListener('input',function(e){ if(e.target.getAttribute('aria-invalid')==='true' && e.target.value.trim()) e.target.setAttribute('aria-invalid','false'); });
     form.addEventListener('submit',function(e){
       e.preventDefault();
       var req=['f-name','f-dealer','f-email'], missing=req.filter(function(id){var el=document.getElementById(id);return !el.value.trim()||(el.type==='email'&&!/.+@.+\..+/.test(el.value));});
+      req.forEach(function(id){ document.getElementById(id).setAttribute('aria-invalid', missing.indexOf(id)>=0?'true':'false'); });
       if(missing.length){ document.getElementById(missing[0]).focus(); sent.textContent='Add your name, dealership and a working email so we can reach you.'; sent.className='sent show bad'; return; }
       var b=form.querySelector('button[type=submit]'); b.disabled=true; b.textContent='Sending…';
       var fd=new FormData(form);
       var lead={source:'demo form',name:fd.get('name'),role:fd.get('role')||'',dealership:fd.get('dealership'),rooftops:fd.get('rooftops'),type:fd.get('type'),sells:fd.get('lines'),email:fd.get('email'),phone:fd.get('phone')||'',modules:fd.getAll('modules'),running_today:fd.get('stack')||''};
-      sendLead(lead,function(ok,how){ b.disabled=false; b.textContent='Book a demo'; sent.textContent= how==='hq'?'Sent. Your request is on our desk and a dealer from our team replies within one business day.':'Thanks. Your request is drafted in your mail app. Hit send and we will be in touch within one business day.'; sent.className='sent show'; });
+      sendLead(lead,function(ok,how){ b.disabled=false; b.textContent='Book a demo'; sent.textContent= how==='hq'?'Sent. Your request is on our desk and a dealer from our team replies within one business day.':'Thanks. Your request is drafted in your mail app. Hit send and we will be in touch within one business day.'; sent.className='sent show'; form.classList.remove('done'); void form.offsetWidth; form.classList.add('done'); });
     });
   }
 
@@ -924,9 +1095,9 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
     {k:/inventory|unit|website|site|seo/i, a:'Inventory runs from intake to sold with market pricing, and your website is served from it: units go live when ready and drop when sold, with a quick quote and credit app on every unit.'}
   ];
   function faq(text){ for(var i=0;i<FAQ.length;i++){ if(FAQ[i].k.test(text)) return FAQ[i].a; } return null; }
-  function start(){
-    if(state.started) return; state.started=true;
-    bot(["Hey, I'm Colebot. I can walk you through HQ or get a demo in front of a real dealer on our team.", 'What brings you in today?'], function(){ setChips(['Cut my vendor stack','Work leads faster','Hold my team accountable','Own my data','How pricing works','Just looking']); state.step='intent'; });
+  function start(then){
+    if(state.started){ if(then) then(); return; } state.started=true;
+    bot(["Hey, I'm Colebot. I can walk you through HQ or get a demo in front of a real dealer on our team.", 'What brings you in today?'], function(){ setChips(['Cut my vendor stack','Work leads faster','Hold my team accountable','Own my data','How pricing works','Just looking']); state.step='intent'; if(then) then(); });
   }
   function handle(text){
     say(text,'me'); clearChips();
@@ -979,14 +1150,35 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
     }
   }
   var small=function(){ return window.matchMedia && window.matchMedia('(max-width:560px)').matches; };
-  function openCb(){ cb.classList.add('open'); launch.classList.add('hide'); if(small()) document.body.style.overflow='hidden'; start(); if(!small()) setTimeout(function(){ cbInput.focus(); }, 300); scroll(); }
+  function openCb(then){ hideNudge(); cb.classList.add('open'); launch.classList.add('hide'); if(small()) document.body.style.overflow='hidden'; start(typeof then==='function'?then:null); if(!small()) setTimeout(function(){ cbInput.focus(); }, 300); scroll(); }
+  // straight to the demo questions: only from the opening question, so a conversation already under way is never hijacked
+  function openForDemo(){ openCb(function(){ if(state.step==='intent') handle('Set up a demo'); }); }
   function closeCb(){ cb.classList.remove('open'); launch.classList.remove('hide'); document.body.style.overflow=''; }
-  launch.addEventListener('click', openCb);
+  launch.addEventListener('click', function(){ openCb(); });
+  document.querySelectorAll('.js-cb').forEach(function(b){ b.addEventListener('click', function(){ openCb(); }); });
   document.getElementById('cbClose').addEventListener('click', closeCb);
   cbForm.addEventListener('submit', function(e){ e.preventDefault(); var v=cbInput.value.trim(); if(!v) return; cbInput.value=''; if(state.step==='start') start(); handle(v); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape' && cb.classList.contains('open')) closeCb(); });
   var nudged=false;
   addEventListener('scroll', function(){ if(nudged||cb.classList.contains('open')) return; if(scrollY>1200){ nudged=true; if(!reduce) launch.style.animation='floaty 1.2s ease-in-out 3'; } }, {passive:true});
+
+  // ===== Colebot's nudge: once a visit, when the reader reaches Riley (past the screens) and has been here 15 s =====
+  // Never over the form, never once a chat or the form is under way, never twice (sessionStorage, guarded).
+  var nudge=document.getElementById('cbNudge'), nudgeShown=false, t0=Date.now();
+  function seen(){ try{ return sessionStorage.getItem('hq-nudge')==='1'; }catch(e){ return false; } }
+  function markSeen(){ try{ sessionStorage.setItem('hq-nudge','1'); }catch(e){} }
+  function formBusy(){ return ['f-name','f-dealer','f-email'].some(function(id){ var el=document.getElementById(id); return el && el.value.trim(); }); }
+  function showNudge(){ if(nudgeShown||seen()||state.started||cb.classList.contains('open')||vis.demo||formBusy()) return;
+    nudgeShown=true; markSeen(); nudge.classList.add('show'); nudge.setAttribute('aria-hidden','false'); launch.classList.add('ping'); }
+  function hideNudge(){ if(!nudge) return; nudge.classList.remove('show'); nudge.setAttribute('aria-hidden','true'); }
+  if(nudge){
+    document.getElementById('cbNudgeGo').addEventListener('click', openForDemo);
+    document.getElementById('cbNudgeX').addEventListener('click', hideNudge);
+    document.getElementById('cbNudgeNo').addEventListener('click', hideNudge);
+    var rileySec=document.getElementById('riley');
+    if(rileySec&&'IntersectionObserver' in window){ var nio=new IntersectionObserver(function(es){ if(!es[0].isIntersecting) return; var wait=Math.max(0,15000-(Date.now()-t0)); setTimeout(showNudge, wait); nio.disconnect(); },{threshold:.3}); nio.observe(rileySec); }
+    if(demo&&'IntersectionObserver' in window){ new IntersectionObserver(function(es){ if(es[0].isIntersecting) hideNudge(); },{threshold:.05}).observe(demo); }
+  }
 })();
 </script>
 </body>
