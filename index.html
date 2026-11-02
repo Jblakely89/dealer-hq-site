@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>HQ Dealer Platform</title>
 <link rel="canonical" href="https://dealer-hq.com/">
-<meta name="description" content="HQ is one modern platform for the whole dealership: CRM and Riley AI, desking, F&I and credit, e-sign, inventory and pricing, buying, service and parts, dispatch, accounting with a live bank feed, and reports. One source of truth. One bill.">
+<meta name="description" content="HQ is one modern platform for the whole dealership: CRM and Riley AI, desking, F&I and credit, e-sign, inventory and pricing, service and parts, dispatch, accounting with a live bank feed, and reports. One source of truth. One bill.">
 <meta property="og:title" content="HQ: one platform, one bill, the whole dealership">
 <meta property="og:description" content="Replace the stack of separate dealer vendors with one platform: one record per customer, one login, one bill.">
 <meta property="og:url" content="https://dealer-hq.com/">
@@ -210,7 +210,7 @@ section{padding-block:clamp(56px,8vw,104px)}
 .cap ul{margin:2px 0 0;padding:0;list-style:none;display:grid;gap:6px}
 .cap li{position:relative;padding-left:18px;font-size:13.5px;line-height:1.4;color:var(--nmute)}
 .cap li::before{content:"";position:absolute;left:2px;top:.5em;width:7px;height:7px;border-radius:2px;background:var(--ac)}
-@media(min-width:960px){.caps.c3{grid-template-columns:repeat(3,minmax(0,1fr))} .caps.c4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:960px){.caps.c3{grid-template-columns:repeat(3,minmax(0,1fr))} .caps.c4{grid-template-columns:repeat(2,minmax(0,1fr))} .caps.c5{grid-template-columns:repeat(6,minmax(0,1fr))} .caps.c5>*{grid-column:span 2} .caps.c5>:nth-child(n+4){grid-column:span 3}}
 @media(min-width:1140px){.caps.c4{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .cap .tag{margin-left:auto;font:700 10px/1 var(--mono);letter-spacing:.08em;color:var(--ac);text-transform:uppercase}
 
@@ -255,11 +255,7 @@ section{padding-block:clamp(56px,8vw,104px)}
 .tier{border:1px solid var(--nline);border-radius:12px;padding:12px;background:var(--n2)} .tier.pick{border-color:var(--orange);background:radial-gradient(90% 120% at 0% 0%,rgba(242,106,27,.18),transparent 60%),var(--n2)}
 .tier h4{margin:0 0 8px;font:700 20px/1 var(--cond);letter-spacing:.06em;text-transform:uppercase;color:var(--hi)} .tier.pick h4{color:var(--oink)}
 .tier ul{margin:0;padding:0;list-style:none;display:grid;gap:5px;font-size:13px} .tier li::before{content:"✓ ";color:var(--tgood);font-weight:700} .tier li.no{color:var(--nmute)} .tier li.no::before{content:"– ";color:var(--nmute)}
-.buy{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,.7fr));gap:4px 10px;align-items:center;padding:9px 2px;border-top:1px solid var(--nline);font-size:13px}
-.buy.hd{border-top:0;font:600 10px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--nmute)}
-.buy b{font:700 15px/1.1 var(--cond);letter-spacing:.04em;text-transform:uppercase;color:var(--hi)} .buy .n{font:700 17px/1 var(--cond);color:var(--hi);text-align:right} .buy .n.g{color:var(--tgood)} .buy .n.o{color:var(--oink)}
-.buy small{display:block;font-size:11.5px;color:var(--nmute)}
-@media(max-width:560px){.who2 .acts{margin-left:0;width:100%} .stage span{font-size:0;gap:0} .buy{grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,.7fr))} .buy .x{display:none}}
+@media(max-width:560px){.who2 .acts{margin-left:0;width:100%} .stage span{font-size:0;gap:0}}
 .shotnote{margin-top:10px;font:500 11px/1.3 var(--mono);color:var(--nmute);text-align:right}
 /* ---------- who it's for ---------- */
 .whofor{margin-top:clamp(28px,4vw,44px);display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
@@ -488,7 +484,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
         </div>
         <p>A lead becomes a customer, a credit app, a signed deal, a delivery, a service visit and a journal entry without anybody typing it twice. Every department reads the same numbers, so the Monday meeting is about the business, not about whose report is right.</p>
         <span class="inbill-h">All on the one bill</span>
-        <div class="inbill"><span>CRM + Riley AI</span><span>Desking &amp; F&amp;I</span><span>Credit</span><span>E-sign</span><span>Inventory &amp; pricing</span><span>Buying</span><span>Website &amp; chat</span><span>Texting</span><span>Reviews</span><span>Service &amp; parts</span><span>Dispatch</span><span>GL &amp; bank feed</span><span>Reports</span></div>
+        <div class="inbill"><span>CRM + Riley AI</span><span>Desking &amp; F&amp;I</span><span>Credit</span><span>E-sign</span><span>Inventory &amp; pricing</span><span>Website &amp; chat</span><span>Texting</span><span>Reviews</span><span>Service &amp; parts</span><span>Dispatch</span><span>GL &amp; bank feed</span><span>Reports</span></div>
         <a class="md7-go" href="#demo">Book a demo</a>
       </div>
     </div>
@@ -531,7 +527,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
     </div>
 
     <div class="capgrp">Sell <span>front of the house</span></div>
-    <div class="caps c3">
+    <div class="caps c3 c5">
       <article class="cap md7-t reveal" style="--ac:#ff6b4a"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M17.5 14a6 6 0 0 1 4 5.5"/></svg></i><span class="tag">AI inside</span></div>
         <h3>CRM + Riley AI</h3><p>Every web form, Messenger thread, text, call and walk-in lands on one customer card, and Riley works it around the clock.</p>
         <ul><li>Lead routing, rotation and response-time tracking</li><li>Riley answers, follows up and books the visit</li><li>Calls and texts graded against your process</li><li>A rep's whole day on one My Day board</li></ul></article>
@@ -544,9 +540,6 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
       <article class="cap md7-t reveal" style="--ac:#2fcf7a"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7l8-4 8 4v10l-8 4-8-4z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg></i></div>
         <h3>Inventory &amp; pricing</h3><p>Every unit from intake to sold, priced against the market and pushed everywhere it sells.</p>
         <ul><li>Readiness: prepped, photographed, online</li><li>Market pricing and repricing as units age</li><li>Feeds to your website and ad catalogs</li><li>Listing copy checked against ad policy</li></ul></article>
-      <article class="cap md7-t reveal" style="--ac:#ffb020"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></i></div>
-        <h3>Buying</h3><p>A real CRM for the units you buy: sellers, trades and dealer bids worked like leads.</p>
-        <ul><li>"Sell us your vehicle" leads straight to the board</li><li>Appraise, offer and track the counter</li><li>Lien payoff and title tracked to the end</li><li>Pickup booked on the dispatch board</li></ul></article>
       <article class="cap md7-t reveal" style="--ac:#38bdf8"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></i></div>
         <h3>Website &amp; live chat</h3><p>Your site served from your own inventory, with chat and pre-approval that land on the customer's card.</p>
         <ul><li>Units go live when ready, drop when sold</li><li>Quick quote and full credit app on every unit</li><li>Chat that answers in seconds and hands off</li><li>Every visit tied back to the lead</li></ul></article>
@@ -585,7 +578,6 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
       <button type="button" role="tab" aria-selected="true" aria-controls="scr-card" id="tab-card">Customer card</button>
       <button type="button" role="tab" aria-selected="false" aria-controls="scr-desk" id="tab-desk">Deal Desk</button>
       <button type="button" role="tab" aria-selected="false" aria-controls="scr-fi" id="tab-fi">F&amp;I menu</button>
-      <button type="button" role="tab" aria-selected="false" aria-controls="scr-demand" id="tab-demand">Demand center</button>
     </div>
 
     <div class="scr reveal" id="scr-card" role="tabpanel" aria-labelledby="tab-card">
@@ -627,21 +619,6 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
       <div class="nextl" style="margin-top:10px"><b>HQ</b>Products rated live from your providers for this unit. The chosen tier's contracts generate, fill from the deal and go out to sign.</div>
     </div>
 
-    <div class="scr" id="scr-demand" role="tabpanel" aria-labelledby="tab-demand" hidden>
-      <div class="scr-bar"><span class="url">hq.yourstore.com/buying/demand</span><span class="td">Test data</span></div>
-      <div class="md2-six" style="margin:0 0 10px">
-        <div class="md7-t hot" style="--ac:var(--orange)"><div class="md7-top"><span class="md7-l">Need now</span></div><div class="md7-n">7</div><div class="md7-h"><b>11</b> units short</div></div>
-        <div class="md7-t" style="--ac:#2fcf7a"><div class="md7-top"><span class="md7-l">Hot sellers</span></div><div class="md7-n">6</div><div class="md7-h">sell in 21 d or less</div></div>
-        <div class="md7-t" style="--ac:#ff6b4a"><div class="md7-top"><span class="md7-l">Aging</span></div><div class="md7-n">5</div><div class="md7-h"><b>2</b> exit now</div></div>
-      </div>
-      <div class="pn"><div class="pn-h">Buy list <span>ranked by speed, gross and leads</span></div>
-        <div class="buy hd"><span>Target</span><span class="n" style="font:inherit">Sold 30/60/90</span><span class="n" style="font:inherit">Days to sell</span><span class="n x" style="font:inherit">Leads / unit</span></div>
-        <div class="buy"><span><b>Touring bike</b><small>2019–2022 · under 18k mi · buy 3</small></span><span class="n">4·7·10</span><span class="n g">14 d</span><span class="n x">6.4</span></div>
-        <div class="buy"><span><b>Sport side-by-side</b><small>2018–2021 · under 1,400 hrs · buy 2</small></span><span class="n">3·5·6</span><span class="n g">18 d</span><span class="n x">4.1</span></div>
-        <div class="buy"><span><b>Utility ATV</b><small>2017–2022 · under 900 hrs · buy 2</small></span><span class="n">2·4·7</span><span class="n g">21 d</span><span class="n x">3.0</span></div>
-        <div class="buy"><span><b>Three-wheel touring</b><small>2016–2020 · stop: 4 on the lot</small></span><span class="n">0·1·2</span><span class="n o">96 d</span><span class="n x">0.8</span></div>
-      </div>
-    </div>
     <p class="shotnote">Shown with test data. Names, units and numbers are made up.</p>
   </div>
 </section>
@@ -689,7 +666,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
 
     <div class="whofor">
       <div class="pn reveal"><span class="kick">Franchise dealers</span><h3>Keep the factory happy. Keep the data yours.</h3><p>Factory units and incentives sit next to your pre-owned on one desk, with warranty and customer-pay service on the same record.</p><ul><li>OEM inventory and programs on the desk</li><li>Warranty and customer-pay ROs</li><li>Multi-store from day one</li></ul></div>
-      <div class="pn reveal"><span class="kick">Independent dealers</span><h3>Enterprise tools for an independent store.</h3><p>You buy from the public, desk your own deals and move your own units. HQ was built for exactly that.</p><ul><li>Buying is a first-class desk</li><li>Your own website, served from your inventory</li><li>One record for sales, service and the books</li></ul></div>
+      <div class="pn reveal"><span class="kick">Independent dealers</span><h3>Enterprise tools for an independent store.</h3><p>You desk your own deals, run your own shop and move your own units. HQ was built for exactly that.</p><ul><li>Desking, F&amp;I and credit on one record</li><li>Your own website, served from your inventory</li><li>One record for sales, service and the books</li></ul></div>
     </div>
     <div class="proof reveal" id="proof">
       <div>
@@ -750,7 +727,6 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
               <label class="check"><input type="checkbox" name="modules" value="Desking, F&amp;I and credit">Desking, F&amp;I &amp; credit</label>
               <label class="check"><input type="checkbox" name="modules" value="E-sign">E-sign</label>
               <label class="check"><input type="checkbox" name="modules" value="Inventory and pricing">Inventory &amp; pricing</label>
-              <label class="check"><input type="checkbox" name="modules" value="Buying">Buying</label>
               <label class="check"><input type="checkbox" name="modules" value="Website and live chat">Website &amp; chat</label>
               <label class="check"><input type="checkbox" name="modules" value="Service and parts">Service &amp; parts</label>
               <label class="check"><input type="checkbox" name="modules" value="Dispatch and transport">Dispatch &amp; transport</label>
@@ -777,7 +753,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
   <div class="wrap foot">
     <div>
       <a class="brand" href="#top" aria-label="HQ home"><span class="mark">HQ</span><span><b>HQ</b><small>Dealer platform</small></span></a>
-      <small>One platform for the whole dealership: CRM and Riley AI, desking, F&amp;I and credit, e-sign, inventory and pricing, buying, website and chat, service and parts, dispatch, accounting with a live bank feed, and reports. One source of truth. One bill.</small>
+      <small>One platform for the whole dealership: CRM and Riley AI, desking, F&amp;I and credit, e-sign, inventory and pricing, website and chat, service and parts, dispatch, accounting with a live bank feed, and reports. One source of truth. One bill.</small>
     </div>
     <div>
       <div class="flinks"><a href="#one-bill">One bill</a><a href="#capabilities">Capabilities</a><a href="#riley">Riley AI</a><a href="#data">Your data</a><a href="/integrations/">Integrations</a><a href="#demo">Book a demo</a></div>
@@ -809,7 +785,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
   // ===== config =====
   var LEAD_ENDPOINT = 'https://hq.paytonplaceauto.com/api/leads/site'; // HQ's public site-lead door (build 430). If it fails, we fall back to a mailto draft so no lead is lost.
   var DEMO_TO = 'jon@paytonplacepowersports.com';
-  var MODULES = ['CRM + Riley AI','Desking, F&I and credit','E-sign','Inventory and pricing','Buying','Website and live chat','Service and parts','Dispatch and transport','Accounting and bank feed','Reports'];
+  var MODULES = ['CRM + Riley AI','Desking, F&I and credit','E-sign','Inventory and pricing','Website and live chat','Service and parts','Dispatch and transport','Accounting and bank feed','Reports'];
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var yr=document.getElementById('yr'); if(yr) yr.textContent=new Date().getFullYear();
 
@@ -929,7 +905,6 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
     {k:/service|parts|ro\b|repair/i, a:'Service and parts share the customer and unit with sales: write and close ROs, a tech board, parts lookup, fitment and special orders.'},
     {k:/transport|dispatch|deliver|pickup/i, a:'Dispatch builds runs with route order and trailer space, sends customers a booking link, and gives drivers a phone view with stops, photos and signatures.'},
     {k:/account|gl\b|ledger|bank|books/i, a:'Sold deals, receipts and bills post to your general ledger, and a live bank feed matches them for reconciliation. Monthly statements come from the same ledger.'},
-    {k:/buy|apprais|trade|sell my/i, a:'Buying is a full CRM for the units you buy: seller leads, appraisals, offers, lien payoff, title and the pickup on the dispatch board.'},
     {k:/inventory|unit|website|site|seo/i, a:'Inventory runs from intake to sold with market pricing, and your website is served from it: units go live when ready and drop when sold, with a quick quote and credit app on every unit.'}
   ];
   function faq(text){ for(var i=0;i<FAQ.length;i++){ if(FAQ[i].k.test(text)) return FAQ[i].a; } return null; }
