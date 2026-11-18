@@ -5,20 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>HQ Dealer Platform</title>
 <link rel="canonical" href="https://dealer-hq.com/">
-<meta name="description" content="HQ is one modern platform for the whole dealership: CRM and Riley AI, desking, F&I and credit, e-sign, inventory and pricing, buying, service and parts, dispatch, accounting with a live bank feed, and reports. One source of truth. One bill.">
-<meta property="og:title" content="HQ: one platform, one bill, the whole dealership">
-<meta property="og:description" content="Replace the stack of separate dealer vendors with one platform: one record per customer, one login, one bill.">
+<meta name="description" content="HQ is the vertically integrated dealer platform: leads, deals, credit, e-sign, inventory, buying, service, dispatch and the books in one system, with AI working on every desk. One stack, lead to ledger. One bill.">
+<meta property="og:title" content="HQ: the vertically integrated dealer platform, built for AI">
+<meta property="og:description" content="One system from lead to ledger, so AI can see the whole store and do real work in it. One record, one login, one bill.">
 <meta property="og:url" content="https://dealer-hq.com/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://dealer-hq.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="HQ: the whole dealership. One source of truth. One platform, one bill.">
+<meta property="og:image:alt" content="HQ: own the whole stack. Put AI to work on it. The vertically integrated dealer platform.">
 <meta property="og:site_name" content="HQ">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://dealer-hq.com/og.png">
-<meta name="twitter:title" content="HQ: one platform, one bill, the whole dealership">
-<meta name="twitter:description" content="Replace the stack of separate dealer vendors with one platform: one record per customer, one login, one bill.">
+<meta name="twitter:title" content="HQ: the vertically integrated dealer platform, built for AI">
+<meta name="twitter:description" content="One system from lead to ledger, so AI can see the whole store and do real work in it. One record, one login, one bill.">
 <link rel="icon" href="https://dealer-hq.com/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="https://dealer-hq.com/favicon-32.png">
 <link rel="apple-touch-icon" href="https://dealer-hq.com/apple-touch-icon.png">
@@ -198,6 +198,37 @@ section{padding-block:clamp(56px,8vw,104px)}
 @media(max-width:760px){.trk{grid-template-columns:1fr;gap:0} .trk::before,.trk::after{top:21px;bottom:21px;left:20px;right:auto;width:4px;height:auto}
   .trk::after{height:0;transition:height 2.2s cubic-bezier(.2,.8,.2,1)} .trk.in::after{width:4px;height:calc(100% - 42px)}
   .trk .s{flex-direction:row;align-items:center;text-align:left;gap:14px;padding:6px 0} .trk .s i{flex:none} .trk .s>span{display:flex;flex-direction:column;gap:2px}}
+
+/* ---------- AI + vertical integration: the stack with the AI rail, bolt-on vs built-in, AI on every desk ---------- */
+.ai{background:linear-gradient(180deg,var(--n0),var(--n1));border-block:1px solid var(--nline)}
+.aigrid{display:grid;gap:14px} @media(min-width:960px){.aigrid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;align-items:stretch}}
+.stk{display:grid;grid-template-columns:minmax(0,1fr) 58px;gap:8px;border:1px solid var(--nline);border-radius:16px;background:var(--n1);padding:14px;min-width:0}
+.stk-l{display:grid;gap:6px;min-width:0}
+.lay{--ac:var(--orange);position:relative;display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr);gap:4px 14px;align-items:center;padding:12px 14px 12px 17px;border:1px solid var(--nline);border-radius:11px;background:var(--n2);overflow:hidden}
+.lay::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--ac)}
+.lay b{font:700 17px/1.1 var(--cond);letter-spacing:.06em;text-transform:uppercase;color:var(--hi)} .lay b small{display:block;margin-top:4px;font:600 10px/1.2 var(--mono);letter-spacing:.05em;color:var(--nmute)}
+.lay span{font-size:13.5px;line-height:1.4;color:var(--nmute)}
+.lay.base{background:radial-gradient(90% 160% at 0% 0%,rgba(47,207,122,.16),transparent 60%),var(--n2);border-color:color-mix(in srgb,var(--tgood) 45%,var(--nline))} .lay.base span{color:var(--ntext)}
+@media(max-width:620px){.lay{grid-template-columns:1fr}}
+.rail{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-radius:11px;color:#fff;overflow:hidden;
+  background:linear-gradient(180deg,var(--orange-hi),var(--orange) 55%,#c2500d);box-shadow:0 14px 30px -14px rgba(242,106,27,.75)}
+.rail::after{content:"";position:absolute;left:0;right:0;top:-40%;height:40%;background:linear-gradient(180deg,transparent,rgba(255,255,255,.34),transparent);animation:railrun 3.4s linear infinite}
+@keyframes railrun{to{top:110%}}
+.rail b{font:700 25px/1 var(--cond);letter-spacing:.06em} .rail svg{width:20px;height:20px}
+.rail span{writing-mode:vertical-rl;font:700 12.5px/1 var(--cond);letter-spacing:.2em;text-transform:uppercase;white-space:nowrap}
+.stk-note{grid-column:1/-1;margin-top:4px;font:500 11px/1.4 var(--mono);color:var(--nmute)}
+.cmp{display:grid;gap:10px;align-content:stretch}
+.cmpc{border:1px solid var(--nline);border-radius:16px;background:var(--n1);padding:16px 18px}
+.cmpc h3{font-size:22px;margin:8px 0 10px} .cmpc .kick{color:var(--nmute)}
+.cmpc ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:14.5px;line-height:1.4;color:var(--nmute)}
+.cmpc li{position:relative;padding-left:22px} .cmpc li::before{content:"–";position:absolute;left:3px;color:var(--tcrit);font-weight:700}
+.cmpc.yes{border-color:rgba(242,106,27,.45);background:radial-gradient(90% 120% at 0% 0%,rgba(242,106,27,.22),transparent 55%),var(--n1);box-shadow:0 22px 50px -28px rgba(242,106,27,.6)}
+.cmpc.yes .kick{color:var(--oink)} .cmpc.yes ul{color:var(--ntext)} .cmpc.yes li::before{content:"✓";left:1px;color:var(--tgood)}
+.aih{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:clamp(28px,4vw,44px) 2px 10px;font:700 15px/1.2 var(--cond);letter-spacing:.1em;text-transform:uppercase;color:var(--nmute)}
+.aih span{font:500 12px/1 var(--mono);letter-spacing:0;text-transform:none}
+.rules{margin-top:12px;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.rules div{border:1px solid var(--nline);border-radius:12px;padding:12px 14px;background:var(--n1)}
+.rules b{display:block;font:700 17px/1.1 var(--cond);letter-spacing:.05em;text-transform:uppercase;color:var(--hi);margin-bottom:4px} .rules span{font-size:14px;color:var(--nmute)}
 
 /* ---------- capabilities: the six-tile board, scaled up ---------- */
 .capgrp{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:26px 2px 10px;font:700 15px/1.2 var(--cond);letter-spacing:.1em;text-transform:uppercase;color:var(--nmute)}
@@ -387,10 +418,11 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="HQ home"><span class="mark">HQ</span><span><b>HQ</b><small>Dealer platform</small></span></a>
     <nav class="links" aria-label="Primary">
-      <a href="#one-bill">One bill</a>
+      <a href="#integrated">One stack</a>
+      <a href="#ai">AI</a>
       <a href="#capabilities">Capabilities</a>
       <a href="#screens">Screens</a>
-      <a href="#riley">Riley AI</a>
+      <a href="#riley">Riley</a>
       <a href="#data">Your data</a>
       <a href="/integrations/">Integrations</a>
     </nav>
@@ -401,7 +433,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
     </div>
   </div>
   <nav class="menu" id="menu" aria-label="Primary mobile">
-    <a href="#one-bill">One bill</a><a href="#capabilities">Capabilities</a><a href="#screens">Screens</a><a href="#riley">Riley AI</a><a href="#data">Your data</a><a href="/integrations/">Integrations</a>
+    <a href="#integrated">One stack</a><a href="#ai">AI</a><a href="#capabilities">Capabilities</a><a href="#screens">Screens</a><a href="#riley">Riley</a><a href="#data">Your data</a><a href="/integrations/">Integrations</a>
     <a class="go" href="#demo">Book a demo</a>
   </nav>
 </header>
@@ -412,18 +444,18 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
 <section class="hero">
   <div class="wrap">
     <div>
-      <span class="kick"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>One platform · One bill</span>
-      <h1>The whole dealership. <em>One source of truth.</em></h1>
-      <p class="lede">HQ replaces the stack of separate vendors a dealer pays for today. Leads, deals, credit, signatures, units, service, transport and the books share one record, one login and one monthly bill. Built and run every day inside working dealerships.</p>
+      <span class="kick"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Vertically integrated · AI on every desk</span>
+      <h1>Own the whole stack. <em>Put AI to work on it.</em></h1>
+      <p class="lede">HQ is the vertically integrated dealer platform. The lead, the deal, the credit app, the signature, the unit, the repair order, the delivery and the books live in one system, built and run every day inside working dealerships. That is what lets AI see the whole store and do real work in it, instead of guessing from one vendor's slice.</p>
       <div class="hero-acts">
         <a class="md7-go" href="#demo">Book a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="md7-btn" href="#one-bill">See what it replaces</a>
+        <a class="md7-btn" href="#ai">Why AI needs one stack</a>
       </div>
-      <div class="hero-ones" aria-label="What one platform means">
+      <div class="hero-ones" aria-label="What one integrated stack means">
+        <div><b>1</b><span>stack, lead to ledger</span></div>
         <div><b>1</b><span>record per customer</span></div>
-        <div><b>1</b><span>login for every role</span></div>
-        <div><b>1</b><span>bill</span></div>
-        <div><b>24/7</b><span>Riley on your leads</span></div>
+        <div><b>0</b><span>re-keying between vendors</span></div>
+        <div><b>24/7</b><span>AI on your leads</span></div>
       </div>
     </div>
 
@@ -452,12 +484,13 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
   </div>
 </section>
 
-<!-- ================= one platform, one bill ================= -->
-<section class="bill" id="one-bill">
+<!-- ================= vertical integration (was: one platform, one bill; #one-bill kept as an anchor for old links) ================= -->
+<section class="bill" id="integrated">
   <div class="wrap">
+    <span id="one-bill" aria-hidden="true"></span>
     <div class="sh two">
-      <div class="reveal"><span class="kick">One platform · One bill</span><h2 style="margin-top:12px">A dozen vendors. <em>Or one.</em></h2></div>
-      <p class="lede reveal">Most stores rent a separate system for every job, then pay people to copy the same customer between them. Every vendor holds a slice of the truth, sends its own invoice and needs its own login. HQ runs all of it on one record.</p>
+      <div class="reveal"><span class="kick">Vertical integration</span><h2 style="margin-top:12px">Twelve vendors can't <em>think together.</em></h2></div>
+      <p class="lede reveal">Most stores rent a separate system for every job, then pay people to copy the same customer between them. Every vendor holds a slice of the truth, and none of them can see the others. Vertical integration means one company builds every layer, from the first text to the journal entry, on one record. HQ is that stack.</p>
     </div>
     <div class="vs">
       <div class="stackcol reveal" aria-label="The typical stack of separate vendors">
@@ -474,20 +507,20 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
         <div class="vrow"><i>10</i><span><b>Transport</b><small>Spreadsheets and group texts</small></span><em>by hand</em></div>
         <div class="vrow"><i>11</i><span><b>Accounting add-ons</b><small>Bank downloads and month-end re-keying</small></span><em>invoice</em></div>
         <div class="vrow"><i>12</i><span><b>Reporting</b><small>Exports stitched together on Monday</small></span><em>invoice</em></div>
-        <div class="tot"><div><b>12</b><span>logins</span></div><div><b>12</b><span>bills</span></div><div><b>12</b><span>copies of a customer</span></div></div>
+        <div class="tot"><div><b>12</b><span>logins</span></div><div><b>12</b><span>bills</span></div><div><b>12</b><span>slices of a customer</span></div></div>
       </div>
       <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
       <div class="hqcol reveal">
         <span class="kick">With HQ</span>
-        <h3>One platform. <em>One bill.</em></h3>
+        <h3>One stack. <em>Top to bottom.</em></h3>
         <div class="ones">
           <div><b>1</b><span>source of truth</span></div>
           <div><b>1</b><span>login, every role</span></div>
           <div><b>1</b><span>monthly bill</span></div>
           <div><b>0</b><span>re-keying</span></div>
         </div>
-        <p>A lead becomes a customer, a credit app, a signed deal, a delivery, a service visit and a journal entry without anybody typing it twice. Every department reads the same numbers, so the Monday meeting is about the business, not about whose report is right.</p>
-        <span class="inbill-h">All on the one bill</span>
+        <p>A lead becomes a customer, a credit app, a signed deal, a delivery, a service visit and a journal entry without anybody typing it twice. Every department reads the same numbers, and the AI reads them too, which is the part no bundle of separate vendors can copy.</p>
+        <span class="inbill-h">Every layer, one bill</span>
         <div class="inbill"><span>CRM + Riley AI</span><span>Desking &amp; F&amp;I</span><span>Credit</span><span>E-sign</span><span>Inventory &amp; pricing</span><span>Buying</span><span>Website &amp; chat</span><span>Texting</span><span>Reviews</span><span>Service &amp; parts</span><span>Dispatch</span><span>GL &amp; bank feed</span><span>Reports</span></div>
         <a class="md7-go" href="#demo">Book a demo</a>
       </div>
@@ -500,8 +533,8 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
 <section class="truth" id="truth">
   <div class="wrap">
     <div class="sh two">
-      <div class="reveal"><span class="kick">One source of truth</span><h2 style="margin-top:12px">Typed once. <em>Read everywhere.</em></h2></div>
-      <p class="lede reveal">Follow one customer through the store. In most dealerships that is seven systems and five re-typings. In HQ it is one record that every screen reads and writes.</p>
+      <div class="reveal"><span class="kick">Lead to ledger</span><h2 style="margin-top:12px">Typed once. <em>Read everywhere.</em></h2></div>
+      <p class="lede reveal">Follow one customer through the store. In most dealerships that is seven systems and five re-typings. In HQ it is one record that every screen, and every AI, reads and writes.</p>
     </div>
     <div class="track reveal">
       <div class="trk" id="trk">
@@ -522,12 +555,82 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
   </div>
 </section>
 
-<!-- ================= capabilities ================= -->
-<section id="capabilities" style="padding-top:0">
+<!-- ================= AI: why it needs the whole stack, and what it does on each desk ================= -->
+<section class="ai" id="ai">
   <div class="wrap">
     <div class="sh two">
-      <div class="reveal"><span class="kick">Capabilities</span><h2 style="margin-top:12px">Everything the store runs on. <em>Built in.</em></h2></div>
-      <p class="lede reveal">Each department gets a My Day board like the one above: the day's goal, what is due and the next move, with every record one tap away. Here is what sits behind them.</p>
+      <div class="reveal"><span class="kick"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/></svg>AI is where this is going</span><h2 style="margin-top:12px">The next dealership <em>runs on AI.</em></h2></div>
+      <p class="lede reveal">The stores that win the next ten years will answer every lead in seconds, follow up on all of them and know their numbers every morning, with the team they already have. That takes AI that can see the whole store and act in it. A chatbot bolted onto a twelve-vendor stack cannot. AI running on a stack you own can.</p>
+    </div>
+
+    <div class="aigrid">
+      <div class="stk reveal" role="img" aria-label="HQ's stack, top to bottom: the customer's side, the front of the house, the back of the house, the books, and one record underneath, with AI running through every layer">
+        <div class="stk-l">
+          <div class="lay" style="--ac:#38bdf8"><b>The customer<small>LAYER 1</small></b><span>Website, live chat, texting, Messenger, ad catalogs, reviews</span></div>
+          <div class="lay" style="--ac:#ff6b4a"><b>The front<small>LAYER 2</small></b><span>CRM, desking, F&amp;I menu, credit, e-sign</span></div>
+          <div class="lay" style="--ac:#f472b6"><b>The back<small>LAYER 3</small></b><span>Inventory and pricing, buying, service and parts, dispatch</span></div>
+          <div class="lay" style="--ac:#4c8dff"><b>The books<small>LAYER 4</small></b><span>General ledger, bank feed, A/R and A/P, reports</span></div>
+          <div class="lay base" style="--ac:#2fcf7a"><b>One record<small>UNDER ALL OF IT</small></b><span>One customer, one unit, one deal, in your own database</span></div>
+        </div>
+        <div class="rail" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/></svg><span>Reads and acts on every layer</span><b>AI</b></div>
+        <p class="stk-note">Vertical integration: one builder, every layer. The AI rail only works because nothing in the stack belongs to somebody else.</p>
+      </div>
+
+      <div class="cmp">
+        <div class="cmpc reveal">
+          <span class="kick">AI bolted onto one vendor</span>
+          <h3>Sees a contact and a thread.</h3>
+          <ul>
+            <li>Writes "just checking in," because checking in is all it knows</li>
+            <li>Cannot see the price floor, the unit's status or the delivery calendar</li>
+            <li>Hands a person a summary to re-type somewhere else</li>
+            <li>Nobody measures whether it was any good</li>
+          </ul>
+        </div>
+        <div class="cmpc yes reveal">
+          <span class="kick">AI inside HQ</span>
+          <h3>Sees the store. Does the work.</h3>
+          <ul>
+            <li>Reads the price, the demand, the calendar and the customer's whole history</li>
+            <li>Names the move: which unit, at what money, deliverable when</li>
+            <li>Books the visit, updates the deal and files the result on the record</li>
+            <li>Every action permissioned, logged and graded like a rep's</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="aih">AI on every desk <span>working in HQ today</span></div>
+    <div class="caps c3">
+      <article class="cap md7-t reveal" style="--ac:#ff6b4a"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H9l-5 4z"/></svg></i><span class="tag">Leads</span></div>
+        <h3>Riley</h3><p>Answers texts, Messenger and chat in seconds, around the clock, books the visit and hands the rep a drafted first message.</p></article>
+      <article class="cap md7-t reveal" style="--ac:#ffb020"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></i><span class="tag">Sales</span></div>
+        <h3>The next move</h3><p>On any customer, HQ names the play: the unit that fits, the number that works and the day it can be in their driveway.</p></article>
+      <article class="cap md7-t reveal" style="--ac:#4c8dff"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></i><span class="tag">The desk</span></div>
+        <h3>Talk to HQ</h3><p>Say the change on a deal out loud: the price, the term, the rate, a product. HQ applies it and reads the payment back.</p></article>
+      <article class="cap md7-t reveal" style="--ac:#2fcf7a"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></i><span class="tag">Every role</span></div>
+        <h3>Ask HQ</h3><p>Ask your store a question in plain English and get the answer from live records. Each role sees only what its permissions allow.</p></article>
+      <article class="cap md7-t reveal" style="--ac:#a78bfa"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></i><span class="tag">Managers</span></div>
+        <h3>Graded every night</h3><p>Calls, texts and Riley's own conversations are scored against your process, so coaching starts from what was actually said.</p></article>
+      <article class="cap md7-t reveal" style="--ac:#f472b6"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M17 9l2 2 3.5-4"/></svg></i><span class="tag">Training</span></div>
+        <h3>Role-play</h3><p>Reps practice the hard conversations against an AI customer and get a score before they meet a real one.</p></article>
+    </div>
+
+    <div class="rules">
+      <div class="reveal"><b>AI decides what you asked for</b><span>It never decides what anything costs. The math is the same code your desk runs.</span></div>
+      <div class="reveal"><b>Same permissions, same audit trail</b><span>Anything the AI does is stamped like a person did it, and it can only reach what that role can.</span></div>
+      <div class="reveal"><b>Your store's records only</b><span>Riley and Ask HQ work from your data and nobody else's.</span></div>
+    </div>
+    <div style="margin-top:22px" class="reveal"><a class="md7-go" href="#demo">Book a demo</a></div>
+  </div>
+</section>
+
+<!-- ================= capabilities ================= -->
+<section id="capabilities">
+  <div class="wrap">
+    <div class="sh two">
+      <div class="reveal"><span class="kick">Capabilities</span><h2 style="margin-top:12px">Every layer of the store. <em>Built in.</em></h2></div>
+      <p class="lede reveal">Each department gets a My Day board like the one above: the day's goal, what is due and the next move, with every record one tap away. Here is what sits behind them, all built by one team on one record.</p>
     </div>
 
     <div class="capgrp">Sell <span>front of the house</span></div>
@@ -535,9 +638,9 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
       <article class="cap md7-t reveal" style="--ac:#ff6b4a"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M17.5 14a6 6 0 0 1 4 5.5"/></svg></i><span class="tag">AI inside</span></div>
         <h3>CRM + Riley AI</h3><p>Every web form, Messenger thread, text, call and walk-in lands on one customer card, and Riley works it around the clock.</p>
         <ul><li>Lead routing, rotation and response-time tracking</li><li>Riley answers, follows up and books the visit</li><li>Calls and texts graded against your process</li><li>A rep's whole day on one My Day board</li></ul></article>
-      <article class="cap md7-t reveal" style="--ac:#4c8dff"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 13h3M8 16h5"/></svg></i></div>
+      <article class="cap md7-t reveal" style="--ac:#4c8dff"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 13h3M8 16h5"/></svg></i><span class="tag">AI inside</span></div>
         <h3>Desking, F&amp;I &amp; credit</h3><p>Structure the deal, pull credit and present the menu without leaving the customer's record.</p>
-        <ul><li>Worksheet with trade, fees, taxes and rebates</li><li>Credit pulls and lender submissions from the deal</li><li>F&amp;I menu with live product rating</li><li>Stips board so nothing funds late</li></ul></article>
+        <ul><li>Worksheet with trade, fees, taxes and rebates</li><li>Credit pulls and lender submissions from the deal</li><li>F&amp;I menu with live product rating</li><li>Stips board so nothing funds late</li><li>Talk to HQ: say the change, hear the payment</li></ul></article>
       <article class="cap md7-t reveal" style="--ac:#a78bfa"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17c3 0 4-6 7-6s2 6 5 6 4-3 6-3"/><path d="M3 21h18"/></svg></i></div>
         <h3>E-sign</h3><p>The deal's forms are filled from the record and signed in the store or from the customer's phone.</p>
         <ul><li>State and lender forms filled automatically</li><li>In-person or remote signing</li><li>Signed copies filed to the deal jacket</li><li>Readiness check before anything goes out</li></ul></article>
@@ -563,9 +666,9 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
       <article class="cap md7-t reveal" style="--ac:#4c8dff"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 9v11"/></svg></i></div>
         <h3>Accounting, GL &amp; bank feed</h3><p>Sold deals, receipts and bills post themselves to your general ledger, and the bank feed matches them.</p>
         <ul><li>Deals post to the GL when they close</li><li>A/R, A/P and funding receivables tracked</li><li>Live bank feed for reconciliation</li><li>Monthly statements from the same ledger</li></ul></article>
-      <article class="cap md7-t reveal" style="--ac:var(--orange)"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></i></div>
+      <article class="cap md7-t reveal" style="--ac:var(--orange)"><div class="md7-top"><i class="md7-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></i><span class="tag">AI inside</span></div>
         <h3>Reports</h3><p>Every department's goal and pace each morning, built from the same rows the work happens in.</p>
-        <ul><li>My Day boards for every role</li><li>Weekly 1-on-1 scorecards by department</li><li>Ad spend traced to leads, apps and sales</li><li>Company pulse and month plan for the owner</li></ul></article>
+        <ul><li>My Day boards for every role</li><li>Weekly 1-on-1 scorecards by department</li><li>Ad spend traced to leads, apps and sales</li><li>Ask HQ answers from the same rows, in plain English</li></ul></article>
     </div>
     <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;align-items:center" class="reveal">
       <a class="md7-go" href="#demo">Book a demo</a>
@@ -650,9 +753,9 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
 <section class="riley" id="riley">
   <div class="wrap rgrid">
     <div>
-      <span class="kick reveal"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/></svg>Riley AI</span>
+      <span class="kick reveal"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/></svg>Riley · AI at work</span>
       <h2 class="reveal" style="margin-top:12px">Your best rep never <em>clocks out.</em></h2>
-      <p class="lede reveal" style="margin-top:16px">Riley works inside HQ, not bolted onto it. She reads the same customer card, inventory and calendar your people do, so the answer she gives at midnight is the one your best rep would give at noon.</p>
+      <p class="lede reveal" style="margin-top:16px">Riley is what AI looks like when it lives inside the stack instead of on top of it. She reads the same customer card, inventory and calendar your people do, so the answer she gives at midnight is the one your best rep would give at noon.</p>
       <div class="rpts">
         <div class="rpt reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></i><div><b>Answers in seconds, 24/7</b><span>Texts, Messenger and chat, with the unit, the price and the next step.</span></div></div>
         <div class="rpt reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></i><div><b>Books the visit, hands off cleanly</b><span>The rep gets the conversation, the appointment and a drafted first message.</span></div></div>
@@ -678,7 +781,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
   <div class="wrap">
     <div class="sh two">
       <div class="reveal"><span class="kick">Your data</span><h2 style="margin-top:12px">It's your store. <em>It's your data.</em></h2></div>
-      <p class="lede reveal">One source of truth only matters if it belongs to you. HQ is built on terms a dealer would write for himself.</p>
+      <p class="lede reveal">An integrated stack with AI on top only makes sense if the data underneath belongs to you. HQ is built on terms a dealer would write for himself.</p>
     </div>
     <div class="dgrid">
       <div class="dc reveal"><span class="no">01</span><b>Your own database</b><span>Your records are never pooled with another dealer's.</span></div>
@@ -701,7 +804,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
         <div class="facts">
           <div><b>2</b><span>rooftops run on it daily</span></div>
           <div><b>Daily</b><span>releases shaped by the floor</span></div>
-          <div><b>1</b><span>platform, every department</span></div>
+          <div><b>1</b><span>stack, every department</span></div>
         </div>
         <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px"><a class="md7-go" href="#demo">Book a demo</a></div>
       </div>
@@ -714,10 +817,10 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
   <div class="wrap dgrid2">
     <div>
       <span class="kick reveal">Book a demo</span>
-      <h2 class="reveal" style="margin-top:12px">See your store <em>on one platform.</em></h2>
-      <p class="lede reveal" style="margin-top:16px">Thirty minutes on a live system with real deals moving through it. Bring your vendor list and we will show you what HQ replaces and what one bill looks like for you.</p>
+      <h2 class="reveal" style="margin-top:12px">See your store <em>on one stack.</em></h2>
+      <p class="lede reveal" style="margin-top:16px">Thirty minutes on a live system with real deals moving through it. Bring your vendor list and we will show you what HQ replaces, what the AI does on each desk and what one bill looks like for you.</p>
       <div class="steps">
-        <div class="step reveal"><span class="no">1</span><div><b>A live walk-through</b><span>The boards, the desk and Riley, not a slide deck.</span></div></div>
+        <div class="step reveal"><span class="no">1</span><div><b>A live walk-through</b><span>The boards, the desk and the AI doing real work, not a slide deck.</span></div></div>
         <div class="step reveal"><span class="no">2</span><div><b>Your stack, mapped</b><span>Which vendors HQ takes over, and in what order.</span></div></div>
         <div class="step reveal"><span class="no">3</span><div><b>Pricing from a rep</b><span>After a short intake about your store, an HQ rep shares pricing with you directly.</span></div></div>
       </div>
@@ -777,10 +880,10 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
   <div class="wrap foot">
     <div>
       <a class="brand" href="#top" aria-label="HQ home"><span class="mark">HQ</span><span><b>HQ</b><small>Dealer platform</small></span></a>
-      <small>One platform for the whole dealership: CRM and Riley AI, desking, F&amp;I and credit, e-sign, inventory and pricing, buying, website and chat, service and parts, dispatch, accounting with a live bank feed, and reports. One source of truth. One bill.</small>
+      <small>The vertically integrated dealer platform: CRM and Riley AI, desking, F&amp;I and credit, e-sign, inventory and pricing, buying, website and chat, service and parts, dispatch, accounting with a live bank feed, and reports. One stack, lead to ledger, with AI on every desk. One bill.</small>
     </div>
     <div>
-      <div class="flinks"><a href="#one-bill">One bill</a><a href="#capabilities">Capabilities</a><a href="#riley">Riley AI</a><a href="#data">Your data</a><a href="/integrations/">Integrations</a><a href="#demo">Book a demo</a></div>
+      <div class="flinks"><a href="#integrated">One stack</a><a href="#ai">AI</a><a href="#capabilities">Capabilities</a><a href="#riley">Riley</a><a href="#data">Your data</a><a href="/integrations/">Integrations</a><a href="#demo">Book a demo</a></div>
       <small>© <span id="yr">2026</span> HQ. Built and run at a real dealership. All rights reserved. · <a href="https://hq.paytonplaceauto.com/privacy">Privacy policy</a></small>
       <small>HQ is built and operated by Payton Place Powersports · 710 S Marr Rd, Columbus, IN</small>
     </div>
@@ -917,6 +1020,8 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
   function clearChips(){ chips.innerHTML=''; doneBar.classList.remove('show'); }
   doneBtn.addEventListener('click',function(){ if(!state.multi.length) return; handle(state.multi.join(', '), true); });
   var FAQ=[
+    {k:/vertical|whole stack|one stack/i, a:'Vertical integration means one team builds every layer of the store\'s software, from the first text to the journal entry, on one record. Nothing is stitched together from separate vendors, so every desk, and the AI, reads the same numbers.'},
+    {k:/what the ai does|\bai\b.*(do|work|future|desk)|artificial/i, a:'AI in HQ works on the whole store, not one slice. Riley works leads around the clock, HQ names the next move on a customer, Talk to HQ changes a deal by voice, Ask HQ answers questions from live records, and calls and texts are graded every night. Every action is permissioned and logged.'},
     {k:/price|pricing|cost|how much|quote|\$/i, a:'Pricing is shared by an HQ rep. After a short intake about your store, a rep walks you through it directly, usually on the demo call.'},
     {k:/data|export|own|leave|lock/i, a:'Your store runs on its own database and every table exports in open formats, free, any time. Leaving is never a negotiation.'},
     {k:/integrat|api|connect|dms|lender|bureau/i, a:'HQ runs beside what you have today and connects to the credit, lender, e-sign, ads, phone and payroll services dealers already use. The full list is on our Integrations page.'},
@@ -935,7 +1040,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
   function faq(text){ for(var i=0;i<FAQ.length;i++){ if(FAQ[i].k.test(text)) return FAQ[i].a; } return null; }
   function start(){
     if(state.started) return; state.started=true;
-    bot(["Hey, I'm Colebot. I can walk you through HQ or get a demo in front of a real dealer on our team.", 'What brings you in today?'], function(){ setChips(['Cut my vendor stack','Work leads faster','Hold my team accountable','Own my data','How pricing works','Just looking']); state.step='intent'; });
+    bot(["Hey, I'm Colebot. I can walk you through HQ or get a demo in front of a real dealer on our team.", 'What brings you in today?'], function(){ setChips(['Cut my vendor stack','Put AI to work','Work leads faster','Hold my team accountable','Own my data','How pricing works','Just looking']); state.step='intent'; });
   }
   function handle(text){
     say(text,'me'); clearChips();
@@ -943,7 +1048,8 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
     if(s==='intent'){
       L.intent=text;
       var reply={
-        'Cut my vendor stack':'That is the whole idea: CRM, desking, credit, e-sign, inventory, service, dispatch and the books on one record and one bill. You can switch departments over at your own pace.',
+        'Cut my vendor stack':'That is the whole idea: CRM, desking, credit, e-sign, inventory, service, dispatch and the books on one record and one bill, built by one team. You can switch departments over at your own pace.',
+        'Put AI to work':faq('what the ai does'),
         'Work leads faster':'Riley answers every text, Messenger and chat in seconds, books the visit and hands off to a rep with a drafted first message. Every lead lands on one customer card with its source.',
         'Hold my team accountable':'That is why HQ exists. Every role has a My Day board with its goal and pace, calls and texts are graded against your process, and managers see what is late before it costs a deal.',
         'Own my data':'Then you are in the right place. Your own database and free export of every table in open formats. No exit fees.',
@@ -976,7 +1082,7 @@ footer.site{border-top:1px solid var(--nline);padding:32px 0 110px;background:va
     } else if(s==='confirm'){
       if(/change/i.test(text)){ bot("Sure. What's your name?", function(){ state.step='name'; }); return; }
       sendLead(L, function(ok,how){
-        bot([how==='hq'?'Sent. It is on our desk now, and a dealer from our team replies within one business day, usually faster.':'Your request is drafted in your mail app. Hit send and a dealer from our team replies within one business day.','Anything else you want to know while you are here?'], function(){ setChips(['How pricing works','Our data terms','What Riley does']); state.step='free'; });
+        bot([how==='hq'?'Sent. It is on our desk now, and a dealer from our team replies within one business day, usually faster.':'Your request is drafted in your mail app. Hit send and a dealer from our team replies within one business day.','Anything else you want to know while you are here?'], function(){ setChips(['How pricing works','Our data terms','What the AI does']); state.step='free'; });
       });
     } else {
       var a=faq(text);
